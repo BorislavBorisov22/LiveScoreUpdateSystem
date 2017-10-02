@@ -35,8 +35,9 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 
             public virtual void Delete(Guid id)
             {
-                var entity = this.GetById(id) ?? 
-                    throw new InvalidOperationException("No entity with provided id found.");
+                var entity = this.GetById(id);
+
+                Guard.WhenArgument(entity, "No entity with such id").IsNull().Throw();
 
                 this.Data.Delete(entity);
                 this.SaveContext.SaveChanges();
