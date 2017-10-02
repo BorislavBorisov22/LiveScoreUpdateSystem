@@ -13,6 +13,8 @@ namespace LiveScoreUpdateSystem.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using LiveScoreUpdateSystem.Data;
+    using LivesScoreUpdateSystem.Data.Repositories;
+    using LivesScoreUpdateSystem.Data.Repositories.Contracts;
 
     public static class DependencyInjectionConfig
     {
@@ -75,6 +77,8 @@ namespace LiveScoreUpdateSystem.Web.App_Start
                 .Bind(typeof(DbContext), typeof(MsSqlDbContext))
                 .To<MsSqlDbContext>()
                 .InRequestScope();
+
+            kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>)).InSingletonScope();
         }
     }
 }

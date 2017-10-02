@@ -1,5 +1,6 @@
 ﻿using System;
 using LiveScoreUpdateSystem.Data.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiveScoreUpdateSystem.Data.Models.Abstraction
 {
@@ -16,6 +17,7 @@ namespace LiveScoreUpdateSystem.Data.Models.Abstraction
 
         public DateTime? ModifiedOn { get; set; }
 
+        [Index]
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
