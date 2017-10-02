@@ -1,5 +1,5 @@
-﻿using LiveScoreUpdateSystem.Data.Models.Contracts;
-using System;
+﻿using System;
+using LiveScoreUpdateSystem.Data.Models.Contracts;
 
 namespace LiveScoreUpdateSystem.Data.Models.Abstraction
 {

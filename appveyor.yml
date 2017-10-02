@@ -5,7 +5,7 @@ branches:
 nuget:
   project_feed: true
 before_build:
-- cmd: nuget restore ./LivesScoreUpdateSystem/LivesScoreUpdateSystem.sln
+- cmd: nuget restore ./LiveScoreUpdateSystem/LiveScoreUpdateSystem.sln
 build:
   project: ./LivesScoreUpdateSystem/LivesScoreUpdateSystem.sln
   publish_nuget: true

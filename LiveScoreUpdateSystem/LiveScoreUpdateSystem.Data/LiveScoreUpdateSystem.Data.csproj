@@ -87,7 +87,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LivesScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
       <Project>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</Project>
       <Name>LiveScoreUpdateSystem.Data.Models</Name>
     </ProjectReference>
