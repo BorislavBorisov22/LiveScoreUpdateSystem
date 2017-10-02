@@ -195,7 +195,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -275,6 +274,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LivesScoreUpdateSystem.Data.Models\LivesScoreUpdateSystem.Data.Models.csproj">
+      <Project>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</Project>
+      <Name>LivesScoreUpdateSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LivesScoreUpdateSystem.Data\LivesScoreUpdateSystem.Data.csproj">
+      <Project>{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}</Project>
+      <Name>LivesScoreUpdateSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using LiveScoreUpdateSystem.Web.Controllers;
 
 namespace LivesScoreUpdateSystem.Web.Tests
 {
@@ -9,6 +10,8 @@ namespace LivesScoreUpdateSystem.Web.Tests
         [Test]
         public void TestMethod1()
         {
+            var controller = new HomeController();
+
             Assert.AreEqual(1, 1);
         }
     }
