@@ -7,7 +7,7 @@ nuget:
 before_build:
 - cmd: nuget restore ./LiveScoreUpdateSystem/LiveScoreUpdateSystem.sln
 build:
-  project: ./LivesScoreUpdateSystem/LivesScoreUpdateSystem.sln
+  project: ./LivesScoreUpdateSystem/LiveScoreUpdateSystem.sln
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
