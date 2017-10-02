@@ -1,5 +1,6 @@
 ﻿using LiveScoreUpdateSystem.Data.Models;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
+using LiveScoreUpdateSystem.Services.Common.Contracts;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
@@ -7,6 +8,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IEfRepository<User> usersRepo;
+        private readonly IMappingService mappingService;
 
         public HomeController(IEfRepository<User> usersRepo)
         {
