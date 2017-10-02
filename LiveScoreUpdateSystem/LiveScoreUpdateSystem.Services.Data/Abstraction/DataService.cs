@@ -7,6 +7,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 {
     namespace MvcTemplate.Services.Data
     {
+        using Bytes2you.Validation;
         using System;
         using System.Linq;
 
@@ -15,8 +16,11 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
         {
             public DataService(IEfRepository<T> dataSet, ISaveContext saveContext)
             {
-                this.Data = dataSet ?? throw new ArgumentNullException("Passed Repository canot be null!");
-                this.SaveContext = saveContext ?? throw new ArgumentNullException("Passed Save Context cannot be null!");
+                Guard.WhenArgument(dataSet, "IEfRepository dataSet").IsNull().Throw();
+                Guard.WhenArgument(saveContext, "SaveContext").IsNull().Throw();
+
+                this.Data = dataSet;
+                this.SaveContext = saveContext;
             }
 
             protected IEfRepository<T> Data { get; private set; }

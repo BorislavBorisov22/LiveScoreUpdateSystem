@@ -8,8 +8,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IEfRepository<User> usersRepo;
-        private readonly IMappingService mappingService;
-
+  
         public HomeController(IEfRepository<User> usersRepo)
         {
             this.usersRepo = usersRepo;

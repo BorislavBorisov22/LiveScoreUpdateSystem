@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
+using Bytes2you.Validation;
 
 namespace LiveScoreUpdateSystem.Data.Repositories.SaveContext
 {
@@ -10,7 +11,9 @@ namespace LiveScoreUpdateSystem.Data.Repositories.SaveContext
 
         public SaveContext(DbContext context)
         {
-            this.context = context ?? throw new ArgumentNullException("DbContext cannot be null!");
+            Guard.WhenArgument(context, "DbContext").IsNull().Throw();
+        
+            this.context = context;
         }
 
         public void SaveChanges()

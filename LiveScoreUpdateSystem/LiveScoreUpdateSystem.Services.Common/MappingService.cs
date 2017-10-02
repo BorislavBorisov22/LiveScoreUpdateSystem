@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Services.Common.Contracts;
-using System;
 
 namespace LiveScoreUpdateSystem.Services.Common
 {
@@ -8,10 +8,7 @@ namespace LiveScoreUpdateSystem.Services.Common
     {
         public TMapTo Map<TMapTo>(object from)
         {
-            if (from == null)
-            {
-                throw new ArgumentNullException("Mapping from object cannot be null!");
-            }
+            Guard.WhenArgument(from, "Object to map").IsNull().Throw();
 
             return Mapper.Map<TMapTo>(from);
         }
