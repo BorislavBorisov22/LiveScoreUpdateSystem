@@ -13,8 +13,8 @@ namespace LiveScoreUpdateSystem.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using LiveScoreUpdateSystem.Data;
-    using LivesScoreUpdateSystem.Data.Repositories;
-    using LivesScoreUpdateSystem.Data.Repositories.Contracts;
+    using LiveScoreUpdateSystem.Data.Repositories;
+    using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 
     public static class DependencyInjectionConfig
     {

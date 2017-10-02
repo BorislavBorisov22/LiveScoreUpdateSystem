@@ -10,7 +10,7 @@ namespace LiveScoreUpdateSystem.Web.Tests
         [Test]
         public void TestMethod1()
         {
-            var controller = new HomeController();
+            // var controller = new HomeController();
 
             Assert.AreEqual(1, 1);
         }

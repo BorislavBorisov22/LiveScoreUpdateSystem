@@ -7,7 +7,7 @@
     <ProjectGuid>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LivesScoreUpdateSystem.Data.Models</RootNamespace>
+    <RootNamespace>LiveScoreUpdateSystem.Data.Models</RootNamespace>
     <AssemblyName>LivesScoreUpdateSystem.Data.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

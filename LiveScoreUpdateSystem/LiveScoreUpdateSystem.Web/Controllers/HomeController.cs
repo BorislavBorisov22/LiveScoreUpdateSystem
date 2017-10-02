@@ -1,5 +1,5 @@
 ﻿using LiveScoreUpdateSystem.Data.Models;
-using LivesScoreUpdateSystem.Data.Repositories.Contracts;
+using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers

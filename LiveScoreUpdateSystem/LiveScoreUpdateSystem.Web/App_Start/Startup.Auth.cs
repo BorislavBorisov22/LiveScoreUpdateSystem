@@ -1,13 +1,11 @@
-﻿using System;
+﻿using LiveScoreUpdateSystem.Data;
+using LiveScoreUpdateSystem.Data.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using LiveScoreUpdateSystem.Web.Models;
-using LiveScoreUpdateSystem.Data;
-using LiveScoreUpdateSystem.Data.Models;
+using System;
 
 namespace LiveScoreUpdateSystem.Web
 {

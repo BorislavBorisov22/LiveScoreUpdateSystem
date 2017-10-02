@@ -201,6 +201,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -213,6 +214,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Contracts\ICustomMappings.cs" />
+    <Compile Include="Infrastructure\Contracts\IMap.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

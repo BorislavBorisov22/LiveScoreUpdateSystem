@@ -1,12 +1,11 @@
 ﻿using System.Linq;
 using LiveScoreUpdateSystem.Data.Models.Contracts;
 
-namespace LivesScoreUpdateSystem.Data.Repositories.Contracts
+namespace LiveScoreUpdateSystem.Data.Repositories.Contracts
 {
     public interface IEfRepository<T> where T : class, IDeletable
     {
         IQueryable<T> All { get; }
-        IQueryable<T> AllAndDeleted { get; }
 
         void Add(T entity);
 

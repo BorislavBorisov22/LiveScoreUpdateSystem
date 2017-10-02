@@ -7,7 +7,7 @@
     <ProjectGuid>{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LivesScoreUpdateSystem.Data</RootNamespace>
+    <RootNamespace>LiveScoreUpdateSystem.Data</RootNamespace>
     <AssemblyName>LivesScoreUpdateSystem.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -83,6 +83,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
+    <Compile Include="SaveContext\Contracts\ISaveContext.cs" />
+    <Compile Include="SaveContext\SaveContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,9 +4,9 @@ using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using System.Linq;
-using LivesScoreUpdateSystem.Data.Repositories.Contracts;
+using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 
-namespace LivesScoreUpdateSystem.Data.Repositories
+namespace LiveScoreUpdateSystem.Data.Repositories
 {
     public class EfRepository<T> : IEfRepository<T>
         where T : class, IDeletable
@@ -23,14 +23,6 @@ namespace LivesScoreUpdateSystem.Data.Repositories
             get
             {
                 return this.context.Set<T>().Where(x => !x.IsDeleted);
-            }
-        }
-
-        public IQueryable<T> AllAndDeleted
-        {
-            get
-            {
-                return this.context.Set<T>();
             }
         }
 

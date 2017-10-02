@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AutoMapper;
 
 namespace LiveScoreUpdateSystem.Web.Infrastructure.Contracts
 {
-    public class ICustomMappgins
+    public interface ICustomMappings
     {
+        void CreateMappings(IMapperConfigurationExpression configuration);
     }
 }
