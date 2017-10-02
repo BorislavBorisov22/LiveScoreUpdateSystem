@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LivesScoreUpdateSystem.Data.Models.Contracts
+namespace LiveScoreUpdateSystem.Data.Models.Contracts
 {
     public interface IAuditable
     {

@@ -74,6 +74,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201710021515545_Initial.cs" />
+    <Compile Include="Migrations\201710021515545_Initial.Designer.cs">
+      <DependentUpon>201710021515545_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,10 +87,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LivesScoreUpdateSystem.Data.Models\LivesScoreUpdateSystem.Data.Models.csproj">
+    <ProjectReference Include="..\LivesScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
       <Project>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</Project>
-      <Name>LivesScoreUpdateSystem.Data.Models</Name>
+      <Name>LiveScoreUpdateSystem.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710021515545_Initial.resx">
+      <DependentUpon>201710021515545_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

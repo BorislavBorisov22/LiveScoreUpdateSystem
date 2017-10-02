@@ -6,8 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using LiveScoreUpdateSystem.Web.Models;
-using LivesScoreUpdateSystem.Data;
-using LivesScoreUpdateSystem.Data.Models;
+using LiveScoreUpdateSystem.Data;
+using LiveScoreUpdateSystem.Data.Models;
 
 namespace LiveScoreUpdateSystem.Web
 {

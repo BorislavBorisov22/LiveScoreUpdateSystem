@@ -1,13 +1,28 @@
-﻿using LivesScoreUpdateSystem.Data.Models;
+﻿using LiveScoreUpdateSystem.Data.Models;
+using LiveScoreUpdateSystem.Data.Models.Contracts;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
-namespace LivesScoreUpdateSystem.Data
+namespace LiveScoreUpdateSystem.Data
 {
     public class MsSqlDbContext : IdentityDbContext<User>
     {
         public MsSqlDbContext()
             : base("LocalConnection", throwIfV1Schema: false)
         {
+        }
+
+        public static MsSqlDbContext Create()
+        {
+            return new MsSqlDbContext();
+        }
+
+        public override int SaveChanges()
+        {
+            this.ApplyAuditInfoRules();
+            return base.SaveChanges();
         }
 
         private void ApplyAuditInfoRules()
@@ -28,11 +43,6 @@ namespace LivesScoreUpdateSystem.Data
                     entity.ModifiedOn = DateTime.Now;
                 }
             }
-        }
-
-        public static MsSqlDbContext Create()
-        {
-            return new MsSqlDbContext();
         }
     }
 }

@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("LivesScoreUpdateSystem.Web.Tests")]
+[assembly: AssemblyTitle("LiveScoreUpdateSystem.Web.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LivesScoreUpdateSystem.Web.Tests")]
+[assembly: AssemblyProduct("LiveScoreUpdateSystem.Web.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

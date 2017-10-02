@@ -1,19 +1,17 @@
-namespace LivesScoreUpdateSystem.Data.Migrations
+namespace LiveScoreUpdateSystem.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LivesScoreUpdateSystem.Data.MsSqlDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<LiveScoreUpdateSystem.Data.MsSqlDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "LivesScoreUpdateSystem.Data.MsSqlDbContext";
+            ContextKey = "LiveScoreUpdateSystem.Data.MsSqlDbContext";
+            AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(LivesScoreUpdateSystem.Data.MsSqlDbContext context)
+        protected override void Seed(LiveScoreUpdateSystem.Data.MsSqlDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

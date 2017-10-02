@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using LiveScoreUpdateSystem.Web.Controllers;
 
-namespace LivesScoreUpdateSystem.Web.Tests
+namespace LiveScoreUpdateSystem.Web.Tests
 {
     [TestFixture]
     public class UnitTest1

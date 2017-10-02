@@ -201,7 +201,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\DependencyInjectionConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -224,7 +224,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
+    <Content Include="Views\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -292,13 +292,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LivesScoreUpdateSystem.Data.Models\LivesScoreUpdateSystem.Data.Models.csproj">
-      <Project>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</Project>
-      <Name>LivesScoreUpdateSystem.Data.Models</Name>
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
+      <Project>{115c0fe9-4cbc-43c3-8898-a7cc42b2a2f4}</Project>
+      <Name>LiveScoreUpdateSystem.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LivesScoreUpdateSystem.Data\LivesScoreUpdateSystem.Data.csproj">
-      <Project>{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}</Project>
-      <Name>LivesScoreUpdateSystem.Data</Name>
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Data\LiveScoreUpdateSystem.Data.csproj">
+      <Project>{1567f6ee-13dd-4f0a-834f-04d5df7bcc94}</Project>
+      <Name>LiveScoreUpdateSystem.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

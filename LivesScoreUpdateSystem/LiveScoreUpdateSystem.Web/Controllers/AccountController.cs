@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LiveScoreUpdateSystem.Web.Models;
-using LivesScoreUpdateSystem.Data.Models;
+using LiveScoreUpdateSystem.Data.Models;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {

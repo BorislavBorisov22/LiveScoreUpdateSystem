@@ -1,5 +1,5 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(LiveScoreUpdateSystem.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(LiveScoreUpdateSystem.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(LiveScoreUpdateSystem.Web.App_Start.DependencyInjectionConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(LiveScoreUpdateSystem.Web.App_Start.DependencyInjectionConfig), "Stop")]
 
 namespace LiveScoreUpdateSystem.Web.App_Start
 {
@@ -9,22 +9,25 @@ namespace LiveScoreUpdateSystem.Web.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
+    using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using System.Data.Entity;
+    using LiveScoreUpdateSystem.Data;
 
-    public static class NinjectWebCommon 
+    public static class DependencyInjectionConfig
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -32,7 +35,7 @@ namespace LiveScoreUpdateSystem.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -61,6 +64,17 @@ namespace LiveScoreUpdateSystem.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            kernel.Bind(x =>
+            {
+                x.FromThisAssembly()
+                .SelectAllClasses()
+                .BindDefaultInterface();
+            });
+
+            kernel
+                .Bind(typeof(DbContext), typeof(MsSqlDbContext))
+                .To<MsSqlDbContext>()
+                .InRequestScope();
+        }
     }
 }

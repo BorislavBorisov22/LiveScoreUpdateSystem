@@ -1,7 +1,7 @@
-﻿using LivesScoreUpdateSystem.Data.Models.Contracts;
+﻿using LiveScoreUpdateSystem.Data.Models.Contracts;
 using System;
 
-namespace LivesScoreUpdateSystem.Data.Models.Abstraction
+namespace LiveScoreUpdateSystem.Data.Models.Abstraction
 {
     public class DataModel : IDeletable, IAuditable
     {

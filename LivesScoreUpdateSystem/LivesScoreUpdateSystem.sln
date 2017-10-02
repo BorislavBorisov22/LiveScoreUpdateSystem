@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{19
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveScoreUpdateSystem.Web", "LiveScoreUpdateSystem.Web\LiveScoreUpdateSystem.Web.csproj", "{AA782F70-D1B7-4099-B277-07752CBEB8F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivesScoreUpdateSystem.Data", "LivesScoreUpdateSystem.Data\LivesScoreUpdateSystem.Data.csproj", "{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivesScoreUpdateSystem.Data.Models", "LivesScoreUpdateSystem.Data.Models\LivesScoreUpdateSystem.Data.Models.csproj", "{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{56BC2E23-3F10-4E4D-9797-F939ADE16138}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{B55FA938-785F-444F-891C-A25018920D82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivesScoreUpdateSystem.Web.Tests", "LivesScoreUpdateSystem.Web.Tests\LivesScoreUpdateSystem.Web.Tests.csproj", "{3A30A463-3CD8-48F4-B0FE-254141A81A42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveScoreUpdateSystem.Data", "LiveScoreUpdateSystem.Data\LiveScoreUpdateSystem.Data.csproj", "{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveScoreUpdateSystem.Data.Models", "LiveScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj", "{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +31,10 @@ Global
 		{AA782F70-D1B7-4099-B277-07752CBEB8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA782F70-D1B7-4099-B277-07752CBEB8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA782F70-D1B7-4099-B277-07752CBEB8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,19 +43,15 @@ Global
 		{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A30A463-3CD8-48F4-B0FE-254141A81A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AA782F70-D1B7-4099-B277-07752CBEB8F3} = {7EDB4289-8A55-4ECA-9573-B81D43917364}
-		{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94} = {067CD8CA-8779-4766-B3CC-419CF1483719}
-		{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4} = {067CD8CA-8779-4766-B3CC-419CF1483719}
 		{B55FA938-785F-444F-891C-A25018920D82} = {56BC2E23-3F10-4E4D-9797-F939ADE16138}
 		{3A30A463-3CD8-48F4-B0FE-254141A81A42} = {B55FA938-785F-444F-891C-A25018920D82}
+		{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94} = {067CD8CA-8779-4766-B3CC-419CF1483719}
+		{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4} = {067CD8CA-8779-4766-B3CC-419CF1483719}
 	EndGlobalSection
 EndGlobal

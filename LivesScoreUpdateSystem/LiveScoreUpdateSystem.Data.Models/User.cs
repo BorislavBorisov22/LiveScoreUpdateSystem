@@ -1,11 +1,11 @@
-﻿using LivesScoreUpdateSystem.Data.Models.Contracts;
+﻿using LiveScoreUpdateSystem.Data.Models.Contracts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace LivesScoreUpdateSystem.Data.Models
+namespace LiveScoreUpdateSystem.Data.Models
 {
     public class User : IdentityUser, IDeletable, IAuditable
     {
