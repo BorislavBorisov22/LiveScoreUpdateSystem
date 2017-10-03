@@ -94,6 +94,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Common\LiveScoreUpdateSystem.Common.csproj">
+      <Project>{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8}</Project>
+      <Name>LiveScoreUpdateSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LiveScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
       <Project>{115C0FE9-4CBC-43C3-8898-A7CC42B2A2F4}</Project>
       <Name>LiveScoreUpdateSystem.Data.Models</Name>
