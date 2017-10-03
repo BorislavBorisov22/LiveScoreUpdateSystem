@@ -4,6 +4,10 @@ namespace LiveScoreUpdateSystem.Data.Migrations
 
     public sealed class Configuration : DbMigrationsConfiguration<LiveScoreUpdateSystem.Data.MsSqlDbContext>
     {
+        private const string AdminRoleName = "Admin";
+        private const string LiveUpdaterName = "LiveUpdater";
+
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -25,6 +29,11 @@ namespace LiveScoreUpdateSystem.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+        }
+
+        private void SeedUsers()
+        {
+
         }
     }
 }

@@ -7,7 +7,7 @@ namespace LiveScoreUpdateSystem.Web.Infrastructure.Attributes
     {
         public AuthorizeLiveUpdaterAttribute()
         {
-            Roles = GlobalConstants
+            Roles = GlobalConstants.LiveUpdaterRole;
         }
     }
 }
