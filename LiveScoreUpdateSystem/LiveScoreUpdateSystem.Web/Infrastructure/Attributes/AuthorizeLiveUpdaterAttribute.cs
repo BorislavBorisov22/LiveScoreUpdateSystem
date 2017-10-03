@@ -1,4 +1,4 @@
-﻿using LiveScoreUpdateSystem.Web.Infrastructure.Enums;
+﻿using LiveScoreUpdateSystem.Common;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Infrastructure.Attributes
@@ -7,7 +7,7 @@ namespace LiveScoreUpdateSystem.Web.Infrastructure.Attributes
     {
         public AuthorizeLiveUpdaterAttribute()
         {
-            Roles = UserRole.LiveUpdater.ToString();
+            Roles = GlobalConstants
         }
     }
 }
