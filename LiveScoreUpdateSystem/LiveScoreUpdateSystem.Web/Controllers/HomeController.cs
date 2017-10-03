@@ -1,17 +1,11 @@
-﻿using LiveScoreUpdateSystem.Data.Models;
-using LiveScoreUpdateSystem.Data.Repositories.Contracts;
-using LiveScoreUpdateSystem.Services.Common.Contracts;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IEfRepository<User> usersRepo;
-  
-        public HomeController(IEfRepository<User> usersRepo)
+        public HomeController()
         {
-            this.usersRepo = usersRepo;
         }
 
         public ActionResult Index()

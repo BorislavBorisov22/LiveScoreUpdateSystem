@@ -12,8 +12,13 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
+            context.MapRoute(
+           "AdminPanel",
+           "administration/panel",
+           new { action = "Index", controller = "AdminHome" });
+
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
