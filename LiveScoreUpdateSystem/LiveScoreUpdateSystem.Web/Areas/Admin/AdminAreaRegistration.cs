@@ -17,7 +17,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin
             context.MapRoute(
            "AdminPanel",
            "administration/panel",
-           new { action = "Index", controller = "AdminHome" });
+           new { action = "Index", controller = "Panel" });
 
             context.MapRoute(
                 "Admin_default",

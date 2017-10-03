@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @(Html.ActionLink<HomeController>("LiveScore",c => c.Index(), new { area = "" }, new { @class = "navbar-brand" }))
+                @(Html.ActionLink("LiveScore",(LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index(), new { area = "" }, new { @class = "navbar-brand" }))
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@(Html.ActionLink<HomeController>("Home", c => c.Index()))</li>
-                    <li>@(Html.ActionLink<HomeController>("About", c => c.About()))</li>
-                    <li>@(Html.ActionLink<HomeController>("Contact", c => c.Contact()))</li>
+                    <li>@(Html.ActionLink("Home", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index()))</li>
+                    <li>@(Html.ActionLink("About", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.About()))</li>
+                    <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

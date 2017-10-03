@@ -3,11 +3,11 @@ using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
 {
-    public class AdminHomeController : AdminController
+    public class PanelController : AdminController
     {
         public ActionResult Index()
         {
-            return this.View();
+            return this.View("Index");
         }
     }
 }
