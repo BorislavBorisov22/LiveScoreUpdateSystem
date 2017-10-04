@@ -216,15 +216,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\Abstraction\AdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FixtureParticipantsController.cs" />
     <Compile Include="Areas\Admin\Controllers\FixturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
+    <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeAdminAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeLiveUpdaterAttribute.cs" />
     <Compile Include="Infrastructure\Contracts\ICustomMappings.cs" />
@@ -246,6 +249,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -308,8 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
