@@ -15,6 +15,8 @@ namespace LiveScoreUpdateSystem.Web.App_Start
     using LiveScoreUpdateSystem.Data;
     using LiveScoreUpdateSystem.Data.Repositories;
     using LiveScoreUpdateSystem.Data.Repositories.Contracts;
+    using LiveScoreUpdateSystem.Services.Data.Abstraction.Contracts;
+    using LiveScoreUpdateSystem.Services.Common.Contracts;
 
     public static class DependencyInjectionConfig
     {
@@ -69,6 +71,20 @@ namespace LiveScoreUpdateSystem.Web.App_Start
             kernel.Bind(x =>
             {
                 x.FromThisAssembly()
+                .SelectAllClasses()
+                .BindDefaultInterface();
+            });
+
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IDataService<>))
+                .SelectAllClasses()
+                .BindDefaultInterface();
+            });
+
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IService))
                 .SelectAllClasses()
                 .BindDefaultInterface();
             });

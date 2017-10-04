@@ -2,13 +2,14 @@
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
+using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 {
-    public abstract class DataService<T>
+    public abstract class DataService<T> : IDataService<T>
         where T : DataModel
     {
         public DataService(IEfRepository<T> dataSet, ISaveContext saveContext)
