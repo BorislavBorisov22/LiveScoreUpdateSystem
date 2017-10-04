@@ -14,6 +14,6 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [MinLength(GlobalConstants.MinFixtureEventMinuteValue)]
         public int Minute { get; set; }
 
-        public virtual Player InvolvedPlayer { get; set; }
+        public virtual Player InvolvedPlayer { get; set; } 
     }
 }

@@ -8,14 +8,15 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
     public class Player : DataModel
     {
         [Required]
-
         [MinLength(GlobalConstants.MinPlayerNameLength)]
         [MaxLength(GlobalConstants.MaxPlayerNameLength)]
+        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
         public string FirstName { get; set; }
 
+        [Required]
         [MinLength(GlobalConstants.MinPlayerNameLength)]
         [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [Required]
+        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
         public string LastName { get; set; }
 
         [Required]
