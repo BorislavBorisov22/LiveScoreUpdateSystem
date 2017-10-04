@@ -20,13 +20,11 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         public string LastName { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerAge)]
-        [MaxLength(GlobalConstants.MaxPlayerAge)]
+        [Range(GlobalConstants.MinPlayerAge, GlobalConstants.MaxPlayerAge)]
         public int Age { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerShirtNumber)]
-        [MaxLength(GlobalConstants.MaxPlayerShirtNumber)]
+        [Range(GlobalConstants.MinPlayerShirtNumber, GlobalConstants.MaxPlayerShirtNumber)]
         public int ShirtNumber { get; set; }
 
         public string PictureUrl { get; set; }
@@ -34,7 +32,6 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [Required]
         public PlayerPosition Position { get; set; }
 
-        [Required]
         public virtual Team Team { get; set; }
 
         [Required]

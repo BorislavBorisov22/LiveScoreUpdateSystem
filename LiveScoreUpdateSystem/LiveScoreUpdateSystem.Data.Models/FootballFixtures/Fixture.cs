@@ -30,20 +30,13 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         public FixtureStatus Status { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinFixtureMinute)]
-        [MaxLength(GlobalConstants.MaxFixtureMinute)]
+        [Range(GlobalConstants.MinFixtureMinute, GlobalConstants.MaxFixtureMinute)]
         public int Minute { get; set; }
 
-        [Required]
         public virtual Team HomeTeam { get; set; }
 
-        [Required]
         public virtual Team AwayTeam { get; set; }
 
-        [Required]
-        public virtual League League { get; set; }
-
-        [Required]
         public virtual ICollection<FixtureEvent> FixtureEvents { get; set; }
     }
 }

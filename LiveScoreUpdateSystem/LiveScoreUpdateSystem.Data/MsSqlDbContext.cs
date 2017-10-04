@@ -1,5 +1,6 @@
 ﻿using LiveScoreUpdateSystem.Data.Models;
 using LiveScoreUpdateSystem.Data.Models.Contracts;
+using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
@@ -18,6 +19,16 @@ namespace LiveScoreUpdateSystem.Data
         {
             return new MsSqlDbContext();
         }
+
+        public virtual IDbSet<Fixture> Fixtures { get; set; }
+
+        public virtual IDbSet<Player> Players { get; set; }
+
+        public virtual IDbSet<Team> Teams { get; set; }
+
+        public virtual IDbSet<League> Leagues { get; set; }
+
+        public virtual IDbSet<Country> Countries { get; set; }
 
         public override int SaveChanges()
         {

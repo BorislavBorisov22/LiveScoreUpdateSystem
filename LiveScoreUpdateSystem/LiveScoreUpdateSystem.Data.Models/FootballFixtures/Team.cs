@@ -13,7 +13,6 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [RegularExpression(GlobalConstants.LettersMatchingPattern)]
         public string Name { get; set; }
 
-        [Required]
         public virtual ICollection<Player> Players { get; set; }
 
         [Required]

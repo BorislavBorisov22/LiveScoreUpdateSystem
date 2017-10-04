@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201710021515545_Initial.Designer.cs">
       <DependentUpon>201710021515545_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710041539106_AddedFixturesModelsToDbContext.cs" />
+    <Compile Include="Migrations\201710041539106_AddedFixturesModelsToDbContext.Designer.cs">
+      <DependentUpon>201710041539106_AddedFixturesModelsToDbContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710021515545_Initial.resx">
       <DependentUpon>201710021515545_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041539106_AddedFixturesModelsToDbContext.resx">
+      <DependentUpon>201710041539106_AddedFixturesModelsToDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

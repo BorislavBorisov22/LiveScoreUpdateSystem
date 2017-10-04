@@ -21,8 +21,7 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         public virtual ICollection<Fixture> Fixtures { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinLeagueSeasonValue)]
-        [MaxLength(GlobalConstants.MaxLeagueSeasonValue)]
+        [Range(GlobalConstants.MinLeagueSeasonValue, GlobalConstants.MaxLeagueSeasonValue)]
         public int Season { get; set; }
     }
 }
