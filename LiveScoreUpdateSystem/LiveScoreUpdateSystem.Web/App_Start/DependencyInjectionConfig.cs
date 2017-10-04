@@ -99,9 +99,9 @@ namespace LiveScoreUpdateSystem.Web.App_Start
                 .To<MsSqlDbContext>()
                 .InRequestScope();
 
-            kernel.Bind<ISaveContext>().To<SaveContext>();
+            kernel.Bind<ISaveContext>().To<SaveContext>().InRequestScope();
             kernel.BindFilter<SaveChangesFilter>(System.Web.Mvc.FilterScope.Controller, 0).WhenActionMethodHas<SaveChangesAttribute>();
-            kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>)).InSingletonScope();
+            kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
         }
     }
 }

@@ -7,6 +7,8 @@ using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Services.Common.Contracts;
+using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
+using LiveScoreUpdateSystem.Web.Controllers;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
 {
@@ -35,13 +37,20 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             return this.PartialView(PartialViews.AddCountry);
         }
-         
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddCountry(CountryViewModel countryModel)
         {
-            this.countriesService.GetAll();
-            return this.RedirectToAction(c => c.Index());
+            if (this.ModelState.IsValid)
+            {
+                var mappedCountry = this.mappingService.Map<Country>(countryModel);
+                this.countriesService.Add(mappedCountry);
+
+                return this.RedirectToAction(c => c.Index());
+            }
+
+            return this.RedirectToAction<HomeController>(c => c.Index());
         }
     }
 }
