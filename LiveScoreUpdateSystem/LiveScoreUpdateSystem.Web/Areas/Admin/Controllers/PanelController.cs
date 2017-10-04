@@ -21,6 +21,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
             Guard.WhenArgument(mappingService, "Mapping Service").IsNull().Throw();
 
             this.countriesService = countriesService;
+            this.mappingService = mappingService;
         }
 
         public ActionResult Index()
@@ -29,15 +30,17 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [AjaxOnlyAttribute]
+        [AjaxOnly]
         public ActionResult AddCountry()
         {
             return this.PartialView(PartialViews.AddCountry);
         }
          
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddCountry(CountryViewModel countryModel)
         {
+            this.countriesService.GetAll();
             return this.RedirectToAction(c => c.Index());
         }
     }

@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction\DataService.cs" />
+    <Compile Include="Abstraction\Contracts\IDataService.cs" />
+    <Compile Include="Contracts\ICountriesService.cs" />
+    <Compile Include="CountriesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

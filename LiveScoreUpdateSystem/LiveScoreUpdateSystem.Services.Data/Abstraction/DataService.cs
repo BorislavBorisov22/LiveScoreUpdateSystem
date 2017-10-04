@@ -2,7 +2,7 @@
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
-using LiveScoreUpdateSystem.Services.Data.Contracts;
+using LiveScoreUpdateSystem.Services.Data.Abstraction.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

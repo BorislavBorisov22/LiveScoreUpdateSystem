@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web
@@ -8,6 +8,7 @@ namespace LiveScoreUpdateSystem.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new SaveChangesAttribute());
         }
     }
 }

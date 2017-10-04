@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LiveScoreUpdateSystem.Services.Common.Contracts
+﻿namespace LiveScoreUpdateSystem.Services.Common.Contracts
 {
-    class IService
+    public interface IService
     {
     }
 }

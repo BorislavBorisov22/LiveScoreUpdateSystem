@@ -17,6 +17,11 @@ namespace LiveScoreUpdateSystem.Web.App_Start
     using LiveScoreUpdateSystem.Data.Repositories.Contracts;
     using LiveScoreUpdateSystem.Services.Data.Abstraction.Contracts;
     using LiveScoreUpdateSystem.Services.Common.Contracts;
+    using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
+    using LiveScoreUpdateSystem.Data.Repositories.SaveContext;
+    using LiveScoreUpdateSystem.Web.Infrastructure.Filters;
+    using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
+    using Ninject.Web.Mvc.FilterBindingSyntax;
 
     public static class DependencyInjectionConfig
     {
@@ -94,6 +99,8 @@ namespace LiveScoreUpdateSystem.Web.App_Start
                 .To<MsSqlDbContext>()
                 .InRequestScope();
 
+            kernel.Bind<ISaveContext>().To<SaveContext>();
+            kernel.BindFilter<SaveChangesFilter>(System.Web.Mvc.FilterScope.Controller, 0).WhenActionMethodHas<SaveChangesAttribute>();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>)).InSingletonScope();
         }
     }

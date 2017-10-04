@@ -230,8 +230,10 @@
     <Compile Include="Infrastructure\Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeAdminAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeLiveUpdaterAttribute.cs" />
+    <Compile Include="Infrastructure\Attributes\SaveChangesAttribute.cs" />
     <Compile Include="Infrastructure\Contracts\ICustomMappings.cs" />
     <Compile Include="Infrastructure\Contracts\IMap.cs" />
+    <Compile Include="Infrastructure\Filters\SaveChangesFilter.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -346,6 +348,10 @@
     <ProjectReference Include="..\LiveScoreUpdateSystem.Services.Common\LiveScoreUpdateSystem.Services.Common.csproj">
       <Project>{70998337-A6A6-4102-A00E-B2EF496B4608}</Project>
       <Name>LiveScoreUpdateSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Services.Data\LiveScoreUpdateSystem.Services.Data.csproj">
+      <Project>{4AB2C57A-56F4-4DCE-A64B-D3BB4CAFE94D}</Project>
+      <Name>LiveScoreUpdateSystem.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
