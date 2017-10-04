@@ -219,8 +219,10 @@
     <Compile Include="Areas\Admin\Controllers\FixturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueViewModel.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -263,6 +265,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\Shared\_AddLeaguePartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

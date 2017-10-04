@@ -9,6 +9,7 @@ using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Services.Common.Contracts;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Web.Controllers;
+using System.Linq;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
 {
@@ -29,6 +30,21 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             return this.View();
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddLeague()
+        {
+            var countriesList = this.countriesService.GetAll()
+                    .Select(c => new SelectListItem() { Text = c.Name, Value = c.Name});
+
+            var leagueViewModel = new LeagueViewModel()
+            {
+                CountriesSelectList = countriesList 
+            };
+
+            return this.PartialView(PartialViews.AddLeague, leagueViewModel);
         }
 
         [HttpGet]

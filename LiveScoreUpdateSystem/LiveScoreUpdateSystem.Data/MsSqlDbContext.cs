@@ -45,7 +45,7 @@ namespace LiveScoreUpdateSystem.Data
                         e.Entity is IAuditable && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
             {
                 var entity = (IAuditable)entry.Entity;
-                if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
+                if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime?))
                 {
                     entity.CreatedOn = DateTime.Now;
                 }
