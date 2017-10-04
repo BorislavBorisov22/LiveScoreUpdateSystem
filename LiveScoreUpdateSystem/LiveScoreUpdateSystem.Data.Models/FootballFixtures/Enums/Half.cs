@@ -1,6 +1,6 @@
 ﻿namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures.Enums
 {
-    public enum HalfTime
+    public enum Half
     {
         First,
         Second

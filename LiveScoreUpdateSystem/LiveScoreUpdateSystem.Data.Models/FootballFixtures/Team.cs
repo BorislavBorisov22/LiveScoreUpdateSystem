@@ -1,12 +1,22 @@
-﻿using System;
+﻿using LiveScoreUpdateSystem.Common;
+using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
 {
-    class Team
+    public class Team : DataModel
     {
+        [Required]
+        [MinLength(GlobalConstants.MinTeamNameLength)]
+        [MaxLength(GlobalConstants.MaxTeamNameLength)]
+        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        public string Name { get; set; }
+
+        [Required]
+        public virtual ICollection<Player> Players { get; set; }
+
+        [Required]
+        public virtual League League { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
 {
-    public class FootballFixturesController : AdminController
+    public class FixturesController : AdminController
     {
     }
 }

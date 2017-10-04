@@ -77,6 +77,16 @@
     <Compile Include="Abstraction\DataModel.cs" />
     <Compile Include="Contracts\IAuditable.cs" />
     <Compile Include="Contracts\IDeletable.cs" />
+    <Compile Include="FootballFixtures\Country.cs" />
+    <Compile Include="FootballFixtures\Enums\FixtureEventType.cs" />
+    <Compile Include="FootballFixtures\Enums\FixtureStatus.cs" />
+    <Compile Include="FootballFixtures\Enums\Half.cs" />
+    <Compile Include="FootballFixtures\Enums\PlayerPosition.cs" />
+    <Compile Include="FootballFixtures\Fixture.cs" />
+    <Compile Include="FootballFixtures\FixtureEvent.cs" />
+    <Compile Include="FootballFixtures\League.cs" />
+    <Compile Include="FootballFixtures\Player.cs" />
+    <Compile Include="FootballFixtures\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

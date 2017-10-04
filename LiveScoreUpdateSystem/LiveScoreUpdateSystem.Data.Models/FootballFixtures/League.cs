@@ -1,15 +1,28 @@
-﻿using LiveScoreUpdateSystem.Data.Models.Abstraction;
-using System.Collections;
+﻿using LiveScoreUpdateSystem.Common;
+using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
 {
     public class League : DataModel
     {
+        [Required]
+        [MinLength(GlobalConstants.MinLeagueNameLength)]
+        [MaxLength(GlobalConstants.MaxLeagueNameLength)]
+        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
         public string Name { get; set; }
 
+        [Required]
         public virtual Country Country { get; set; }
 
         public virtual ICollection<Team> Teams { get; set; }
+
+        public virtual ICollection<Fixture> Fixtures { get; set; }
+
+        [Required]
+        [MinLength(GlobalConstants.MinLeagueSeasonValue)]
+        [MaxLength(GlobalConstants.MaxLeagueSeasonValue)]
+        public int Season { get; set; }
     }
 }
