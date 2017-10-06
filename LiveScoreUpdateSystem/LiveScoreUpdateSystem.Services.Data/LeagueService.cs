@@ -6,6 +6,7 @@ using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace LiveScoreUpdateSystem.Services.Data
 {
@@ -61,6 +62,11 @@ namespace LiveScoreUpdateSystem.Services.Data
 
             this.Data.Add(leagueToAdd);
             this.SaveContext.SaveChanges();
+        }
+
+        public IEnumerable<League> GetAll()
+        {
+            return this.Data.All;
         }
     }
 }

@@ -71,7 +71,16 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         [AjaxOnly]
         public ActionResult AddTeam()
         {
-            return this.PartialView(PartialViews.AddTeam);
+            var leaguesSelectList = this.leaguesService
+                .GetAll()
+                .Select(l => new SelectListItem() { Text = l.Name, Value = l.Name });
+
+            var leagueViewModel = new TeamViewModel()
+            {
+                LeaguesSelectList = leaguesSelectList
+            };
+
+            return this.PartialView(PartialViews.AddTeam, leagueViewModel);
         }
 
         [HttpGet]
