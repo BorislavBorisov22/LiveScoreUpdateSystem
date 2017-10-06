@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201710041539106_AddedFixturesModelsToDbContext.Designer.cs">
       <DependentUpon>201710041539106_AddedFixturesModelsToDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.cs" />
+    <Compile Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.Designer.cs">
+      <DependentUpon>201710061305563_AddedLogoUrlToTeamModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710041539106_AddedFixturesModelsToDbContext.resx">
       <DependentUpon>201710041539106_AddedFixturesModelsToDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.resx">
+      <DependentUpon>201710061305563_AddedLogoUrlToTeamModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

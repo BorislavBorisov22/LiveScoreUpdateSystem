@@ -18,7 +18,10 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public string Name { get; set; }
 
         [Required]
-        public League League { get; set; }
+        public string LeagueName { get; set; }
+
+        [Required]
+        public string LogoUrl { get; set; }
 
         public ICollection<Player> Players { get; set; }
     }

@@ -16,18 +16,21 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
     public class PanelController : AdminController
     {
         private readonly ICountryService countryService;
-        private readonly ILeagueService leaguesService;
+        private readonly ILeagueService leagueService;
+        private readonly ITeamService teamService;
         private readonly IMappingService mappingService;
 
-        public PanelController(ICountryService countriesService, ILeagueService leaguesService, IMappingService mappingService)
+        public PanelController(ICountryService countriesService, ILeagueService leaguesService, ITeamService teamService, IMappingService mappingService)
         {
             Guard.WhenArgument(countriesService, "CountriesService").IsNull().Throw();
             Guard.WhenArgument(leaguesService, "LeaguesService").IsNull().Throw();
             Guard.WhenArgument(mappingService, "Mapping Service").IsNull().Throw();
+            Guard.WhenArgument(teamService, "TeamService").IsNull().Throw();
 
             this.countryService = countriesService;
             this.mappingService = mappingService;
-            this.leaguesService = leaguesService;
+            this.leagueService = leaguesService;
+            this.teamService = teamService;
         }
 
         public ActionResult Index()
@@ -61,7 +64,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var leagueDataModel = this.mappingService.Map<League>(leagueModel);
-                this.leaguesService.Add(leagueDataModel);
+                this.leagueService.Add(leagueDataModel);
             }
 
             return this.RedirectToAction(action => action.Index());
@@ -71,7 +74,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         [AjaxOnly]
         public ActionResult AddTeam()
         {
-            var leaguesSelectList = this.leaguesService
+            var leaguesSelectList = this.leagueService
                 .GetAll()
                 .Select(l => new SelectListItem() { Text = l.Name, Value = l.Name });
 
@@ -81,6 +84,19 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
             };
 
             return this.PartialView(PartialViews.AddTeam, leagueViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTeam(TeamViewModel teamModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var teamDataModel = this.mappingService.Map<Team>(teamModel);
+                this.teamService.Add(teamDataModel, teamModel.LeagueName);
+            }
+
+            return this.RedirectToAction(c => c.Index());
         }
 
         [HttpGet]

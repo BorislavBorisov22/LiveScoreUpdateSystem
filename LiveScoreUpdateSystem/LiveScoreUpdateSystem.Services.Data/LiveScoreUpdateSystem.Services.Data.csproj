@@ -47,9 +47,11 @@
     <Compile Include="Contracts\ICountryService.cs" />
     <Compile Include="Contracts\ILeagueService.cs" />
     <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="Contracts\ITeamService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="LeagueService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LiveScoreUpdateSystem.Data.Models\LiveScoreUpdateSystem.Data.Models.csproj">
