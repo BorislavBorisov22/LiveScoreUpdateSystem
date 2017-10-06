@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction\DataService.cs" />
-    <Compile Include="Abstraction\Contracts\IDataService.cs" />
-    <Compile Include="Contracts\ICountriesService.cs" />
-    <Compile Include="CountriesService.cs" />
+    <Compile Include="Contracts\ICountryService.cs" />
+    <Compile Include="Contracts\ILeagueService.cs" />
+    <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="CountryService.cs" />
+    <Compile Include="LeagueService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,5 +64,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -266,6 +266,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Views\Shared\_AddLeaguePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AddTeamPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

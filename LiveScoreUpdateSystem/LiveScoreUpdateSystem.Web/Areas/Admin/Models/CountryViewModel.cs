@@ -7,7 +7,6 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
 {
     public class CountryViewModel : IMap<Country>
     {
-        [Required]
         public string FlagPictureUrl { get; set; }
 
         [Required]

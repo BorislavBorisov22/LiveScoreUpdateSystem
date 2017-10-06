@@ -30,6 +30,13 @@
                                    data-ajax-update="#modal-body" href="/admin/panel/addleague">
                                     <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />League
                                 </a>
+                                <a class="btn btn-primary"
+                                   data-ajax="true"
+                                   data-ajax-mode="replace"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add Team', '/panel/addleague', 'POST')"
+                                   data-ajax-update="#modal-body" href="/admin/panel/addteam">
+                                    <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
+                                </a>
                                 <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />edit <span class="glyphicon glyphicon-edit yellow"></span><br />Customer</a>
                                 <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Delete <span class="glyphicon glyphicon-minus red"></span><br />Customer</a>
                                 <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Customer<br />Marketing <span class="glyphicon glyphicon-envelope"></span></a>
