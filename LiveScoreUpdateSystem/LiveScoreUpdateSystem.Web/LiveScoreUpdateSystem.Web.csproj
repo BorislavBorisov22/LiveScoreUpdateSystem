@@ -241,6 +241,8 @@
     <Compile Include="Infrastructure\Contracts\ICustomMappings.cs" />
     <Compile Include="Infrastructure\Contracts\IMap.cs" />
     <Compile Include="Infrastructure\Filters\SaveChangesFilter.cs" />
+    <Compile Include="Infrastructure\Providers\Contracts\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\Providers\ServiceLocator.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

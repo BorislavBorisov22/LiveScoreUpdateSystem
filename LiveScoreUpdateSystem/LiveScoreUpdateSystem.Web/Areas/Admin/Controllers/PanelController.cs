@@ -7,6 +7,7 @@ using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Controllers;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
+using LiveScoreUpdateSystem.Web.Infrastructure.Providers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -140,6 +141,8 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 var playerDataModel = this.mappingService.Map<Player>(playerModel);
                 this.playerService.Add(playerDataModel, playerModel.TeamName, playerModel.CountryName);
             }
+
+            ServiceLocator.InstanceProvider.ProvideInstance<PlayerViewModel>();
 
             return this.RedirectToAction(c => c.Index());
         }
