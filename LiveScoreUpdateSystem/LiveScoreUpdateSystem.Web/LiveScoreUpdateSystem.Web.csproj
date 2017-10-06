@@ -221,9 +221,11 @@
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\TeamViewModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PlayerViewModel.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -269,6 +271,8 @@
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Views\Shared\_AddLeaguePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddTeamPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AddPlayerPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_TeamNamesListPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

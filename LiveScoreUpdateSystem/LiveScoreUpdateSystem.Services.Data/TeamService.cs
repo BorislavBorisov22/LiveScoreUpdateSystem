@@ -5,6 +5,7 @@ using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data
@@ -38,6 +39,20 @@ namespace LiveScoreUpdateSystem.Services.Data
 
             this.Data.Add(teamToAdd);
             this.SaveContext.SaveChanges();
+        }
+
+        public IEnumerable<Team> GetAll()
+        {
+            return this.Data.All.ToList();
+        }
+
+        public IEnumerable<IGrouping<string,Team>> GroupTeamsByLeague()
+        {
+            var grouped = this.Data
+                .All
+                .GroupBy(t => t.League.Name);
+   
+            return grouped;
         }
     }
 }

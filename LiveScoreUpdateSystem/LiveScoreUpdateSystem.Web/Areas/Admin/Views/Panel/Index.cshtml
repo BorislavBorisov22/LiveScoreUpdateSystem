@@ -37,12 +37,14 @@
                                    data-ajax-update="#modal-body" href="/admin/panel/addteam">
                                     <span class="fa fa-users fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
                                 </a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />edit <span class="glyphicon glyphicon-edit yellow"></span><br />Customer</a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Delete <span class="glyphicon glyphicon-minus red"></span><br />Customer</a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Customer<br />Marketing <span class="glyphicon glyphicon-envelope"></span></a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Customer<br />Reporting <span class="glyphicon glyphicon-signal"></span></a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Customer<br />Database <span class="glyphicon glyphicon-book"></span></a>
-                                <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Customer<br />Export - CSV <span class="glyphicon glyphicon-export"></span></a>
+
+                                <a class="btn btn-primary"
+                                   data-ajax="true"
+                                   data-ajax-mode="replace"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add Player', '/panel/addplayer', 'POST')"
+                                   data-ajax-update="#modal-body" href="/admin/panel/addplayer">
+                                    <span class="fa fa-linux fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Player
+                                </a>
                             </div>
                         </div>
 
@@ -83,7 +85,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
 
-            @Html.AntiForgeryToken();
+            @Html.AntiForgeryToken()
         </form>
     </div>
 </div>

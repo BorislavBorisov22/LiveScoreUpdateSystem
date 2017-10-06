@@ -7,6 +7,7 @@ using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Controllers;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
@@ -95,6 +96,37 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 var teamDataModel = this.mappingService.Map<Team>(teamModel);
                 this.teamService.Add(teamDataModel, teamModel.LeagueName);
             }
+
+            return this.RedirectToAction(c => c.Index());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddPlayer()
+        {
+            var countriesList = this.countryService
+                                .GetAll()
+                                .Select(c => new SelectListItem() { Text = c.Name, Value = c.Name })
+                                .ToList();
+
+            var groupedTeams = this.teamService.GetAll()
+                .Select(this.mappingService.Map<TeamViewModel>)
+                .ToList()
+                .GroupBy(t => t.LeagueName);
+
+            var playerViewModel = new PlayerViewModel()
+            {
+                CountriesList = countriesList,
+                LeagueGroupedTeams = groupedTeams
+            };
+
+            return this.PartialView(PartialViews.AddPlayer, playerViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPlayer(PlayerViewModel playerModel)
+        {
 
             return this.RedirectToAction(c => c.Index());
         }
