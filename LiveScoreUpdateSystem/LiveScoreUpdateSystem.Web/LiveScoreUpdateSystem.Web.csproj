@@ -226,6 +226,7 @@
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PlayerViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\TeamAddPlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

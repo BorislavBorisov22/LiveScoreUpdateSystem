@@ -19,19 +19,27 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         private readonly ICountryService countryService;
         private readonly ILeagueService leagueService;
         private readonly ITeamService teamService;
+        private readonly IPlayerService playerService;
         private readonly IMappingService mappingService;
 
-        public PanelController(ICountryService countriesService, ILeagueService leaguesService, ITeamService teamService, IMappingService mappingService)
+        public PanelController(
+            ICountryService countriesService,
+            ILeagueService leaguesService,
+            ITeamService teamService,
+            IPlayerService playerService,
+            IMappingService mappingService)
         {
             Guard.WhenArgument(countriesService, "CountriesService").IsNull().Throw();
             Guard.WhenArgument(leaguesService, "LeaguesService").IsNull().Throw();
             Guard.WhenArgument(mappingService, "Mapping Service").IsNull().Throw();
             Guard.WhenArgument(teamService, "TeamService").IsNull().Throw();
+            Guard.WhenArgument(playerService, "PlayerService").IsNull().Throw();
 
             this.countryService = countriesService;
             this.mappingService = mappingService;
             this.leagueService = leaguesService;
             this.teamService = teamService;
+            this.playerService = playerService;
         }
 
         public ActionResult Index()
@@ -127,6 +135,11 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddPlayer(PlayerViewModel playerModel)
         {
+            if (ModelState.IsValid)
+            {
+                var playerDataModel = this.mappingService.Map<Player>(playerModel);
+                this.playerService.Add(playerDataModel, playerModel.TeamName, playerModel.CountryName);
+            }
 
             return this.RedirectToAction(c => c.Index());
         }
@@ -150,7 +163,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 return this.RedirectToAction(c => c.Index());
             }
 
-            return this.RedirectToAction<HomeController>(c => c.Index());
+            return this.RedirectToAction(c => c.Index());
         }
     }
 }

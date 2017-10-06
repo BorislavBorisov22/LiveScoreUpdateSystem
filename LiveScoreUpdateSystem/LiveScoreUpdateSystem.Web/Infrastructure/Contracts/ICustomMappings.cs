@@ -2,7 +2,7 @@
 
 namespace LiveScoreUpdateSystem.Web.Infrastructure.Contracts
 {
-    public interface ICustomMappings
+    public interface ICustomMapping
     {
         void CreateMappings(IMapperConfigurationExpression configuration);
     }
