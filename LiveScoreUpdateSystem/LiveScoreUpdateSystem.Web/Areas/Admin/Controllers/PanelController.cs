@@ -1,11 +1,13 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Common;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
+using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Common.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
+using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
 using LiveScoreUpdateSystem.Web.Infrastructure.Providers;
 using System.Linq;
 using System.Web.Mvc;
@@ -19,23 +21,19 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         private readonly ILeagueService leagueService;
         private readonly ITeamService teamService;
         private readonly IPlayerService playerService;
-        private readonly IMappingService mappingService;
 
         public PanelController(
             ICountryService countriesService,
             ILeagueService leaguesService,
             ITeamService teamService,
-            IPlayerService playerService,
-            IMappingService mappingService)
+            IPlayerService playerService)
         {
             Guard.WhenArgument(countriesService, "CountriesService").IsNull().Throw();
             Guard.WhenArgument(leaguesService, "LeaguesService").IsNull().Throw();
-            Guard.WhenArgument(mappingService, "Mapping Service").IsNull().Throw();
             Guard.WhenArgument(teamService, "TeamService").IsNull().Throw();
             Guard.WhenArgument(playerService, "PlayerService").IsNull().Throw();
 
             this.countryService = countriesService;
-            this.mappingService = mappingService;
             this.leagueService = leaguesService;
             this.teamService = teamService;
             this.playerService = playerService;
@@ -51,11 +49,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         public ActionResult AddLeague()
         {
             var countriesList = this.countryService.GetAll()
-                    .Select(c => new SelectListItem()
-                    {
-                        Text = c.Name,
-                        Value = c.Name
-                    });
+                    .Select(c => new SelectListItem() { Text = c.Name, Value = c.Name });
 
             var leagueViewModel = new LeagueViewModel()
             {
@@ -71,7 +65,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var leagueDataModel = this.mappingService.Map<League>(leagueModel);
+                var leagueDataModel = MappingService.MappingProvider.Map<League>(leagueModel);
                 this.leagueService.Add(leagueDataModel);
             }
 
@@ -100,7 +94,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var teamDataModel = this.mappingService.Map<Team>(teamModel);
+                var teamDataModel = MappingService.MappingProvider.Map<Team>(teamModel);
                 this.teamService.Add(teamDataModel, teamModel.LeagueName);
             }
 
@@ -117,7 +111,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                                 .ToList();
 
             var groupedTeams = this.teamService.GetAll()
-                .Select(this.mappingService.Map<TeamViewModel>)
+                .Map<Team, TeamViewModel>()
                 .ToList()
                 .GroupBy(t => t.LeagueName);
 
@@ -136,11 +130,9 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var playerDataModel = this.mappingService.Map<Player>(playerModel);
+                var playerDataModel = MappingService.MappingProvider.Map<Player>(playerModel);
                 this.playerService.Add(playerDataModel, playerModel.TeamName, playerModel.CountryName);
             }
-
-            ServiceLocator.InstanceProvider.ProvideInstance<PlayerViewModel>();
 
             return this.RedirectToAction(c => c.Index());
         }
@@ -158,7 +150,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var mappedCountry = this.mappingService.Map<Country>(countryModel);
+                var mappedCountry = MappingService.MappingProvider.Map<Country>(countryModel);
                 this.countryService.Add(mappedCountry);
 
                 return this.RedirectToAction(c => c.Index());
