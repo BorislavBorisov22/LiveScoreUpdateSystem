@@ -241,6 +241,7 @@
     <Compile Include="Infrastructure\Attributes\SaveChangesAttribute.cs" />
     <Compile Include="Infrastructure\Contracts\ICustomMappings.cs" />
     <Compile Include="Infrastructure\Contracts\IMap.cs" />
+    <Compile Include="Infrastructure\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Infrastructure\Filters\SaveChangesFilter.cs" />
     <Compile Include="Infrastructure\Providers\Contracts\IServiceLocator.cs" />
     <Compile Include="Infrastructure\Providers\ServiceLocator.cs" />

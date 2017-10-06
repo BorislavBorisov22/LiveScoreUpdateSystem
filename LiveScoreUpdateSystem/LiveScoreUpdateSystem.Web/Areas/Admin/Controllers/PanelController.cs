@@ -2,13 +2,11 @@
 using LiveScoreUpdateSystem.Common;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Services.Common;
-using LiveScoreUpdateSystem.Services.Common.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
-using LiveScoreUpdateSystem.Web.Infrastructure.Providers;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;

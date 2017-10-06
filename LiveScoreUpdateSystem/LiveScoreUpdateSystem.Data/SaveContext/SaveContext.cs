@@ -1,7 +1,6 @@
-﻿using System;
-using System.Data.Entity;
+﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
-using Bytes2you.Validation;
+using System.Data.Entity;
 
 namespace LiveScoreUpdateSystem.Data.Repositories.SaveContext
 {
