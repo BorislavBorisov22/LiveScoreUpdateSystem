@@ -15,11 +15,10 @@ namespace LiveScoreUpdateSystem.Services.Data
         private readonly IEfRepository<Country> countriesRepo;
 
         public PlayerService(
-            IEfRepository<Player> dataSet,
-            ISaveContext saveContext,
+             IEfRepository<Player> dataSet,
              IEfRepository<Team> teamsRepo,
              IEfRepository<Country> countriesRepo)
-            : base(dataSet, saveContext)
+            : base(dataSet)
         {
             Guard.WhenArgument(teamsRepo, "teamsRepo").IsNull().Throw();
             Guard.WhenArgument(countriesRepo, "coutriesRepo").IsNull().Throw();
@@ -48,13 +47,11 @@ namespace LiveScoreUpdateSystem.Services.Data
 
             if (isShirtNumberTaken)
             {
-                throw new InvalidOperationException("Provided shirtNumber is already taken!");
+                throw new InvalidOperationException("This shirt number is already taken!");
             }
 
             this.Data.Add(playerToAdd);
             targetTeam.Players.Add(playerToAdd);
-
-            this.SaveContext.SaveChanges();
         }
     }
 }

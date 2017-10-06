@@ -1,20 +1,18 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using LiveScoreUpdateSystem.Data.Models;
+using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
+using LiveScoreUpdateSystem.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LiveScoreUpdateSystem.Web.Models;
-using LiveScoreUpdateSystem.Data.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

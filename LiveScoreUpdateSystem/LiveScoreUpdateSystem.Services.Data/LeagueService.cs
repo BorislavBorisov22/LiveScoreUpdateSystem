@@ -14,15 +14,10 @@ namespace LiveScoreUpdateSystem.Services.Data
     {
         private readonly IEfRepository<Country> countriesRepo;
 
-        public LeagueService(
-            IEfRepository<League> leaguesRepo,
-            IEfRepository<Country> countriesRepo,
-            ISaveContext saveContext)
-            : base(leaguesRepo, saveContext)
+        public LeagueService(IEfRepository<League> leaguesRepo, IEfRepository<Country> countriesRepo)
+            : base(leaguesRepo)
         {
             Guard.WhenArgument(countriesRepo, "Countries Repo").IsNull().Throw();
-            Guard.WhenArgument(leaguesRepo, "Leagues Repo").IsNull().Throw();
-            Guard.WhenArgument(saveContext, "SaveContext").IsNull().Throw();
 
             this.countriesRepo = countriesRepo;
         }
@@ -61,7 +56,6 @@ namespace LiveScoreUpdateSystem.Services.Data
             leagueToAdd.Country = targetCountry;
 
             this.Data.Add(leagueToAdd);
-            this.SaveContext.SaveChanges();
         }
 
         public IEnumerable<League> GetAll()

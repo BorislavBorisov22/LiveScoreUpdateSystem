@@ -17,6 +17,7 @@ namespace LiveScoreUpdateSystem.Web.Infrastructure.Filters
             this.saveContext.SaveChanges();
         }
 
+
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
             // Just to satisfy the interface. Cannot decouple from it.

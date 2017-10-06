@@ -15,11 +15,6 @@ namespace LiveScoreUpdateSystem.Data
         {
         }
 
-        public static MsSqlDbContext Create()
-        {
-            return new MsSqlDbContext();
-        }
-
         public virtual IDbSet<Fixture> Fixtures { get; set; }
 
         public virtual IDbSet<Player> Players { get; set; }

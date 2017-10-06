@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
-using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System;
@@ -14,8 +13,8 @@ namespace LiveScoreUpdateSystem.Services.Data
     {
         private readonly IEfRepository<League> leagueRepo;
 
-        public TeamService(IEfRepository<Team> dataSet, IEfRepository<League> leagueRepo, ISaveContext saveContext) 
-            : base(dataSet, saveContext)
+        public TeamService(IEfRepository<Team> dataSet, IEfRepository<League> leagueRepo) 
+            : base(dataSet)
         {
             Guard.WhenArgument(leagueRepo, "League Repo").IsNull().Throw();
 
@@ -38,7 +37,6 @@ namespace LiveScoreUpdateSystem.Services.Data
             teamToAdd.League = targetLeague;
 
             this.Data.Add(teamToAdd);
-            this.SaveContext.SaveChanges();
         }
 
         public IEnumerable<Team> GetAll()

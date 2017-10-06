@@ -1,5 +1,6 @@
 ﻿using LiveScoreUpdateSystem.Data;
 using LiveScoreUpdateSystem.Data.Models;
+using LiveScoreUpdateSystem.Web.Infrastructure.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -15,7 +16,7 @@ namespace LiveScoreUpdateSystem.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(MsSqlDbContext.Create);
+            app.CreatePerOwinContext(ServiceLocator.InstanceProvider.ProvideInstance<MsSqlDbContext>);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
