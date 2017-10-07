@@ -1,8 +1,9 @@
-﻿function showModal(modalSelector, formTitle, action, method) {
+﻿function showModal(modalSelector, formTitle) {
     $(modalSelector).modal("show")
     $('.modal-title').html(formTitle);
-
-    $("#modal-form")
-        .attr("action", action)
-        .attr("method", method);
 }
+
+$("#btn-submit-form").on('click', () => {
+    const $form = $('#add-data-form');
+    $form.submit();
+})

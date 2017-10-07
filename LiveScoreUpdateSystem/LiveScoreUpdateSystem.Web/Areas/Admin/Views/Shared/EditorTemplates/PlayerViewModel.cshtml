@@ -1,43 +1,45 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 @model PlayerViewModel
 
-<div class="form-group">
-    <label>First name</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-tag"></i>
-        </span>
-        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Player first name", required = true } })
+@using (Html.BeginForm<PanelController>(c => c.AddPlayer(null), FormMethod.Post, null, new { id = "add-data-form" }))
+{
+    <div class="form-group">
+        <label>First name</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-tag"></i>
+            </span>
+            @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Player first name", required = true } })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Last name</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-tags"></i>
-        </span>
-        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Player last name", required = true } })
+    <div class="form-group">
+        <label>Last name</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-tags"></i>
+            </span>
+            @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Player last name", required = true } })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Picture link</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-picture"></i>
-        </span>
-        @Html.EditorFor(m => m.PictureUrl, new { htmlAttributes = new { @class = "form-control", placeholder = "Player picture", required = true } })
+    <div class="form-group">
+        <label>Picture link</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-picture"></i>
+            </span>
+            @Html.EditorFor(m => m.PictureUrl, new { htmlAttributes = new { @class = "form-control", placeholder = "Player picture", required = true } })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Age</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-gift"></i>
-        </span>
-        @Html.EditorFor(m => m.Age, new
+    <div class="form-group">
+        <label>Age</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-gift"></i>
+            </span>
+            @Html.EditorFor(m => m.Age, new
    {
        htmlAttributes = new
        {
@@ -49,16 +51,16 @@
            required = true
        }
    })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Shirt number</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-qrcode"></i>
-        </span>
-        @Html.EditorFor(m => m.ShirtNumber, new
+    <div class="form-group">
+        <label>Shirt number</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-qrcode"></i>
+            </span>
+            @Html.EditorFor(m => m.ShirtNumber, new
    {
        htmlAttributes = new
        {
@@ -70,45 +72,48 @@
            required = true
        }
    })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Field position</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-map-marker"></i>
-        </span>
-        @Html.EnumDropDownListFor(x => x.Position, new { @class = "form-control" })
+    <div class="form-group">
+        <label>Field position</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-map-marker"></i>
+            </span>
+            @Html.EnumDropDownListFor(x => x.Position, new { @class = "form-control" })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Nationality</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-flag"></span>
-        </span>
-        @Html.DropDownListFor(x => x.CountryName, Model.CountriesList, new { @class = "form-control" })
+    <div class="form-group">
+        <label>Nationality</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-flag"></span>
+            </span>
+            @Html.DropDownListFor(x => x.CountryName, Model.CountriesList, new { @class = "form-control" })
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label>Football club</label>
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </span>
-        <select class="selectpicker form-control" name="TeamName">
-            @foreach (var group in Model.LeagueGroupedTeams)
-            {
-                <optgroup label="@group.Key">
-                    @foreach (var team in group)
+    <div class="form-group">
+        <label>Football club</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-users" aria-hidden="true"></i>
+            </span>
+            <select class="selectpicker form-control" name="TeamName">
+                @foreach (var group in Model.LeagueGroupedTeams)
+                {
+                    <optgroup label="@group.Key">
+                        @foreach (var team in group)
                     {
-                        <option>@team.Name</option>
-                    }
-                </optgroup>
-            }
-        </select>
+                            <option>@team.Name</option>
+                        }
+                    </optgroup>
+                }
+            </select>
+        </div>
     </div>
-</div>
+
+    @Html.AntiForgeryToken()
+}

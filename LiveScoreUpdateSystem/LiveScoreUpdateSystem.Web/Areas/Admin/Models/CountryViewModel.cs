@@ -9,9 +9,8 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
     {
         public string FlagPictureUrl { get; set; }
 
-        [Required]
-        [MinLength(GlobalConstants.MinCountryNameLength)]
-        [MaxLength(GlobalConstants.MaxCountryNameLength)]
+        [Required(ErrorMessage = "Name is Required")]
+        [StringLength(GlobalConstants.MaxCountryNameLength,ErrorMessage ="Invalid name length", MinimumLength =GlobalConstants.MinCountryNameLength)]
         public string Name { get; set; }
     }
 }

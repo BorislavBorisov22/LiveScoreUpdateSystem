@@ -19,21 +19,21 @@
                                 <a class="btn btn-primary" 
                                    data-ajax="true" 
                                    data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Country', '/panel/addcountry', 'POST')"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add Country')"
                                    data-ajax-update="#modal-body" href="/admin/panel/addcountry">
                                     <span class="fa fa-globe fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Country
                                 </a>
                                 <a class="btn btn-primary"
                                    data-ajax="true"
                                    data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add League', '/panel/addleague', 'POST')"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add League')"
                                    data-ajax-update="#modal-body" href="/admin/panel/addleague">
                                     <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />League
                                 </a>
                                 <a class="btn btn-primary"
                                    data-ajax="true"
                                    data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Team', '/panel/addteam', 'POST')"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add Team')"
                                    data-ajax-update="#modal-body" href="/admin/panel/addteam">
                                     <span class="fa fa-users fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
                                 </a>
@@ -41,7 +41,7 @@
                                 <a class="btn btn-primary"
                                    data-ajax="true"
                                    data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Player', '/panel/addplayer', 'POST')"
+                                   data-ajax-success="showModal('#add-form-modal', 'Add Player')"
                                    data-ajax-update="#modal-body" href="/admin/panel/addplayer">
                                     <span class="fa fa-linux fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Player
                                 </a>
@@ -73,7 +73,7 @@
 
 <div id="add-form-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <form class="modal-content" id="modal-form">
+        <div class="modal-content" id="modal-form">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Content</h4>
@@ -81,12 +81,10 @@
             <div class="modal-body" id="modal-body">
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button id="btn-submit-form" class="btn btn-primary">Add</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-
-            @Html.AntiForgeryToken()
-        </form>
+        </div>
     </div>
 </div>
 

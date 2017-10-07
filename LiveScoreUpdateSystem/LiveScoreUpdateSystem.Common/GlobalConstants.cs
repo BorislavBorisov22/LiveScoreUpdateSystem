@@ -3,7 +3,7 @@
     public class GlobalConstants
     {
         // regex validation patterns
-        public const string LettersMatchingPattern = "^[a-zA-Z _]+$";
+        public const string LettersMatchingPattern = "^[a-zA-Z0-9 _]+$";
 
         public const string AdminRole = "Admin";
         public const string LiveUpdaterRole = "LiveUpdater";

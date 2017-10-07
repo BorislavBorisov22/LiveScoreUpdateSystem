@@ -154,7 +154,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 return this.RedirectToAction(c => c.Index());
             }
 
-            return this.RedirectToAction(c => c.Index());
+            return this.RedirectToAction(c => Index());
         }
     }
 }

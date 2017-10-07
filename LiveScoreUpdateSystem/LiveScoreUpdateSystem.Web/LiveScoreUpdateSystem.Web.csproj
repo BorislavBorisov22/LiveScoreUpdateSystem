@@ -277,7 +277,6 @@
     <Content Include="Areas\Admin\Views\Shared\_AddLeaguePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddTeamPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddPlayerPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_TeamNamesListPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
