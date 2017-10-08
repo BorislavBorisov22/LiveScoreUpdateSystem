@@ -97,7 +97,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.teamService.Add(teamDataModel, teamModel.LeagueName);
             }
 
-            return this.RedirectToAction(c => c.Index());
+            return this.RedirectToAction<TeamsGridController>(c => c.Index());
         }
 
         [HttpGet]

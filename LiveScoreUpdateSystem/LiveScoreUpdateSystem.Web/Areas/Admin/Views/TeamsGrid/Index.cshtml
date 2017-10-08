@@ -10,7 +10,7 @@
             columns.Bound(m => m.LogoUrl).ClientTemplate(
                      @"<div class='grid-photo'
                         style='background-image: url(#:data.LogoUrl#);'></div>"
-                ).Width(50);
+                ).Width(80);
             columns.Bound(m => m.Name);
             columns.Bound(m => m.LeagueName).ClientTemplate(
                @"<div class='grid-photo'
@@ -23,6 +23,7 @@
         {
             editable.Mode(GridEditMode.InLine);
         })
+        .Scrollable()
         .Pageable(c =>
         {
             c.Refresh(true);
