@@ -12,6 +12,9 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
         IEnumerable<Team> GetAll();
 
         IEnumerable<IGrouping<string, Team>> GroupTeamsByLeague();
+
         void Delete(Guid id);
+
+        void Update(Guid id, string name, string logoUrl);
     }
 }

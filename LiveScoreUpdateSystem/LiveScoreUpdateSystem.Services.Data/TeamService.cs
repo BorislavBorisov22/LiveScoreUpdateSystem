@@ -62,5 +62,29 @@ namespace LiveScoreUpdateSystem.Services.Data
    
             return grouped;
         }
+
+        public void Update(Guid id, string name, string logoUrl)
+        {
+            var isNewNameTaken = this.Data
+                .All
+                .Any(t => t.Name.ToLower() == name.ToLower() && t.Id != id);
+
+            if (isNewNameTaken)
+            {
+                throw new ArgumentException("There is already a team with name " + name);
+            }
+
+            var targetTeamToUpdate = this.Data
+                .All
+                .FirstOrDefault(t => t.Id == id);
+
+            if (targetTeamToUpdate != null)
+            {
+                targetTeamToUpdate.Name = name;
+                targetTeamToUpdate.LogoUrl = logoUrl;
+
+                this.Data.Update(targetTeamToUpdate);
+            }
+        }
     }
 }
