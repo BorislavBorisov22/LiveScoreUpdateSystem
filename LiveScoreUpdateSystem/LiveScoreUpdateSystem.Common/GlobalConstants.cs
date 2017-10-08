@@ -42,5 +42,8 @@
         // Country
         public const int MinCountryNameLength = 3;
         public const int MaxCountryNameLength = 40;
+
+        // Grids
+        public const int GridsPageSize = 12;
     }
 }

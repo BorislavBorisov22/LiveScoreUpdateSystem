@@ -1,0 +1,40 @@
+﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
+
+<h1><i class="fa fa-star fa-3x" aria-hidden="true"></i>Leagues Grid</h1>
+
+@(Html.Kendo()
+        .Grid<GridLeagueViewModel>()
+        .Name("LeaguesGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(m => m.Name);
+            columns.Bound(m => m.Season);
+            columns.Bound(m => m.Country).ClientTemplate(
+                  @"<div class='grid-photo'
+                        style='background-image: url(#:data.Country.FlagPictureUrl#);'></div>
+                    <div class='grid-name'>#: data.Country.Name #</div>"
+                );
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        })
+        .Editable(editable => {
+            editable.Mode(GridEditMode.InLine);
+        })
+        .Pageable(c =>
+        {
+            c.Refresh(true);
+            c.PageSizes(true);
+        })
+        .Sortable()
+        .DataSource(source =>
+        {
+            source.Ajax()
+            .Model(m => {
+                m.Id(c => c.Id);
+                m.Field(model => model.Country).Editable(false);
+                })
+            .Read(c => c.Action("ReadLeagues", "LeaguesGrid")).PageSize(GlobalConstants.GridsPageSize)
+            .Destroy(c => c.Action("DeleteLeague", "LeaguesGrid"))
+            .Update(c => c.Action("EditLeague", "LeaguesGrid"));
+        })
+        .Filterable(f => f.Mode(GridFilterMode.Menu))
+        .Deferred())

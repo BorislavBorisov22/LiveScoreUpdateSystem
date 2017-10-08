@@ -8,5 +8,9 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
         void Add(League league);
 
         IEnumerable<League> GetAll();
+
+        bool Delete(string leagueName);
+
+        void Update(League leagueToUpdate);
     }
 }

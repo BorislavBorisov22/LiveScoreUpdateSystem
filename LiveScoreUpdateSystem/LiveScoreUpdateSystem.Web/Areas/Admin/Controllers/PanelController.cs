@@ -4,6 +4,7 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
+using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
@@ -67,7 +68,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.leagueService.Add(leagueDataModel);
             }
 
-            return this.RedirectToAction(action => action.Index());
+            return this.RedirectToAction<LeaguesGridController>(action => action.Index());
         }
 
         [HttpGet]
@@ -152,7 +153,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.countryService.Add(mappedCountry);
             }
 
-            return this.RedirectToAction(c => c.Index());
+            return this.RedirectToAction<CountriesGridController>(c => c.Index());
         }
     }
 }

@@ -222,18 +222,23 @@
     <Compile Include="Areas\Admin\Controllers\Abstraction\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\FixturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\TeamViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PlayerViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\CountriesGrid\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LeaguesGrid\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueCountryGrid.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridLeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamAddPlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridCountryViewModel.cs" />
     <Compile Include="Controllers\Abstraction\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -274,6 +279,7 @@
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.svg" />
     <Content Include="Content\Kendo\kendo.black.min.css" />
     <Content Include="Content\Kendo\kendo.common.min.css" />
+    <Content Include="Libraries\Kendo.Mvc.dll" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
   </ItemGroup>
   <ItemGroup>
@@ -286,7 +292,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Libraries\Kendo.Mvc.dll" />
     <Content Include="Libraries\Kendo.Mvc.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

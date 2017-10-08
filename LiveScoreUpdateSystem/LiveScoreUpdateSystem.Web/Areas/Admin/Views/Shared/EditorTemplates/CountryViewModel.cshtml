@@ -1,7 +1,7 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
 @model CountryViewModel
 
-@using (Ajax.BeginForm<PanelController>(c => c.AddCountry(null), FormMethod.Post, null, new { id = "add-data-form" }))
+@using (Html.BeginForm<PanelController>(c => c.AddCountry(null), FormMethod.Post, null, new { id = "add-data-form" }))
 {
     <div class="form-group">
         <label>Name</label>
@@ -27,6 +27,4 @@
     </div>
 
     @Html.AntiForgeryToken()
-
-    <input type="submit" value="Add" class="btn btn-primary" />
 }

@@ -31,13 +31,13 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
         {
             var countries = this.countryService
                 .GetAll()
-                .Map<Country, CountryViewModel>()
+                .Map<Country, GridCountryViewModel>()
                 .ToDataSourceResult(request);
 
             return this.Json(countries);
         }
 
-        public ActionResult DeleteCountry([DataSourceRequest] DataSourceRequest request, CountryViewModel model)
+        public ActionResult DeleteCountry([DataSourceRequest] DataSourceRequest request, GridCountryViewModel model)
         {
             if (model != null)
             {
@@ -47,11 +47,11 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
             return this.Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
-        public ActionResult EditCountry([DataSourceRequest] DataSourceRequest request, CountryViewModel model)
+        public ActionResult EditCountry([DataSourceRequest] DataSourceRequest request, GridCountryViewModel countryModel)
         {
-            if (model != null)
+            if (countryModel != null)
             {
-                var countryDataModel = MappingService.MappingProvider.Map<Country>(model);
+                var countryDataModel = MappingService.MappingProvider.Map<Country>(countryModel);
                 this.countryService.Update(countryDataModel);
             }
 

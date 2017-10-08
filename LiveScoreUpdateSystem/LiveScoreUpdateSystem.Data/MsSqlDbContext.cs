@@ -4,6 +4,7 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Data
@@ -27,9 +28,18 @@ namespace LiveScoreUpdateSystem.Data
 
         public override int SaveChanges()
         {
-            this.ApplyAuditInfoRules();
-            return base.SaveChanges();
-        }
+            try
+            {
+                this.ApplyAuditInfoRules();
+               return base.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                var customException = new FormattedDbEntityValidationException(e);
+                throw customException;
+            }
+        }        
+  
 
         private void ApplyAuditInfoRules()
         {

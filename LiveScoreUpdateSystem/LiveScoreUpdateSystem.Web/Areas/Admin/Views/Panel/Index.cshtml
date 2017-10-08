@@ -52,6 +52,12 @@
                         <hr />
                         <div class="row">
                             <div class="col-md-12">
+                                <a class="btn btn-warning" href=@(Url.Action<CountriesGridController>(c => c.Index()))>
+                                    <span class="fa fa-globe fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Countries
+                                </a>
+                                <a class="btn btn-warning" href=@(Url.Action<LeaguesGridController>(c => c.Index()))>
+                                    <span class="fa fa-star fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Leagues
+                                </a>
                                 <!-- dred -->
                                 <a href="#" class="btn btn-dred btn-lg" role="button"><span class="glyphicon glyphicon-calendar glyphsize"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br /> Appointment</a>
                                 <a href="#" class="btn btn-dred btn-lg" role="button"><span class="glyphicon glyphicon-calendar glyphsize"></span> <br />Edit <span class="glyphicon glyphicon-edit yellow"></span><br />Appointment</a>

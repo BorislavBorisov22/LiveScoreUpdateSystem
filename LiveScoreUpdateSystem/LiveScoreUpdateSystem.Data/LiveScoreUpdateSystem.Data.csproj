@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormattedDbEntityValidationException.cs" />
     <Compile Include="Migrations\201710021515545_Initial.cs" />
     <Compile Include="Migrations\201710021515545_Initial.Designer.cs">
       <DependentUpon>201710021515545_Initial.cs</DependentUpon>
@@ -88,6 +89,10 @@
     <Compile Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.cs" />
     <Compile Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.Designer.cs">
       <DependentUpon>201710061305563_AddedLogoUrlToTeamModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710081733258_RemoveRequiredAttributeFromLeague%27sCountry.cs" />
+    <Compile Include="Migrations\201710081733258_RemoveRequiredAttributeFromLeague%27sCountry.Designer.cs">
+      <DependentUpon>201710081733258_RemoveRequiredAttributeFromLeague%27sCountry.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -120,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710061305563_AddedLogoUrlToTeamModel.resx">
       <DependentUpon>201710061305563_AddedLogoUrlToTeamModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710081733258_RemoveRequiredAttributeFromLeague%27sCountry.resx">
+      <DependentUpon>201710081733258_RemoveRequiredAttributeFromLeague%27sCountry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
