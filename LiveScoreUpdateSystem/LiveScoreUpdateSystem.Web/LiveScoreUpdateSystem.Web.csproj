@@ -223,6 +223,7 @@
     <Compile Include="Areas\Admin\Controllers\FixturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueViewModel.cshtml" />
@@ -237,6 +238,7 @@
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamAddPlayerViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridTeamViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridCountryViewModel.cs" />
     <Compile Include="Controllers\Abstraction\BaseController.cs" />
@@ -333,6 +335,7 @@
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.woff" />
     <Content Include="Content\Kendo\kendo.black.min.css.map" />
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
+    <Content Include="Areas\Admin\Views\TeamsGrid\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

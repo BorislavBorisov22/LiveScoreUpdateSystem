@@ -39,6 +39,16 @@ namespace LiveScoreUpdateSystem.Services.Data
             this.Data.Add(teamToAdd);
         }
 
+        public void Delete(Guid teamId)
+        {
+            var targetTeam = this.Data.All.FirstOrDefault(t => t.Id == teamId);
+
+            if (targetTeam != null)
+            {
+                this.Data.Delete(targetTeam);
+            }
+        }
+
         public IEnumerable<Team> GetAll()
         {
             return this.Data.All.ToList();
