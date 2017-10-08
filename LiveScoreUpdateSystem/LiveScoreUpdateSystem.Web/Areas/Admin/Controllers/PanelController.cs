@@ -150,11 +150,9 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
             {
                 var mappedCountry = MappingService.MappingProvider.Map<Country>(countryModel);
                 this.countryService.Add(mappedCountry);
-
-                return this.RedirectToAction(c => c.Index());
             }
 
-            return this.RedirectToAction(c => Index());
+            return this.RedirectToAction(c => c.Index());
         }
     }
 }

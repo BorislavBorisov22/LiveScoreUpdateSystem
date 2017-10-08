@@ -4,6 +4,7 @@ using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data
 {
@@ -19,6 +20,29 @@ namespace LiveScoreUpdateSystem.Services.Data
             Guard.WhenArgument(country, "Country").IsNull().Throw();
 
             this.Data.Add(country);
+        }
+
+        public bool Delete(string countryName)
+        {
+            var targetCountry = this.Data.All.FirstOrDefault(c => c.Name == countryName);
+
+            if (targetCountry == null)
+            {
+                return false;
+            }
+
+            this.Data.Delete(targetCountry);
+            return true;
+        }
+
+        public void Update(Country updatedModel)
+        {
+            var modelToUpdate = this.Data.All.FirstOrDefault(m => m.Id == updatedModel.Id);
+
+            modelToUpdate.FlagPictureUrl = updatedModel.FlagPictureUrl;
+            modelToUpdate.Name = updatedModel.Name;
+
+            this.Data.Update(modelToUpdate);
         }
 
         public IEnumerable<Country> GetAll()

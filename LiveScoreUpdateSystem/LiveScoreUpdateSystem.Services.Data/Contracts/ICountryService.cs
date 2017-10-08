@@ -7,6 +7,10 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
     {
         void Add(Country country);
 
+        bool Delete(string countryName);
+
+        void Update(Country updatedModel);
+
         IEnumerable<Country> GetAll();
     }
 }

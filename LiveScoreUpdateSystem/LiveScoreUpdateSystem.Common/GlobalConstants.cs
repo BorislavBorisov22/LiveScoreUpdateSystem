@@ -10,7 +10,7 @@
         public const string RegularUser = "Regular";
 
         // ==> Data models validation constants
-
+  
         // FixtureEvent
         public const int MinFixtureEventMinuteValue = 0;
 

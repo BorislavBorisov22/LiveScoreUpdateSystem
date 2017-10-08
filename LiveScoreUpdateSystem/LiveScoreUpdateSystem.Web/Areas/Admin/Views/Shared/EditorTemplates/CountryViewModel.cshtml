@@ -1,7 +1,7 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
 @model CountryViewModel
 
-@using (Html.BeginForm<PanelController>(c => c.AddCountry(null), FormMethod.Post, null, new { id = "add-data-form" }))
+@using (Ajax.BeginForm<PanelController>(c => c.AddCountry(null), FormMethod.Post, null, new { id = "add-data-form" }))
 {
     <div class="form-group">
         <label>Name</label>
@@ -10,6 +10,8 @@
                 <i class="glyphicon glyphicon-tag"></i>
             </span>
             @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name", required = true } })
+        </div>
+        <div>
             @Html.ValidationMessageFor(m => m.Name)
         </div>
     </div>
@@ -25,4 +27,6 @@
     </div>
 
     @Html.AntiForgeryToken()
+
+    <input type="submit" value="Add" class="btn btn-primary" />
 }

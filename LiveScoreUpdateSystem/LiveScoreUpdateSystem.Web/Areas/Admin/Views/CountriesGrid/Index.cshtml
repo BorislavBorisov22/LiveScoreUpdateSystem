@@ -1,0 +1,30 @@
+﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
+
+<h1><i class="fa fa-globe fa-3x" aria-hidden="true"></i>Countries Grid</h1>
+
+@(Html.Kendo()
+        .Grid<CountryViewModel>()
+        .Name("CountriesGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(m => m.Name);
+            columns.Bound(m => m.FlagPictureUrl);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Pageable(c =>
+        {
+            c.Refresh(true);
+            c.PageSizes(true);
+        })
+        .Sortable()
+        .DataSource(source =>
+        {
+            source.Ajax()
+            .Model(m => m.Id(c => c.Id))
+            .Read(c => c.Action("ReadCountries", "CountriesGrid")).PageSize(12)
+            .Destroy(c => c.Action("DeleteCountry", "CountriesGrid"))
+            .Update(c => c.Action("EditCountry", "CountriesGrid"));
+        })
+        .Filterable(f => f.Mode(GridFilterMode.Menu))
+        .Deferred())
