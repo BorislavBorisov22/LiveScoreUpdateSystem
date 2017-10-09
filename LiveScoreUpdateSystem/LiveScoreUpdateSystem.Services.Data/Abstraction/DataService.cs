@@ -1,7 +1,8 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
-using LiveScoreUpdateSystem.Data.SaveContext.Contracts;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 {
@@ -16,5 +17,10 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
         }
          
         protected IEfRepository<T> Data { get; private set; }
+
+        public IEnumerable<T> GetAll()
+        {
+            return this.Data.All.ToList();
+        }
     }
 }
