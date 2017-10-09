@@ -25,7 +25,7 @@
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add Country')"
                                        data-ajax-update="#modal-body"
-                                        href="@(Url.Action<PanelController>(c => c.AddCountry()))">
+                                       href="@(Url.Action<PanelController>(c => c.AddCountry()))">
                                         <span class="fa fa-globe fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Country
                                     </a>
                                     <a class="btn btn-primary"
@@ -80,9 +80,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <a class="btn btn-danger"
-                                         data-ajax="true"
+                                       data-ajax="true"
                                        data-ajax-mode="replace"
-                                       data-ajax-success="showModal('#add-form-modal', 'Add Player')"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Fixture For Updating')"
                                        data-ajax-update="#modal-body" href="@(Url.Action<FixturesController>(c => c.AddFixture()))">
                                         <span class="fa fa-bolt fa-3x"></span> <br />Add <i class="glyphicon glyphicon-plus"></i><br />Fixture
                                     </a>
