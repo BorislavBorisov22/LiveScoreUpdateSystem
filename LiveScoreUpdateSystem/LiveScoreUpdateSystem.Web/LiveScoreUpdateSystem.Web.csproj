@@ -223,6 +223,7 @@
     <Compile Include="Areas\Admin\Controllers\FixturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\PlayersGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
@@ -232,9 +233,11 @@
     <Content Include="Areas\Admin\Views\CountriesGrid\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LeaguesGrid\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueCountryGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayersGrid\Index.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridLeagueViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridPlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamAddPlayerViewModel.cs" />

@@ -1,0 +1,48 @@
+﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
+
+
+<h1><i class="fa fa-linux fa-3x" aria-hidden="true"></i>Players Grid</h1>
+
+@(Html.Kendo()
+        .Grid<GridPlayerViewModel>()
+        .Name("PlayersGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(m => m.PictureUrl).ClientTemplate(
+                     @"<div class='grid-photo'
+                        style='background-image: url(#:data.PictureUrl #);'></div>"
+                ).Width(80);
+            columns.Bound(m => m.FirstName);
+            //columns.Bound(m => m.LastName).ClientTemplate(
+            //   @"<div class='grid-photo'
+            //            style='background-image: url(#:data.LeagueFlagPictureUrl#);'></div>
+            //        <div class='grid-name'>#: data.LeagueName #</div>"
+            //    );
+            columns.Bound(m => m.LastName);
+            columns.Command(command => { /*command.Edit(); command.Destroy();*/ }).Width(250);
+        })
+        .Editable(editable =>
+        {
+            editable.Mode(GridEditMode.InLine);
+        })
+        .Scrollable()
+        .Pageable(c =>
+        {
+            c.Refresh(true);
+            c.PageSizes(true);
+        })
+        .Sortable()
+        .DataSource(source =>
+        {
+            source.Ajax()
+            .Model(m =>
+            {
+                m.Id(c => c.Id);
+                // m.Field(model => model.LeagueName).Editable(false);
+            })
+            .Read(c => c.Action("ReadPlayers", "PlayersGrid")).PageSize(GlobalConstants.GridsPageSize);
+            // .Destroy(c => c.Action("DeleteTeam", "TeamsGrid"))
+            // .Update(c => c.Action("EditTeam", "TeamsGrid"));
+        })
+        .Filterable(f => f.Mode(GridFilterMode.Menu))
+        .Deferred())
