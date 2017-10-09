@@ -2,12 +2,10 @@
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
-using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
-using System;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
@@ -38,24 +36,24 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
             return this.Json(teams);
         }
 
-        public ActionResult DeleteTeam([DataSourceRequest] DataSourceRequest request, GridTeamViewModel teamModel)
+        public ActionResult DeleteTeam(GridTeamViewModel teamModel)
         {
             if (teamModel != null)
             {
                 this.teamService.Delete(teamModel.Id);
             }
 
-            return this.Json(new[] { teamModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { teamModel });
         }
 
-        public ActionResult EditTeam([DataSourceRequest] DataSourceRequest request, GridTeamViewModel teamModel)
+        public ActionResult EditTeam(GridTeamViewModel teamModel)
         {
             if (teamModel != null)
             {
                 this.teamService.Update(teamModel.Id, teamModel.Name, teamModel.LogoUrl);
             }
 
-            return this.Json(new[] { teamModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { teamModel });
         }
     }
 }

@@ -37,17 +37,17 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
             return this.Json(countries);
         }
 
-        public ActionResult DeleteCountry([DataSourceRequest] DataSourceRequest request, GridCountryViewModel model)
+        public ActionResult DeleteCountry(GridCountryViewModel model)
         {
             if (model != null)
             {
                 this.countryService.Delete(model.Name);
             }
 
-            return this.Json(new[] { model }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { model });
         }
 
-        public ActionResult EditCountry([DataSourceRequest] DataSourceRequest request, GridCountryViewModel countryModel)
+        public ActionResult EditCountry(GridCountryViewModel countryModel)
         {
             if (countryModel != null)
             {
@@ -55,7 +55,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
                 this.countryService.Update(countryDataModel);
             }
 
-            return this.Json(new[] { request });
+            return this.Json(new[] { countryModel });
         }
     }
 }

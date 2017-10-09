@@ -9,6 +9,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
         void Add(Player playerToAdd, string teamName, string countryName);
 
         IEnumerable<Player> GetAll();
+
         void Delete(Guid id);
 
         void Update(Player updatedPlayer);

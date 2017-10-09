@@ -37,7 +37,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
             return this.Json(leagues);
         }
 
-        public ActionResult DeleteLeague([DataSourceRequest] DataSourceRequest request, GridLeagueViewModel leagueModel)
+        public ActionResult DeleteLeague( GridLeagueViewModel leagueModel)
         {
             if (leagueModel != null)
             {
@@ -45,10 +45,10 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
                 this.leagueService.Delete(leagueName);
             }
 
-            return this.Json(new[] { leagueModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { leagueModel });
         }
 
-        public ActionResult EditLeague([DataSourceRequest] DataSourceRequest request, GridLeagueViewModel leagueModel)
+        public ActionResult EditLeague(GridLeagueViewModel leagueModel)
         {
             if (leagueModel != null)
             {
@@ -56,7 +56,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
                 this.leagueService.Update(leagueDataModel);
             }
 
-            return this.Json(new object[] { leagueModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new object[] { leagueModel });
         }
     }
 }
