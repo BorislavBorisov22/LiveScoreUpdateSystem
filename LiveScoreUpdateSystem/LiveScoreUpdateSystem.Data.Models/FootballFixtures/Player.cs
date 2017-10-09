@@ -10,13 +10,13 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [Required]
         [MinLength(GlobalConstants.MinPlayerNameLength)]
         [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string FirstName { get; set; }
 
         [Required]
         [MinLength(GlobalConstants.MinPlayerNameLength)]
         [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string LastName { get; set; }
 
         [Required]

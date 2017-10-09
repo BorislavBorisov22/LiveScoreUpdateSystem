@@ -12,9 +12,8 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public IEnumerable<SelectListItem> LeaguesSelectList { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinTeamNameLength)]
-        [MaxLength(GlobalConstants.MaxTeamNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxTeamNameLength, ErrorMessage = "Invalid team name length", MinimumLength = GlobalConstants.MinTeamNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string Name { get; set; }
 
         [Required]

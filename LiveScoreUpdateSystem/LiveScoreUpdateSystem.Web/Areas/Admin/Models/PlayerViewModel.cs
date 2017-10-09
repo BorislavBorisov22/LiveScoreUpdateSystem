@@ -16,16 +16,15 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public IEnumerable<SelectListItem> CountriesList { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerNameLength)]
-        [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxPlayerNameLength, ErrorMessage = "Invalid first name length", MinimumLength = GlobalConstants.MinPlayerNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerNameLength)]
-        [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxPlayerNameLength, MinimumLength = GlobalConstants.MinPlayerNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string LastName { get; set; }
+
 
         [Required]
         [Range(GlobalConstants.MinPlayerAge, GlobalConstants.MaxPlayerAge)]

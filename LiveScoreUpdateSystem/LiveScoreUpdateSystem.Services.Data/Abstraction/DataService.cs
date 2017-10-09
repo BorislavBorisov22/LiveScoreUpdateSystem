@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
+using LiveScoreUpdateSystem.Data.Models.Contracts;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 {
     public class DataService<T>
-        where T : DataModel
+        where T : class, IAuditable, IDeletable
     {
         public DataService(IEfRepository<T> dataSet)
         {

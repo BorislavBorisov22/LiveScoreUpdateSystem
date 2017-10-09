@@ -12,7 +12,7 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [Required]
         [MinLength(GlobalConstants.MinCountryNameLength)]
         [MaxLength(GlobalConstants.MaxCountryNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string Name { get; set; }
     }
 }

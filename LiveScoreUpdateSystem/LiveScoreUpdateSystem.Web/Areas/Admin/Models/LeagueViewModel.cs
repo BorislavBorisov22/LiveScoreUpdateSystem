@@ -15,8 +15,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public CountryViewModel Country { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinLeagueNameLength)]
-        [MaxLength(GlobalConstants.MaxLeagueNameLength)]
+        [StringLength(GlobalConstants.MaxLeagueNameLength, ErrorMessage = "Invalid league name length", MinimumLength = GlobalConstants.MinLeagueNameLength)]
         public string Name { get; set; }
 
         [Required]

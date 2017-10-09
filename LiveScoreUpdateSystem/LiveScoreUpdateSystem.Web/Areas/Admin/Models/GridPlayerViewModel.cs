@@ -14,15 +14,13 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerNameLength)]
-        [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxPlayerNameLength, ErrorMessage = "Invalid first name length", MinimumLength = GlobalConstants.MinPlayerNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinPlayerNameLength)]
-        [MaxLength(GlobalConstants.MaxPlayerNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxPlayerNameLength, ErrorMessage = "Invalid last name length", MinimumLength = GlobalConstants.MinPlayerNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string LastName { get; set; }
 
         [Required]

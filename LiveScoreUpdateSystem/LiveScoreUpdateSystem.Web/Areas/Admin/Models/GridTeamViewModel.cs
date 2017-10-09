@@ -13,12 +13,12 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MinLength(GlobalConstants.MinTeamNameLength)]
-        [MaxLength(GlobalConstants.MaxTeamNameLength)]
-        [RegularExpression(GlobalConstants.LettersMatchingPattern)]
+        [StringLength(GlobalConstants.MaxTeamNameLength, ErrorMessage = "Invalid team name length", MinimumLength = GlobalConstants.MinTeamNameLength)]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string Name { get; set; }
 
         [Required]
+        [RegularExpression(GlobalConstants.AlphaNumericalPattern)]
         public string LeagueName { get; set; }
 
         public string LeagueFlagPictureUrl { get; set; }
