@@ -49,11 +49,6 @@ namespace LiveScoreUpdateSystem.Services.Data
             }
         }
 
-        public IEnumerable<Team> GetAll()
-        {
-            return this.Data.All.ToList();
-        }
-
         public IEnumerable<IGrouping<string,Team>> GroupTeamsByLeague()
         {
             var grouped = this.Data

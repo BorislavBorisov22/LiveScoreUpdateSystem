@@ -72,11 +72,6 @@ namespace LiveScoreUpdateSystem.Services.Data
             return true;
         }
 
-        public IEnumerable<League> GetAll()
-        {
-            return this.Data.All.ToList();
-        }
-
         public void Update(League updatedLeague)
         {
             var targetLeague = this.Data.All.FirstOrDefault(l => l.Id == updatedLeague.Id);

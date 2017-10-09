@@ -44,10 +44,5 @@ namespace LiveScoreUpdateSystem.Services.Data
 
             this.Data.Update(modelToUpdate);
         }
-
-        public IEnumerable<Country> GetAll()
-        {
-            return this.Data.All;
-        }
     }
 }
