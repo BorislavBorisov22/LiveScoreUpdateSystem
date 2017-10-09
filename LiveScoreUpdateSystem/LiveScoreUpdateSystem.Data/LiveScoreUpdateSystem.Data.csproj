@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201710082257021_RemovedRequiredAttributeFromTeamsLeagueProperty.Designer.cs">
       <DependentUpon>201710082257021_RemovedRequiredAttributeFromTeamsLeagueProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710090928347_MarkedPlayerModelsCountryAsNonMandatory.cs" />
+    <Compile Include="Migrations\201710090928347_MarkedPlayerModelsCountryAsNonMandatory.Designer.cs">
+      <DependentUpon>201710090928347_MarkedPlayerModelsCountryAsNonMandatory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710082257021_RemovedRequiredAttributeFromTeamsLeagueProperty.resx">
       <DependentUpon>201710082257021_RemovedRequiredAttributeFromTeamsLeagueProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710090928347_MarkedPlayerModelsCountryAsNonMandatory.resx">
+      <DependentUpon>201710090928347_MarkedPlayerModelsCountryAsNonMandatory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

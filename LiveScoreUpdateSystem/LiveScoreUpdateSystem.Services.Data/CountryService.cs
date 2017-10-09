@@ -3,7 +3,6 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data

@@ -34,7 +34,6 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
 
         public virtual Team Team { get; set; }
 
-        [Required]
         public virtual Country Country { get; set; }
     }
 }
