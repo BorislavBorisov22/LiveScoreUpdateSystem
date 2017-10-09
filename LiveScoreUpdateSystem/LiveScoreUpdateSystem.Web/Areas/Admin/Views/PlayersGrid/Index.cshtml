@@ -10,16 +10,25 @@
         {
             columns.Bound(m => m.PictureUrl).ClientTemplate(
                      @"<div class='grid-photo'
-                        style='background-image: url(#:data.PictureUrl #);'></div>"
-                ).Width(80);
-            columns.Bound(m => m.FirstName);
-            //columns.Bound(m => m.LastName).ClientTemplate(
-            //   @"<div class='grid-photo'
-            //            style='background-image: url(#:data.LeagueFlagPictureUrl#);'></div>
-            //        <div class='grid-name'>#: data.LeagueName #</div>"
-            //    );
-            columns.Bound(m => m.LastName);
-            columns.Command(command => { /*command.Edit(); command.Destroy();*/ }).Width(250);
+                        style='background-image: url(#:data.PictureUrl#);'></div>"
+                ).Width(50);
+            columns.Bound(m => m.FirstName).Width(80);
+            columns.Bound(m => m.LastName).Width(80);
+            columns.Bound(m => m.Age).Width(80);
+            columns.Bound(m => m.Position).Width(80);
+            columns.Bound(m => m.ShirtNumber).Width(80);
+            columns.Bound(m => m.TeamName).ClientTemplate(
+                 @"<div class='grid-photo'
+                       style='background-image: url(#:data.TeamLogoUrl#);'></div>
+                    <div class='grid-name'>#: data.TeamName #</div>"
+            ).Width(80);
+            columns.Bound(m => m.TeamName).ClientTemplate("#=TeamName#");
+            columns.Bound(m => m.CountryName).ClientTemplate(
+                  @"<div class='grid-photo'
+                       style='background-image: url(#:data.CountryFlagUrl#);'></div>
+                    <div class='grid-name'>#: data.CountryName #</div>"
+             ).Width(50);
+            columns.Command(command => { command.Destroy(); /*command.Edit(); */ }).Width(250);
         })
         .Editable(editable =>
         {
@@ -38,10 +47,11 @@
             .Model(m =>
             {
                 m.Id(c => c.Id);
-                // m.Field(model => model.LeagueName).Editable(false);
+                m.Field(model => model.TeamName).Editable(false);
+                m.Field(model => model.CountryName).Editable(false);
             })
-            .Read(c => c.Action("ReadPlayers", "PlayersGrid")).PageSize(GlobalConstants.GridsPageSize);
-            // .Destroy(c => c.Action("DeleteTeam", "TeamsGrid"))
+            .Read(c => c.Action("ReadPlayers", "PlayersGrid")).PageSize(GlobalConstants.GridsPageSize)
+            .Destroy(c => c.Action("DeletePlayer", "PlayersGrid"));
             // .Update(c => c.Action("EditTeam", "TeamsGrid"));
         })
         .Filterable(f => f.Mode(GridFilterMode.Menu))

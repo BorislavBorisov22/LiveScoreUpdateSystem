@@ -41,7 +41,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         [Required]
         public string TeamName { get; set; }
 
-        public string TeamLogo { get; set; }
+        public string TeamLogoUrl { get; set; }
 
         [Required]
         public string CountryName { get; set; }
@@ -52,7 +52,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Models
         {
             configuration.CreateMap<Player, GridPlayerViewModel>()
             .ForMember(c => c.TeamName, opt => opt.MapFrom(c => c.Team.Name))
-            .ForMember(c => c.TeamLogo, opt => opt.MapFrom(c => c.Team.LogoUrl))
+            .ForMember(c => c.TeamLogoUrl, opt => opt.MapFrom(c => c.Team.LogoUrl))
             .ForMember(c => c.CountryFlagUrl, opt => opt.MapFrom(c => c.Country.FlagPictureUrl))
             .ForMember(c => c.CountryName, opt => opt.MapFrom(c => c.Country.Name));
         }

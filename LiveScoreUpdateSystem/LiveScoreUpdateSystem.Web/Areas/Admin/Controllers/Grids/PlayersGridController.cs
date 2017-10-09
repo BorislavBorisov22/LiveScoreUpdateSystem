@@ -6,6 +6,7 @@ using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
+using System;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
@@ -34,6 +35,13 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
                 .ToDataSourceResult(request);
 
             return this.Json(players);
+        }
+
+        public ActionResult DeletePlayer(GridPlayerViewModel playerModel)
+        {
+            this.playerService.Delete(playerModel.Id);
+
+            return this.Json(new[] { playerModel });
         }
     }
 }

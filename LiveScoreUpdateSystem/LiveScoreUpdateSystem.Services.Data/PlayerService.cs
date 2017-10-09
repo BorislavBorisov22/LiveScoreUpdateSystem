@@ -52,5 +52,15 @@ namespace LiveScoreUpdateSystem.Services.Data
             this.Data.Add(playerToAdd);
             targetTeam.Players.Add(playerToAdd);
         }
+
+        public void Delete(Guid playerId)
+        {
+            var targetPlayer = this.Data.All.FirstOrDefault(p => p.Id == playerId);
+
+            if (targetPlayer != null)
+            {
+                this.Data.Delete(targetPlayer);
+            }
+        }
     }
 }

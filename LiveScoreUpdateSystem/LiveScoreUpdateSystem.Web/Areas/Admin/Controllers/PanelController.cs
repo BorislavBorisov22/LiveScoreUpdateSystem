@@ -133,7 +133,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.playerService.Add(playerDataModel, playerModel.TeamName, playerModel.CountryName);
             }
 
-            return this.RedirectToAction(c => c.Index());
+            return this.RedirectToAction<PlayersGridController>(c => c.Index());
         }
 
         [HttpGet]
