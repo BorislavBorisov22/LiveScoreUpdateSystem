@@ -19,7 +19,8 @@ namespace LiveScoreUpdateSystem.Web
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/template").Include(
-                    "~/Scripts/FootballTemplate/responsiveslides.min.js"
+                    "~/Scripts/FootballTemplate/responsiveslides.min.js",
+                    "~/Scripts/toastr.min.js"
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -41,7 +42,8 @@ namespace LiveScoreUpdateSystem.Web
                       "~/Content/fontawesome/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/template-css").Include(
-                "~/Content/FootballTemplate/football-template.css"
+                "~/Content/FootballTemplate/football-template.css",
+                "~/Content/toastr.min.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/Kendo-css").Include(

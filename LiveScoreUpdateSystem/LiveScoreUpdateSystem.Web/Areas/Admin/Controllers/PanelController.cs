@@ -68,6 +68,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.leagueService.Add(leagueDataModel);
             }
 
+            this.TempData[GlobalConstants.SuccessMessage] = string.Format("League {0} added successfully!", leagueModel.Name);
             return this.RedirectToAction<LeaguesGridController>(action => action.Index());
         }
 
@@ -97,6 +98,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.teamService.Add(teamDataModel, teamModel.LeagueName);
             }
 
+            this.TempData[GlobalConstants.SuccessMessage] = string.Format("Team {0} added successfully!", teamModel.Name);
             return this.RedirectToAction<TeamsGridController>(c => c.Index());
         }
 
@@ -133,6 +135,11 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.playerService.Add(playerDataModel, playerModel.TeamName, playerModel.CountryName);
             }
 
+            this.TempData[GlobalConstants.SuccessMessage] = string.Format(
+                "Player {0} {1} added successfully!",
+                playerModel.FirstName,
+                playerModel.LastName);
+
             return this.RedirectToAction<PlayersGridController>(c => c.Index());
         }
 
@@ -153,6 +160,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 this.countryService.Add(mappedCountry);
             }
 
+            this.TempData[GlobalConstants.SuccessMessage] = string.Format("Country {0} added successfully!", countryModel.Name);
             return this.RedirectToAction<CountriesGridController>(c => c.Index());
         }
     }

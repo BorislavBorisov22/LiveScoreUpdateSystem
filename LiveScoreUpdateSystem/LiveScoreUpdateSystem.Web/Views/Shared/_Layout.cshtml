@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using LiveScoreUpdateSystem.Common;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -61,7 +63,7 @@
     <script>
         $("span.menu").click(function () {
             $(".top-nav ul").slideToggle(500, function () { });
-        });
+        })
     </script>
 
     @Scripts.Render("~/bundles/jquery")
@@ -72,5 +74,19 @@
 
     @Html.Kendo().DeferredScripts()
     @RenderSection("scripts", required: false)
+
+    @if (TempData[GlobalConstants.SuccessMessage] != null)
+    {
+        <script>
+            toastr.options.closeOnHover = true;
+            toastr.info("@TempData[GlobalConstants.SuccessMessage]")
+        </script>
+    }
+    else if (TempData[GlobalConstants.ErrorMessage] != null)
+    {
+        <script>
+            toastr.error("@TempData[GlobalConstants.ErrorMessage]")
+        </script>
+    }
 </body>
 </html>

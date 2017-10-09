@@ -45,5 +45,9 @@
 
         // Grids
         public const int GridsPageSize = 12;
+
+        // Notification messages
+        public const string SuccessMessage = "Success";
+        public const string ErrorMessage = "Error";
     }
 }

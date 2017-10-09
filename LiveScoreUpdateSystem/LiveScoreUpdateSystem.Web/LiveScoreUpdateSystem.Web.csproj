@@ -315,6 +315,8 @@
     <Content Include="Content\images\pic.jpg" />
     <Content Include="Content\images\pic1.jpg" />
     <Content Include="Content\images\tick1.png" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Libraries\Kendo.Mvc.dll" />
     <Content Include="Scripts\FootballTemplate\responsiveslides.min.js" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
@@ -337,6 +339,8 @@
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\Kendo\kendo.web.min.js" />
     <Content Include="Scripts\show-modal.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -371,6 +375,8 @@
     <Content Include="Content\Kendo\kendo.black.min.css.map" />
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <Content Include="Areas\Admin\Views\TeamsGrid\Index.cshtml" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
