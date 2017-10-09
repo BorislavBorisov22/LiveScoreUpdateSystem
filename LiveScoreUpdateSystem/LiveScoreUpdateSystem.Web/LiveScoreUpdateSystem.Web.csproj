@@ -267,6 +267,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Content Include="Content\FootballTemplate\football-template.css" />
+    <Content Include="Content\images\app-logo.png" />
     <Content Include="Content\images\Live-Score-Addicts-Banner.jpg" />
     <Content Include="Content\Kendo\Black\editor.png" />
     <Content Include="Content\Kendo\Black\imagebrowser.png" />

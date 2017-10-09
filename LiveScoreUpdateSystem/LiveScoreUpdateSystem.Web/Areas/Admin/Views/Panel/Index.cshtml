@@ -1,4 +1,6 @@
-﻿<div class="container body-content">
+﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
+
+<div class="container body-content">
 
     <h1>
         <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -22,21 +24,24 @@
                                        data-ajax="true"
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add Country')"
-                                       data-ajax-update="#modal-body" href="/admin/panel/addcountry">
+                                       data-ajax-update="#modal-body"
+                                        href="@(Url.Action<PanelController>(c => c.AddCountry()))">
                                         <span class="fa fa-globe fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Country
                                     </a>
                                     <a class="btn btn-primary"
                                        data-ajax="true"
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add League')"
-                                       data-ajax-update="#modal-body" href="/admin/panel/addleague">
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddLeague()))">
                                         <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />League
                                     </a>
                                     <a class="btn btn-primary"
                                        data-ajax="true"
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add Team')"
-                                       data-ajax-update="#modal-body" href="/admin/panel/addteam">
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddTeam()))">
                                         <span class="fa fa-users fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
                                     </a>
 
@@ -44,7 +49,8 @@
                                        data-ajax="true"
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add Player')"
-                                       data-ajax-update="#modal-body" href="/admin/panel/addplayer">
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddPlayer()))">
                                         <span class="fa fa-linux fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Player
                                     </a>
                                 </div>
@@ -68,7 +74,21 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="panel-footer">
+
+                            <h4>Fixtures</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-danger"
+                                         data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Player')"
+                                       data-ajax-update="#modal-body" href="@(Url.Action<FixturesController>(c => c.AddFixture()))">
+                                        <span class="fa fa-bolt fa-3x"></span> <br />Add <i class="glyphicon glyphicon-plus"></i><br />Fixture
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="panel-footer template-green">
                                 <div class="pull-left">Manage the live score system from here</div>
                                 <div class="clearfix"></div>
                             </div>
@@ -95,7 +115,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 @section Scripts{

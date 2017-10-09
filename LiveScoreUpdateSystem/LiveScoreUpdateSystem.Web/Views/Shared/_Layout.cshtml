@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>LiveScore</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Kendo-css")
     @Styles.Render("~/Content/template-css")
@@ -22,14 +22,20 @@
     <div class="header-bottom-top">
         <div class="container">
             <div class="search">
-                @Html.Kendo().DatePicker().Name("DatePicker").Deferred().HtmlAttributes(new { value=DateTime.Now}).Format("dd/mm/yyyy");
-                @*<input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-                <input type="submit" value="">*@
+                @(Html.Kendo()
+                    .DatePicker()
+                    .Name("DatePicker")
+                    .Deferred()
+                    .HtmlAttributes(new { value = DateTime.Now })
+                    .Format("dd/mm/yyyy"));
             </div>
             <div class="clearfix"> </div>
             <div class="header-bottom">
                 <div class="logo">
-                    <a href="@(Url.Action<LiveScoreUpdateSystem.Web.Controllers.HomeController>(c => c.Index()))"><img src="~/Content/Images/log.png" alt=" " /></a>
+                    <a href="@(Url.Action<LiveScoreUpdateSystem.Web.Controllers.HomeController>(c => c.Index()))">
+                        <img src="~/Content/Images/log.png" alt=" " />
+                        <img id="app-logo" src="~/Content/images/app-logo.png"/>
+                    </a>
                 </div>
                 <div class="top-nav">
                     <span class="menu"> </span>
@@ -39,11 +45,6 @@
                         <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
                     </ul>
                     <!--script-->
-                    <script>
-                        $("span.menu").click(function () {
-                            $(".top-nav ul").slideToggle(500, function () { });
-                        });
-                    </script>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -56,6 +57,12 @@
     <footer class="container body-content">
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
+
+    <script>
+        $("span.menu").click(function () {
+            $(".top-nav ul").slideToggle(500, function () { });
+        });
+    </script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendo")
