@@ -6,8 +6,6 @@ namespace LiveScoreUpdateSystem.Data
 {
     internal class FormattedDbEntityValidationException : Exception
     {
-
-
         public FormattedDbEntityValidationException(DbEntityValidationException innerException) :
             base(null, innerException)
         {
@@ -36,6 +34,7 @@ namespace LiveScoreUpdateSystem.Data
                                 ve.ErrorMessage));
                         }
                     }
+
                     sb.AppendLine();
 
                     return sb.ToString();
@@ -44,6 +43,5 @@ namespace LiveScoreUpdateSystem.Data
                 return base.Message;
             }
         }
-
     }
 }

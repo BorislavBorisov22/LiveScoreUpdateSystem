@@ -10,5 +10,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
 
         IEnumerable<Player> GetAll();
         void Delete(Guid id);
+
+        void Update(Player updatedPlayer);
     }
 }

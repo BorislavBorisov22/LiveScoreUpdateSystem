@@ -2,6 +2,7 @@
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
+using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
@@ -40,6 +41,17 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
         public ActionResult DeletePlayer(GridPlayerViewModel playerModel)
         {
             this.playerService.Delete(playerModel.Id);
+
+            return this.Json(new[] { playerModel });
+        }
+
+        public ActionResult EditPlayer(GridPlayerViewModel playerModel)
+        {
+            if (playerModel != null)
+            {
+                var dataModel = MappingService.MappingProvider.Map<Player>(playerModel);
+                this.playerService.Update(dataModel);
+            }
 
             return this.Json(new[] { playerModel });
         }

@@ -62,5 +62,21 @@ namespace LiveScoreUpdateSystem.Services.Data
                 this.Data.Delete(targetPlayer);
             }
         }
+
+        public void Update(Player updatedPlayer)
+        {
+            var playerToUpdate = this.Data.All.FirstOrDefault(p => p.Id == updatedPlayer.Id);
+
+            if (playerToUpdate != null)
+            {
+                playerToUpdate.FirstName = updatedPlayer.FirstName;
+                playerToUpdate.LastName = updatedPlayer.LastName;
+                playerToUpdate.ShirtNumber = updatedPlayer.ShirtNumber;
+                playerToUpdate.Age = updatedPlayer.Age;
+                playerToUpdate.PictureUrl = playerToUpdate.PictureUrl;
+            }
+
+            this.Data.Update(playerToUpdate);
+        }
     }
 }

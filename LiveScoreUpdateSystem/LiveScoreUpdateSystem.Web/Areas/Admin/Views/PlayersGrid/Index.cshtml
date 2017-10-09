@@ -28,7 +28,7 @@
                        style='background-image: url(#:data.CountryFlagUrl#);'></div>
                     <div class='grid-name'>#: data.CountryName #</div>"
              ).Width(50);
-            columns.Command(command => { command.Destroy(); /*command.Edit(); */ }).Width(250);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
         })
         .Editable(editable =>
         {
@@ -51,8 +51,8 @@
                 m.Field(model => model.CountryName).Editable(false);
             })
             .Read(c => c.Action("ReadPlayers", "PlayersGrid")).PageSize(GlobalConstants.GridsPageSize)
-            .Destroy(c => c.Action("DeletePlayer", "PlayersGrid"));
-            // .Update(c => c.Action("EditTeam", "TeamsGrid"));
+            .Destroy(c => c.Action("DeletePlayer", "PlayersGrid"))
+            .Update(c => c.Action("EditPlayer", "PlayersGrid"));
         })
         .Filterable(f => f.Mode(GridFilterMode.Menu))
         .Deferred())

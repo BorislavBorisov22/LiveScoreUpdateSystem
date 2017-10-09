@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
+using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System.Collections.Generic;
 using System.Linq;
 
