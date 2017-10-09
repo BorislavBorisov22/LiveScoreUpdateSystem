@@ -1,97 +1,101 @@
-﻿<h1>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-    LiveScore System
-</h1>
+﻿<div class="container body-content">
 
-<div class="container">
-    <section>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><span class="glyphicon glyphicon-thumbs-up"></span> Admin Dashboard</h3>
-                    </div>
-                    <div class="panel-body">
-                        <h4>Adding Data</h4>
-                        <hr />
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a class="btn btn-primary" 
-                                   data-ajax="true" 
-                                   data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Country')"
-                                   data-ajax-update="#modal-body" href="/admin/panel/addcountry">
-                                    <span class="fa fa-globe fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Country
-                                </a>
-                                <a class="btn btn-primary"
-                                   data-ajax="true"
-                                   data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add League')"
-                                   data-ajax-update="#modal-body" href="/admin/panel/addleague">
-                                    <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />League
-                                </a>
-                                <a class="btn btn-primary"
-                                   data-ajax="true"
-                                   data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Team')"
-                                   data-ajax-update="#modal-body" href="/admin/panel/addteam">
-                                    <span class="fa fa-users fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
-                                </a>
+    <h1>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        LiveScore System
+    </h1>
 
-                                <a class="btn btn-primary"
-                                   data-ajax="true"
-                                   data-ajax-mode="replace"
-                                   data-ajax-success="showModal('#add-form-modal', 'Add Player')"
-                                   data-ajax-update="#modal-body" href="/admin/panel/addplayer">
-                                    <span class="fa fa-linux fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Player
-                                </a>
-                            </div>
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading template-green">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-thumbs-up"></span> Admin Dashboard</h3>
                         </div>
+                        <div class="panel-body">
+                            <h4>Adding Data</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Country')"
+                                       data-ajax-update="#modal-body" href="/admin/panel/addcountry">
+                                        <span class="fa fa-globe fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Country
+                                    </a>
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add League')"
+                                       data-ajax-update="#modal-body" href="/admin/panel/addleague">
+                                        <span class="fa fa-star fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />League
+                                    </a>
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Team')"
+                                       data-ajax-update="#modal-body" href="/admin/panel/addteam">
+                                        <span class="fa fa-users fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Team
+                                    </a>
 
-                        <h4>Data Management</h4>
-                        <hr />
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a class="btn btn-warning" href=@(Url.Action<CountriesGridController>(c => c.Index()))>
-                                    <span class="fa fa-globe fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Countries
-                                </a>
-                                <a class="btn btn-warning" href=@(Url.Action<LeaguesGridController>(c => c.Index()))>
-                                    <span class="fa fa-star fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Leagues
-                                </a>
-                                <a class="btn btn-warning" href=@(Url.Action<TeamsGridController>(c => c.Index()))>
-                                    <span class="fa fa-users fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Teams
-                                </a>
-                                <a class="btn btn-warning" href=@(Url.Action<PlayersGridController>(c => c.Index()))>
-                                    <span class="fa fa-linux fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Players
-                                </a>
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Player')"
+                                       data-ajax-update="#modal-body" href="/admin/panel/addplayer">
+                                        <span class="fa fa-linux fa-3x"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Player
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="pull-left">Manage the live score system from here</div>
-                            <div class="clearfix"></div>
+
+                            <h4>Data Management</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-warning" href=@(Url.Action<CountriesGridController>(c => c.Index()))>
+                                        <span class="fa fa-globe fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Countries
+                                    </a>
+                                    <a class="btn btn-warning" href=@(Url.Action<LeaguesGridController>(c => c.Index()))>
+                                        <span class="fa fa-star fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Leagues
+                                    </a>
+                                    <a class="btn btn-warning" href=@(Url.Action<TeamsGridController>(c => c.Index()))>
+                                        <span class="fa fa-users fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Teams
+                                    </a>
+                                    <a class="btn btn-warning" href=@(Url.Action<PlayersGridController>(c => c.Index()))>
+                                        <span class="fa fa-linux fa-3x"></span> <br />View <i class="glyphicon glyphicon-info-sign"></i><br />Players
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="pull-left">Manage the live score system from here</div>
+                                <div class="clearfix"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 
-<div id="add-form-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content" id="modal-form">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit Content</h4>
-            </div>
-            <div class="modal-body" id="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button id="btn-submit-form" class="btn btn-primary">Add</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <div id="add-form-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Content</h4>
+                </div>
+                <div class="modal-body" id="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-submit-form" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 
 @section Scripts{

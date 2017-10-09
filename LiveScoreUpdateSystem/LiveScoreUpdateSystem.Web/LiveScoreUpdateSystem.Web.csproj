@@ -266,6 +266,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Content Include="Content\FootballTemplate\football-template.css" />
+    <Content Include="Content\images\Live-Score-Addicts-Banner.jpg" />
     <Content Include="Content\Kendo\Black\editor.png" />
     <Content Include="Content\Kendo\Black\imagebrowser.png" />
     <Content Include="Content\Kendo\Black\indeterminate.gif" />
@@ -285,7 +287,35 @@
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.svg" />
     <Content Include="Content\Kendo\kendo.black.min.css" />
     <Content Include="Content\Kendo\kendo.common.min.css" />
+    <Content Include="Content\images\ba2.png" />
+    <Content Include="Content\images\ban.jpg" />
+    <Content Include="Content\images\bb.jpg" />
+    <Content Include="Content\images\g1.jpg" />
+    <Content Include="Content\images\g2.jpg" />
+    <Content Include="Content\images\g3.jpg" />
+    <Content Include="Content\images\g4.jpg" />
+    <Content Include="Content\images\g5.jpg" />
+    <Content Include="Content\images\gg.jpg" />
+    <Content Include="Content\images\img-sprite.png" />
+    <Content Include="Content\images\ju1.png" />
+    <Content Include="Content\images\log.png" />
+    <Content Include="Content\images\ma.png" />
+    <Content Include="Content\images\me1.jpg" />
+    <Content Include="Content\images\me1.png" />
+    <Content Include="Content\images\menu.png" />
+    <Content Include="Content\images\pc.jpg" />
+    <Content Include="Content\images\pc1.jpg" />
+    <Content Include="Content\images\pc2.jpg" />
+    <Content Include="Content\images\pe.jpg" />
+    <Content Include="Content\images\pi.png" />
+    <Content Include="Content\images\pi1.png" />
+    <Content Include="Content\images\pi2.png" />
+    <Content Include="Content\images\pi3.png" />
+    <Content Include="Content\images\pic.jpg" />
+    <Content Include="Content\images\pic1.jpg" />
+    <Content Include="Content\images\tick1.png" />
     <Content Include="Libraries\Kendo.Mvc.dll" />
+    <Content Include="Scripts\FootballTemplate\responsiveslides.min.js" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
   </ItemGroup>
   <ItemGroup>

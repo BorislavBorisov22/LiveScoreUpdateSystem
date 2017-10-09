@@ -6,42 +6,62 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Kendo-css")
+    @Styles.Render("~/Content/template-css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="header">
+    <div class="header-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @(Html.ActionLink("LiveScore",(LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index(), new { area = "" }, new { @class = "navbar-brand" }))
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@(Html.ActionLink("Home", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index()))</li>
-                    <li>@(Html.ActionLink("About", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.About()))</li>
-                    <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
-                </ul>
+            <p class="header-para">Live Scores And Updates in realtime</p>
+            <ul class="sign">
                 @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            <div class="search">
+                @Html.Kendo().DatePicker().Name("DatePicker").Deferred().HtmlAttributes(new { value=DateTime.Now}).Format("dd/mm/yyyy");
+                @*<input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="">*@
+            </div>
+            <div class="clearfix"> </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="@(Url.Action<LiveScoreUpdateSystem.Web.Controllers.HomeController>(c => c.Index()))"><img src="~/Content/Images/log.png" alt=" " /></a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li>@(Html.ActionLink("Home", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index()))</li>
+                        <li>@(Html.ActionLink("About", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.About()))</li>
+                        <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
+                    </ul>
+                    <!--script-->
+                    <script>
+                        $("span.menu").click(function () {
+                            $(".top-nav ul").slideToggle(500, function () { });
+                        });
+                    </script>
+                </div>
+                <div class="clearfix"> </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+
+    <!--do tuka si raboti :) -->
+    @RenderBody()
+    <hr />
+    <footer class="container body-content">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendo")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/template")
 
     @Html.Kendo().DeferredScripts()
     @RenderSection("scripts", required: false)

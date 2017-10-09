@@ -1,8 +1,10 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 
-<h1><i class="fa fa-users fa-3x" aria-hidden="true"></i>Teams Grid</h1>
+<div class="container body-content">
 
-@(Html.Kendo()
+    <h1><i class="fa fa-users fa-3x" aria-hidden="true"></i>Teams Grid</h1>
+
+    @(Html.Kendo()
         .Grid<GridTeamViewModel>()
         .Name("TeamsGrid")
         .Columns(columns =>
@@ -44,3 +46,5 @@
         })
         .Filterable(f => f.Mode(GridFilterMode.Menu))
         .Deferred())
+
+</div>

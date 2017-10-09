@@ -1,8 +1,10 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 
-<h1><i class="fa fa-star fa-3x" aria-hidden="true"></i>Leagues Grid</h1>
+<div class="container body-content">
 
-@(Html.Kendo()
+    <h1><i class="fa fa-star fa-3x" aria-hidden="true"></i>Leagues Grid</h1>
+
+    @(Html.Kendo()
         .Grid<GridLeagueViewModel>()
         .Name("LeaguesGrid")
         .Columns(columns =>
@@ -16,7 +18,8 @@
                 );
             columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
         })
-        .Editable(editable => {
+        .Editable(editable =>
+        {
             editable.Mode(GridEditMode.InLine);
         })
         .Pageable(c =>
@@ -28,13 +31,15 @@
         .DataSource(source =>
         {
             source.Ajax()
-            .Model(m => {
+            .Model(m =>
+            {
                 m.Id(c => c.Id);
                 m.Field(model => model.Country).Editable(false);
-                })
+            })
             .Read(c => c.Action("ReadLeagues", "LeaguesGrid")).PageSize(GlobalConstants.GridsPageSize)
             .Destroy(c => c.Action("DeleteLeague", "LeaguesGrid"))
             .Update(c => c.Action("EditLeague", "LeaguesGrid"));
         })
         .Filterable(f => f.Mode(GridFilterMode.Menu))
         .Deferred())
+</div>

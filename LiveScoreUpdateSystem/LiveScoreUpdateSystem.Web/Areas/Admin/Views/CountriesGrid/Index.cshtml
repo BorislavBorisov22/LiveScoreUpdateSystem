@@ -1,8 +1,9 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
 
-<h1><i class="fa fa-globe fa-3x" aria-hidden="true"></i>Countries Grid</h1>
+<div class="container body-content">
+    <h1><i class="fa fa-globe fa-3x" aria-hidden="true"></i>Countries Grid</h1>
 
-@(Html.Kendo()
+    @(Html.Kendo()
         .Grid<GridCountryViewModel>()
         .Name("CountriesGrid")
         .Columns(columns =>
@@ -23,12 +24,14 @@
         .DataSource(source =>
         {
             source.Ajax()
-            .Model(m => {
+            .Model(m =>
+            {
                 m.Id(c => c.Id);
-                })
+            })
             .Read(c => c.Action("ReadCountries", "CountriesGrid")).PageSize(GlobalConstants.GridsPageSize)
             .Destroy(c => c.Action("DeleteCountry", "CountriesGrid"))
             .Update(c => c.Action("EditCountry", "CountriesGrid"));
         })
         .Filterable(f => f.Mode(GridFilterMode.Menu))
         .Deferred())
+</div>

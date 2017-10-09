@@ -18,6 +18,10 @@ namespace LiveScoreUpdateSystem.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/template").Include(
+                    "~/Scripts/FootballTemplate/responsiveslides.min.js"
+                ));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -35,6 +39,10 @@ namespace LiveScoreUpdateSystem.Web
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css",
                       "~/Content/fontawesome/font-awesome.css"));
+
+            bundles.Add(new StyleBundle("~/Content/template-css").Include(
+                "~/Content/FootballTemplate/football-template.css"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/Kendo-css").Include(
                   "~/Content/Kendo/kendo.black.min.css",
