@@ -73,7 +73,7 @@ namespace LiveScoreUpdateSystem.Services.Data
                 playerToUpdate.LastName = updatedPlayer.LastName;
                 playerToUpdate.ShirtNumber = updatedPlayer.ShirtNumber;
                 playerToUpdate.Age = updatedPlayer.Age;
-                playerToUpdate.PictureUrl = playerToUpdate.PictureUrl;
+                playerToUpdate.PictureUrl = updatedPlayer.PictureUrl;
             }
 
             this.Data.Update(playerToUpdate);
