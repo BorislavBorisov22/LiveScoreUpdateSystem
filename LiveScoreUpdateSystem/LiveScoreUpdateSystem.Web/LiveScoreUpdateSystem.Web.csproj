@@ -238,7 +238,7 @@
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\FixtureViewModel.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_AddCountryPartial.cshtml" />
     <Compile Include="Areas\Admin\Models\CountryViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\FixtureViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\AddFixtureViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridLeagueViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridPlayerViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LeagueViewModel.cs" />
@@ -380,6 +380,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="Areas\Admin\Views\Shared\_AddFixtureForUpdatePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AddFixtureForm.Partial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

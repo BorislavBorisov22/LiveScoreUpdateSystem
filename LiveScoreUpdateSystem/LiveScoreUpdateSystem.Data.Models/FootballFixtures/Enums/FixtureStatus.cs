@@ -4,7 +4,8 @@
     {
         Active,
         Over,
-        HalfTime,
+        FirstHalf,
+        SecondHalf,
         Pending
     }
 }

@@ -1,6 +1,7 @@
 ﻿using LiveScoreUpdateSystem.Common;
 using LiveScoreUpdateSystem.Data.Models.Abstraction;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -12,7 +13,6 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         {
             this.ScoreHomeTeam = 0;
             this.ScoreAwayTeam = 0;
-            this.Half = Half.First;
             this.Status = FixtureStatus.Pending;
             this.Minute = 0;
         }
@@ -23,8 +23,9 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [Required]
         public int ScoreAwayTeam { get; set; }
 
-        [Required]
-        public Half Half { get; set; }
+        public DateTime? FirstHalfStart { get; set; }
+
+        public DateTime? SecondHalfStart { get; set; }
 
         [Required]
         public FixtureStatus Status { get; set; }

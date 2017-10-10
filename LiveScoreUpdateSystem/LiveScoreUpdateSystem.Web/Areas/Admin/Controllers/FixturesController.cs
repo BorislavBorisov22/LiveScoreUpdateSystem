@@ -14,10 +14,12 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         private readonly ILeagueService leagueService;
         private readonly ITeamService teamService;
 
-        public FixturesController(ILeagueService leagueService)
+        public FixturesController(ILeagueService leagueService, ITeamService teamService)
         {
             Guard.WhenArgument(leagueService, "leagueService").IsNull().Throw();
+            Guard.WhenArgument(teamService, "teamService").IsNull().Throw();
 
+            this.teamService = teamService;
             this.leagueService = leagueService;
         }
 
@@ -29,16 +31,16 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
                 .GetAll()
                 .Select(l => new SelectListItem() { Text = l.Name, Value = l.Name });
 
-            var fixtureViewModel = new FixtureViewModel() { LeaguesAvailable = leaguesAvailable };
-
-            return this.PartialView(PartialViews.AddFixtureForUpdate, fixtureViewModel);
+            return this.PartialView(PartialViews.AddFixtureForUpdate, leaguesAvailable);
         }
 
+        [HttpGet]
+        [AjaxOnly]
         public ActionResult GetTeams(string leagueName)
         {
             var teams = this.teamService.GetTeamsByLeague(leagueName);
 
-            return this.Json(teams);
+            return this.Content(string.Join("", teams));
         }
     }
 }
