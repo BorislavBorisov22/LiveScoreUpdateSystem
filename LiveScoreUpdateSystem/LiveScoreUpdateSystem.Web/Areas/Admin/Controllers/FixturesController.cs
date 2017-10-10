@@ -5,6 +5,7 @@ using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using System.Linq;
+using System.Web.Mvc.Expressions;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
@@ -29,18 +30,29 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         {
             var leaguesAvailable = this.leagueService
                 .GetAll()
-                .Select(l => new SelectListItem() { Text = l.Name, Value = l.Name });
+                .Select(l => l.Name);
 
             return this.PartialView(PartialViews.AddFixtureForUpdate, leaguesAvailable);
         }
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GetTeams(string leagueName)
+        public ActionResult AddFixtureForm(string leagueName)
         {
-            var teams = this.teamService.GetTeamsByLeague(leagueName);
+            var teamsNames = this.teamService
+                .GetTeamsByLeague(leagueName)
+                .Select(t => t.Name);
 
-            return this.Content(string.Join("", teams));
+            var addFixtureModel = new AddFixtureViewModel() { TeamsNames = teamsNames };
+
+            return this.PartialView(PartialViews.AddFixtureFormPartial, addFixtureModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddFixture(AddFixtureViewModel fixtureModel)
+        {
+            return this.RedirectToAction<PanelController>(c => c.Index());
         }
     }
 }

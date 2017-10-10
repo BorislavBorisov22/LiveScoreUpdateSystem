@@ -16,6 +16,8 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         [Required]
         public string LogoUrl { get; set; }
 
+        public int SeasonPoints { get; set; }
+
         public virtual ICollection<Player> Players { get; set; }
 
         public virtual League League { get; set; }

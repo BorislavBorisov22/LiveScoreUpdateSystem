@@ -36,6 +36,10 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
 
         public virtual Team HomeTeam { get; set; }
 
+        public ICollection<Player> HomeTeamStartingPlayers { get; set; }
+
+        public ICollection<Player> AwayTeamStartingPlayers { get; set; }
+
         public virtual Team AwayTeam { get; set; }
 
         public virtual ICollection<FixtureEvent> FixtureEvents { get; set; }

@@ -7,5 +7,6 @@
         public const string AddTeam = "_AddTeamPartial";
         public const string AddPlayer = "_AddPlayerPartial";
         public const string AddFixtureForUpdate = "_AddFixtureForUpdatePartial";
+        public const string AddFixtureFormPartial = "_AddFixtureFormPartial";
     }
 }

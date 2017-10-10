@@ -1,18 +1,25 @@
 ﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
-@model IEnumerable<SelectListItem>
+@model IEnumerable<string>
 
-<h1>aideee</h1>
-@Html.DropDownListFor(m => m.LeaguesAvailable, Model.LeaguesAvailable, new { @class = "form-control", id = "leagues-dropdown" });
-<div id="from-container">
+<div>League</div>
+<select id="leagues-dropdown" class="form-control">
+    @foreach (var teamName in Model)
+    {
+        <option>@teamName</option>
+    }
+</select>
+
+<div id="form-container">
 
 </div>
 
 <script>
     $('#leagues-dropdown').on('change', (ev) => {
         const leagueName = $(ev.target).val();
+        const url = '/admin/fixtures/addfixtureform?leaguename=' + leagueName;
 
-        $.get('/admin/fixtures/getteams?leaguename=' + leagueName, (data) => {
-            console.log(data);
-        });
+        $.get(url, (data) => {
+            $('#form-container').html(data);
+        })
     });
 </script>

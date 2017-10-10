@@ -102,6 +102,10 @@
     <Compile Include="Migrations\201710090928347_MarkedPlayerModelsCountryAsNonMandatory.Designer.cs">
       <DependentUpon>201710090928347_MarkedPlayerModelsCountryAsNonMandatory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710102244169_AddedStartTimeAndStartingPlayersProperties.cs" />
+    <Compile Include="Migrations\201710102244169_AddedStartTimeAndStartingPlayersProperties.Designer.cs">
+      <DependentUpon>201710102244169_AddedStartTimeAndStartingPlayersProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710090928347_MarkedPlayerModelsCountryAsNonMandatory.resx">
       <DependentUpon>201710090928347_MarkedPlayerModelsCountryAsNonMandatory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710102244169_AddedStartTimeAndStartingPlayersProperties.resx">
+      <DependentUpon>201710102244169_AddedStartTimeAndStartingPlayersProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

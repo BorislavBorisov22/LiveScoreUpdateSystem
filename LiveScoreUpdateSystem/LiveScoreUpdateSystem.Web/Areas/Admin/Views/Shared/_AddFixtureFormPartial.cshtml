@@ -1,0 +1,22 @@
+﻿@using LiveScoreUpdateSystem.Web.Areas.Admin.Models
+@model AddFixtureViewModel
+
+@using (Html.BeginForm<FixturesController>(c => c.AddFixture(), FormMethod.Post, null, new { id = "add-data-form" }))
+{
+    <br />
+
+    <div><strong>Start Time</strong></div>
+    @Html.Kendo().DateTimePickerFor(c => c.StartTime)
+
+    <br />
+    <br />
+
+    @Html.LabelFor(l => l.HomeTeamName)
+    @Html.DropDownListFor(m => m.HomeTeamName, Model.TeamsNames.Select(c => new SelectListItem() { Text = c, Value = c }), new { @class = "form-control" })
+
+    <br />
+    @Html.LabelFor(l => l.HomeTeamName)
+    @Html.DropDownListFor(m => m.AwayTeamName, Model.TeamsNames.Select(c => new SelectListItem() { Text = c, Value = c }), new { @class = "form-control" });
+
+    @Html.AntiForgeryToken()
+}
