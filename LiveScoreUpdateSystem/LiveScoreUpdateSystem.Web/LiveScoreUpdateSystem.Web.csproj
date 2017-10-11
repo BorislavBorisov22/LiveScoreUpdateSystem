@@ -247,6 +247,7 @@
     <Compile Include="Areas\Admin\Models\GridTeamViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TeamViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridCountryViewModel.cs" />
+    <Compile Include="Areas\LiveUpdater\LiveUpdaterAreaRegistration.cs" />
     <Compile Include="Controllers\Abstraction\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -381,6 +382,7 @@
     <Content Include="Content\toastr.less" />
     <Content Include="Areas\Admin\Views\Shared\_AddFixtureForUpdatePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddFixtureFormPartial.cshtml" />
+    <Content Include="Areas\LiveUpdater\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -434,6 +436,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\LiveUpdater\Controllers\" />
+    <Folder Include="Areas\LiveUpdater\Models\" />
+    <Folder Include="Areas\LiveUpdater\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
