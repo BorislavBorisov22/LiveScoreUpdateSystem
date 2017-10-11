@@ -106,6 +106,10 @@
     <Compile Include="Migrations\201710102244169_AddedStartTimeAndStartingPlayersProperties.Designer.cs">
       <DependentUpon>201710102244169_AddedStartTimeAndStartingPlayersProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710110101308_ChangedAllDateTimeTypesToDateTime2.cs" />
+    <Compile Include="Migrations\201710110101308_ChangedAllDateTimeTypesToDateTime2.Designer.cs">
+      <DependentUpon>201710110101308_ChangedAllDateTimeTypesToDateTime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710102244169_AddedStartTimeAndStartingPlayersProperties.resx">
       <DependentUpon>201710102244169_AddedStartTimeAndStartingPlayersProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710110101308_ChangedAllDateTimeTypesToDateTime2.resx">
+      <DependentUpon>201710110101308_ChangedAllDateTimeTypesToDateTime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
