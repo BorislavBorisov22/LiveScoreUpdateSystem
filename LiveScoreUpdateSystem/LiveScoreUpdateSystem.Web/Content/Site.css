@@ -234,8 +234,8 @@ table {
     *zoom: 1;
 }
 
-ul{
-    list-style-type:none;
+ul {
+    list-style-type: none;
 }
 
 
@@ -1200,7 +1200,3 @@ table.matches_table span.diema {
         padding: 6px;
         margin: 18px 0 0 29px;
     }
-
-.left-team-img-container{
-    margin-right: 40%;
-}

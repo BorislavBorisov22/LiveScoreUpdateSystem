@@ -40,6 +40,7 @@ namespace LiveScoreUpdateSystem.Web.Models
             .ForMember(c => c.HomeTeamName, opt => opt.MapFrom(c => c.HomeTeam.Name))
             .ForMember(c => c.HomeTeamLogo, opt => opt.MapFrom(c => c.HomeTeam.LogoUrl))
             .ForMember(c => c.AwayTeamName, opt => opt.MapFrom(c => c.AwayTeam.Name))
+            .ForMember(c => c.AwayTeamLogo, opt => opt.MapFrom(c => c.AwayTeam.LogoUrl))
             .ForMember(c => c.CountryName, opt => opt.MapFrom(c => c.HomeTeam.League.Country.Name))
             .ForMember(c => c.CountryFlagUrl, opt => opt.MapFrom(c => c.HomeTeam.League.Country.FlagPictureUrl));
         }

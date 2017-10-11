@@ -8,5 +8,6 @@
         public const string AddPlayer = "_AddPlayerPartial";
         public const string AddFixtureForUpdate = "_AddFixtureForUpdatePartial";
         public const string AddFixtureFormPartial = "_AddFixtureFormPartial";
+        public const string AvailableScoresPartial = "_AvailableScoresPartial";
     }
 }

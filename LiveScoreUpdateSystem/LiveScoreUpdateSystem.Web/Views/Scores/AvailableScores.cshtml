@@ -1,271 +1,46 @@
-﻿@using LiveScoreUpdateSystem.Web.Models
-@model IEnumerable<IGrouping<string, AvailableScoreViewModel>>
+﻿@model DateTime
 
 <div class="container body-content col-md-offset-3">
     <div class="content_in content_in_s">
         <div class="live_navigation clearfix" style="margin-top: 10px;">
-            Available Scores
             <div class="calendar_wrap clearfix">
-                <span id="date">Today</span>
+                <span id="date">
+                    @(Html
+                      .Kendo()
+                      .DatePicker()
+                      .Name("ScoresDate")
+                      .Events(ev =>
+                      {
+                          ev.Change("dateChanged");
+                      })
+                      .HtmlAttributes(new { id = "scores-date", value = Model })
+                      .Format("dd/mm/yyyy")
+                      .Deferred())
+                </span>
             </div>
         </div>
 
         <div class="matches_list_wrap">
-            <ul class="matches_list matches_list_fix matches_list_today_fix">
-                <li>
-                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="parent" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                    <a class="rating" href="https://gong.bg/livescore/klasirane/segunda-divisio1n-295">
-                        League standings
-                    </a>
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">
-                        <img src="https://m.netinfo.bg/gong/images/livescore/countries/default_small.png" alt="worldcup">
-                        worldcup
-                    </a> /
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">Сегунда дивисион, Испания</a>
-                    <table class="matches_table">
-                        <tbody>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/spain/segunda-divisio1n-295/gimnastic-granada-cf-11-oct-2017-1806822'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806822" class="time date center">21:00</td>
-                                <td class="left">Химнастик де Тарагона</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Химнастик де Тарагона" src="https://m.netinfo.bg/gong/images/livescore/teams/2099.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806822" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Гранада" src="https://m.netinfo.bg/gong/images/livescore/teams/7072.png">
-                                    </div>
-                                </td>
-                                <td class="right">Гранада</td>
-                            </tr>
-                            <tr>
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806823" class="time date center">21:00</td>
-                                <td class="left">Нумансия</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Нумансия" src="https://m.netinfo.bg/gong/images/livescore/teams/2035.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806823" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="ФК Барселона Б" src="https://m.netinfo.bg/gong/images/livescore/teams/2104.png">
-                                    </div>
-                                </td>
-                                <td class="right">ФК Барселона Б</td>
-                            </tr>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/spain/segunda-divisio1n-295/real-oviedo-tenerife-cd-11-oct-2017-1806824'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806824" class="time date center">22:00</td>
-                                <td class="left">Реал Овиедо</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Реал Овиедо" src="https://m.netinfo.bg/gong/images/livescore/teams/2336.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806824" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Тенерифе" src="https://m.netinfo.bg/gong/images/livescore/teams/2048.png">
-                                    </div>
-                                </td>
-                                <td class="right">Тенерифе</td>
-                            </tr>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/spain/segunda-divisio1n-295/lorca-fc-real-zaragoza-11-oct-2017-1806825'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806825" class="time date center">23:00</td>
-                                <td class="left">Lorca FC</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Lorca FC" src="https://m.netinfo.bg/gong/images/livescore/teams/default.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806825" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Реал Сарагоса" src="https://m.netinfo.bg/gong/images/livescore/teams/2030.png">
-                                    </div>
-                                </td>
-                                <td class="right">Реал Сарагоса</td>
-                            </tr>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/spain/segunda-divisio1n-295/sevilla b-cadiz-11-oct-2017-1806826'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806826" class="time date center">23:00</td>
-                                <td class="left">Sevilla B</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Sevilla B" src="https://m.netinfo.bg/gong/images/livescore/teams/default.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806826" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Кадис" src="https://m.netinfo.bg/gong/images/livescore/teams/2041.png">
-                                    </div>
-                                </td>
-                                <td class="right">Кадис</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </li>
-                <li>
-                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="parent" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">
-                        <img src="https://m.netinfo.bg/gong/images/livescore/countries/default_small.png" alt="worldcup">
-                        worldcup
-                    </a> /
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">Квалификации за световно първенство, зона КОНКАКАФ</a>
-                    <table class="matches_table">
-                        <tbody>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/worldcup/wc-qualification-concacaf/panama-costa-rica-11-oct-2017-1745040'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1745040" class="time center">FT</td>
-                                <td class="left">Панама</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Панама" src="https://m.netinfo.bg/gong/images/livescore/teams/1618.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1745040" class="center">2                                                    :1</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Коста Рика" src="https://m.netinfo.bg/gong/images/livescore/teams/costarica.png">
-                                    </div>
-                                </td>
-                                <td class="right">Коста Рика</td>
-                            </tr>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/worldcup/wc-qualification-concacaf/honduras-mexico-11-oct-2017-1794706'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1794706" class="time center">FT</td>
-                                <td class="left">Хондурас</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Хондурас" src="https://m.netinfo.bg/gong/images/livescore/teams/honduras.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1794706" class="center">3                                                    :2</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Мексико" src="https://m.netinfo.bg/gong/images/livescore/teams/mexico.png">
-                                    </div>
-                                </td>
-                                <td class="right">Мексико</td>
-                            </tr>
-                            <tr onclick="window.location = 'https://gong.bg/livescore/worldcup/wc-qualification-concacaf/trinidad-&amp;-tobago-usa-11-oct-2017-1794707'">
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1794707" class="time center">FT</td>
-                                <td class="left">Trinidad &amp; Tobago</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Trinidad &amp; Tobago" src="https://m.netinfo.bg/gong/images/livescore/teams/default.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1794707" class="center">2                                                    :1</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="САЩ" src="https://m.netinfo.bg/gong/images/livescore/teams/USA.png">
-                                    </div>
-                                </td>
-                                <td class="right">САЩ</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </li>
-                @foreach(var group in Model)
-                {
-                   <li>
-                       <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="parent" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                       <a class="rating" href="https://gong.bg/livescore/klasirane/segunda-divisio1n-295">
-                           League standings
-                       </a>
-                       <a href="javascript:void(0);" style="cursor: text;color: #777777;">
-                           <img src="@group.FirstOrDefault().CountryFlagUrl">
-                           @group.FirstOrDefault().CountryName
-                       </a> /
-                       <a href="javascript:void(0);" style="cursor: text;color: #777777;">@group.Key</a>
-                       <table class="matches_table">
-                           <tbody>
-                               @foreach (var fixture in group)
-                               {
-                                <tr data-fixture-id="@fixture.Id">
-                                    <td class="checkbox">
-                                        <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                    </td>
-                                    <td class="time date center">@fixture.FirstHalfStart.Value.ToString("HH:mm")</td>
-                                    <td class="left">@fixture.HomeTeamName</td>
-                                    <td class="img_wrap">
-                                        <div>
-                                            <img src="@fixture.HomeTeamLogo">
-                                        </div>
-                                    </td>
-                                    <td id="socket_match_score_1806826" class="center">@fixture.ScoreHomeTeam:@fixture.ScoreAwayTeam</td>
-                                    <td class="img_wrap">
-                                        <div>
-                                            <img src="@fixture.AwayTeamLogo">
-                                        </div>
-                                    </td>
-                                    <td class="right">@fixture.AwayTeamName</td>
-                                </tr>
-                               }
-                           </tbody>
-                       </table>
-                   </li>
-                }
-                <li>
-                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="parent" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                    <a class="rating" href="https://gong.bg/livescore/klasirane/segunda-divisio1n-295">
-                        League standings
-                    </a>
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">
-                        <img src="https://m.netinfo.bg/gong/images/livescore/countries/default_small.png" alt="worldcup">
-                        worldcup
-                    </a> /
-                    <a href="javascript:void(0);" style="cursor: text;color: #777777;">Сегунда дивисион, Испания</a>
-                    <table class="matches_table">
-                        <tbody>
-                            <tr>
-                                <td class="checkbox">
-                                    <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                </td>
-                                <td id="match_1806826" class="time date center">23:00</td>
-                                <td class="left">Sevilla B</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Sevilla B" src="https://m.netinfo.bg/gong/images/livescore/teams/default.png">
-                                    </div>
-                                </td>
-                                <td id="socket_match_score_1806826" class="center">-:-</td>
-                                <td class="img_wrap">
-                                    <div>
-                                        <img alt="Кадис" src="https://m.netinfo.bg/gong/images/livescore/teams/2041.png">
-                                    </div>
-                                </td>
-                                <td class="right">Кадис</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+            @(Html.Action<ScoresController>(c => c.ByDate(Model)))
+            @(Html.ActionLink<ScoresController>("ASDF", c => c.ByDate(Model)))
         </div>
     </div>
 </div>
+
+<script>
+    const dateChanged = (ev) => {
+        const value = ev.sender.element.context.attributes.value.value;
+
+        const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
+        const dateEncoded = encodeURI(date);
+        const url = `/scores/bydate?date=${dateEncoded}`
+
+        $.get(url, (dataHtml) => {
+            $('.matches_list_wrap').html(dataHtml);
+            $('#scores-date').val(date);
+        });
+    }
+</script>
+
+@section Scripts{
+}

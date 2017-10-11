@@ -1,0 +1,43 @@
+﻿@using LiveScoreUpdateSystem.Web.Models;
+@model  IEnumerable<IGrouping<string, AvailableScoreViewModel>>
+
+<ul class="matches_list matches_list_fix matches_list_today_fix">
+    @foreach (var group in Model)
+            {
+        <li>
+            <div class="icheckbox" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="parent" type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+            <a class="rating" href="/">
+                League standings
+            </a>
+            <a href="javascript:void(0);" style="cursor: text;color: #777777;">
+                <img src="@group.FirstOrDefault().CountryFlagUrl">
+                @group.FirstOrDefault().CountryName
+            </a> /
+            <a href="javascript:void(0);" style="cursor: text;color: #777777;">@group.Key</a>
+            <table class="matches_table">
+                <tbody>
+                    @foreach (var fixture in group)
+                    {
+                        <tr data-fixture-id="@fixture.Id">
+                            <td class="checkbox"></td>
+                            <td class="time date center">@fixture.FirstHalfStart.Value.ToString("HH:mm")</td>
+                            <td class="left">@fixture.HomeTeamName</td>
+                            <td class="img_wrap">
+                                <div>
+                                    <img src="@fixture.HomeTeamLogo">
+                                </div>
+                            </td>
+                            <td id="socket_match_score_1806826" class="center">@fixture.ScoreHomeTeam:@fixture.ScoreAwayTeam</td>
+                            <td class="img_wrap">
+                                <div>
+                                    <img src="@fixture.AwayTeamLogo">
+                                </div>
+                            </td>
+                            <td class="right">@fixture.AwayTeamName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </li>
+    }
+</ul>

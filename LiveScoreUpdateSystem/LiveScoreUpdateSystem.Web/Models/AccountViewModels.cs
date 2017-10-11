@@ -10,7 +10,7 @@ namespace LiveScoreUpdateSystem.Web.Models
         public string Email { get; set; }
     }
 
-    public class ExternalLoginListViewModel
+    public class List
     {
         public string ReturnUrl { get; set; }
     }
