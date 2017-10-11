@@ -51,14 +51,8 @@ namespace LiveScoreUpdateSystem.Services.Data
 
         public IEnumerable<Team> GetTeamsByLeague(string leagueName)
         {
-            var targetLeague = this.leagueRepo.All.FirstOrDefault(l => l.Name == leagueName);
-
-            if (targetLeague == null)
-            {
-                throw new ArgumentNullException("No league with this name was found!");
-            }
-
-            return targetLeague.Teams;
+            var teams = this.Data.All.Where(t => t.League.Name == leagueName);
+            return teams;
         }
 
         public IEnumerable<IGrouping<string,Team>> GroupTeamsByLeague()

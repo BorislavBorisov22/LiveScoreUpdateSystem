@@ -5,8 +5,8 @@ using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using System.Linq;
-using System.Web.Mvc.Expressions;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
 
 namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
 {
@@ -14,14 +14,17 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
     {
         private readonly ILeagueService leagueService;
         private readonly ITeamService teamService;
+        private readonly IFixtureService fixtureService;
 
-        public FixturesController(ILeagueService leagueService, ITeamService teamService)
+        public FixturesController(ILeagueService leagueService, ITeamService teamService, IFixtureService fixtureService)
         {
             Guard.WhenArgument(leagueService, "leagueService").IsNull().Throw();
             Guard.WhenArgument(teamService, "teamService").IsNull().Throw();
+            Guard.WhenArgument(fixtureService, "fixtureService").IsNull().Throw();
 
             this.teamService = teamService;
             this.leagueService = leagueService;
+            this.fixtureService = fixtureService;
         }
 
         [HttpGet]
@@ -52,6 +55,12 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddFixture(AddFixtureViewModel fixtureModel)
         {
+            if (ModelState.IsValid)
+            {
+                this.fixtureService.Add(fixtureModel.HomeTeamName, fixtureModel.AwayTeamName, fixtureModel.StartTime);
+                this.TempData[GlobalConstants.SuccessMessage] = "Fixture is ready to be updated!";
+            }
+
             return this.RedirectToAction<PanelController>(c => c.Index());
         }
     }

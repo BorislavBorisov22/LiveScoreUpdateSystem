@@ -2,13 +2,14 @@
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
+using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Factories.Contracts;
 using System;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data
 {
-    public class FixtureService : DataService<Fixture>
+    public class FixtureService : DataService<Fixture>, IFixtureService
     {
         private readonly IEfRepository<Team> teamsRepo;
         private readonly IFixturesFactory fixturesFactory;
@@ -23,7 +24,7 @@ namespace LiveScoreUpdateSystem.Services.Data
             this.fixturesFactory = fixturesFactory;
         }
 
-        public void AddFixture(string homeTeamName, string awayTeamName, DateTime startTime)
+        public void Add(string homeTeamName, string awayTeamName, DateTime? startTime)
         {
             if (homeTeamName == awayTeamName)
             {

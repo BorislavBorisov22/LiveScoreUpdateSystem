@@ -47,11 +47,15 @@
   <ItemGroup>
     <Compile Include="Abstraction\DataService.cs" />
     <Compile Include="Contracts\ICountryService.cs" />
+    <Compile Include="Contracts\IFixtureService.cs" />
     <Compile Include="Contracts\ILeagueService.cs" />
     <Compile Include="Contracts\IDataService.cs" />
     <Compile Include="Contracts\IPlayerService.cs" />
     <Compile Include="Contracts\ITeamService.cs" />
     <Compile Include="CountryService.cs" />
+    <Compile Include="Factories\Contracts\IFixturesFactory.cs" />
+    <Compile Include="Factories\FixturesFactory.cs" />
+    <Compile Include="FixtureService.cs" />
     <Compile Include="LeagueService.cs" />
     <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
