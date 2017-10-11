@@ -83,7 +83,7 @@
                                        data-ajax="true"
                                        data-ajax-mode="replace"
                                        data-ajax-success="showModal('#add-form-modal', 'Add Fixture For Updating')"
-                                       data-ajax-update="#modal-body" href="@(Url.Action<FixturesController>(c => c.AddFixture()))">
+                                       data-ajax-update="#modal-body" href="@(Url.Action<LiveScoreUpdateSystem.Web.Controllers.ScoresController>(c => c.AvailableScores()))">
                                         <span class="fa fa-bolt fa-3x"></span> <br />Add <i class="glyphicon glyphicon-plus"></i><br />Fixture
                                     </a>
                                 </div>

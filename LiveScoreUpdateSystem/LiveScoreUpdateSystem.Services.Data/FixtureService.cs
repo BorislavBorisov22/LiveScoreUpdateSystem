@@ -1,10 +1,12 @@
 ﻿using Bytes2you.Validation;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
+using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Factories.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LiveScoreUpdateSystem.Services.Data
@@ -47,6 +49,16 @@ namespace LiveScoreUpdateSystem.Services.Data
             }
 
             return targetTeam;
+        }
+
+        public IEnumerable<Fixture> GetAvailableFixtures(DateTime targetDate)
+        {
+            var availableFixtures = this.Data.All
+                .Where(f => f.FirstHalfStart.Value.Month == targetDate.Month &&
+                f.FirstHalfStart.Value.Year == targetDate.Year &&
+                f.FirstHalfStart.Value.Day == targetDate.Day);
+
+            return availableFixtures;
         }
     }
 }

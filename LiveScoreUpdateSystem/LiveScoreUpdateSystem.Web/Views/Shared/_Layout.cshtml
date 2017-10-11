@@ -43,6 +43,7 @@
                     <span class="menu"> </span>
                     <ul>
                         <li>@(Html.ActionLink("Home", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index()))</li>
+                        <li>@(Html.ActionLink("Scores", (LiveScoreUpdateSystem.Web.Controllers.ScoresController c) => c.AvailableScores()))</li>
                         <li>@(Html.ActionLink("About", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.About()))</li>
                         <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
                     </ul>
