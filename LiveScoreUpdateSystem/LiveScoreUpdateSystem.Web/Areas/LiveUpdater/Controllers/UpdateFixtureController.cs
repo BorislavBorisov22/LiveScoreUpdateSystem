@@ -52,7 +52,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(UpdateFixtureViewModel fixtureModel)
+        public ActionResult Update(Guid fixtureId, UpdateFixtureViewModel fixtureModel)
         {
             return new EmptyResult();
         }
