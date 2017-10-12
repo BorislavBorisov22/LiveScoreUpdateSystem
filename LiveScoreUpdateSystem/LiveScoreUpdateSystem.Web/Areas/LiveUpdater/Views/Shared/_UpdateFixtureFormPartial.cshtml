@@ -1,4 +1,9 @@
-﻿<div id="update-fixture-modal" class="modal fade" role="dialog">
+﻿@using LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers;
+@using LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Models;
+
+@model UpdateFixtureViewModel
+
+<div id="update-fixture-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content" id="modal-form">
             <div class="modal-header">
@@ -6,7 +11,12 @@
                 <h4 class="modal-title">Update Fixture</h4>
             </div>
             <div class="modal-body" id="modal-body">
-            </div>
+                @using (Html.BeginForm<UpdateFixtureController>(c => c.Update(null), FormMethod.Post, null, null))
+                {
+                    <div><strong>Involved Player</strong></div>
+                    @Html.DropDownListFor(m => m.PlayerId, Model.Players, new { @class="form-control"})
+                }
+           </div>
             <div class="modal-footer">
                 <button id="btn-submit-form" class="btn btn-primary" type="submit">Add</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

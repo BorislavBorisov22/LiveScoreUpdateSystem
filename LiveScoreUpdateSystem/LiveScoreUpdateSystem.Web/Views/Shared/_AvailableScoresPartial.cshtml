@@ -39,18 +39,6 @@
                                       HttpMethod = "GET",
                                   },
                                   new { @class = "btn btn-success btn-xs" }))
-                                    @(Ajax.ActionLink<UpdateFixtureController>(
-                                  "Away",
-                                  c => c.Update(fixture.AwayTeamName, fixture.Id),
-                                  null,
-                                  new AjaxOptions()
-                                  {
-                                      InsertionMode = InsertionMode.Replace,
-                                      UpdateTargetId = "update-container",
-                                      HttpMethod = "GET",
-                                  }
-                                  ,
-                                  new { @class = "btn btn-primary btn-xs" }))
                                 }
                             </td>
                             <td class="time date center">@fixture.FirstHalfStart.Value.ToString("HH:mm")</td>
@@ -67,7 +55,26 @@
                                 </div>
                             </td>
                             <td class="right">@fixture.AwayTeamName</td>
+                            <td>
+                                @if (Context.User.IsInRole(GlobalConstants.LiveUpdaterRole))
+                                {
+                                @(Ajax.ActionLink<UpdateFixtureController>(
+                                          "Away",
+                                          c => c.Update(fixture.AwayTeamName, fixture.Id),
+                                          null,
+                                          new AjaxOptions()
+                                          {
+                                              InsertionMode = InsertionMode.Replace,
+                                              UpdateTargetId = "update-container",
+                                              HttpMethod = "GET",
+                                          }
+                                          ,
+                                          new { @class = "btn btn-primary btn-xs" }))
+                                }
+                            </td>
                         </tr>
+
+                        @Html.AntiForgeryToken()
                     }
                 </tbody>
             </table>

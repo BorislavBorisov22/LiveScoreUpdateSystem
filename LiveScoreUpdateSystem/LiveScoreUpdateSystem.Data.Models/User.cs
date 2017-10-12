@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LiveScoreUpdateSystem.Data.Models
 {
-    public class User : IdentityUser, IDeletable, IAuditable
+    public class User : IdentityUser, IDeletable, IAuditable, IDataModel
     {
         public DateTime? CreatedOn { get; set; }
 
@@ -16,6 +16,8 @@ namespace LiveScoreUpdateSystem.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        Guid IDataModel.Id => throw new NotImplementedException();
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

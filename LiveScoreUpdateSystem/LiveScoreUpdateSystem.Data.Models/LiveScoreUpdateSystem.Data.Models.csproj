@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Abstraction\DataModel.cs" />
     <Compile Include="Contracts\IAuditable.cs" />
+    <Compile Include="Contracts\IDataModel.cs" />
     <Compile Include="Contracts\IDeletable.cs" />
     <Compile Include="FootballFixtures\Country.cs" />
     <Compile Include="FootballFixtures\Enums\FixtureEventType.cs" />

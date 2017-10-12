@@ -250,6 +250,8 @@
     <Compile Include="Areas\LiveUpdater\Controllers\Abstraction\LiveUpdaterController.cs" />
     <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureController.cs" />
     <Compile Include="Areas\LiveUpdater\LiveUpdaterAreaRegistration.cs" />
+    <Compile Include="Areas\LiveUpdater\Models\UpdateFixtureViewModel.cs" />
+    <Compile Include="Areas\LiveUpdater\Models\UpdatingFixturePlayerViewModel.cs" />
     <Compile Include="Controllers\Abstraction\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ScoresController.cs" />
@@ -443,7 +445,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\LiveUpdater\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

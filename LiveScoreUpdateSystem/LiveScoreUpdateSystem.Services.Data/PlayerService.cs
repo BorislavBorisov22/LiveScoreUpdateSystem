@@ -5,6 +5,7 @@ using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace LiveScoreUpdateSystem.Services.Data
 {
@@ -61,6 +62,12 @@ namespace LiveScoreUpdateSystem.Services.Data
             {
                 this.Data.Delete(targetPlayer);
             }
+        }
+
+        public IEnumerable<Player> GetAll(Guid teamId)
+        {
+            var players = this.Data.All.Where(p => p.Team.Id == teamId);
+            return players;
         }
 
         public void Update(Player updatedPlayer)
