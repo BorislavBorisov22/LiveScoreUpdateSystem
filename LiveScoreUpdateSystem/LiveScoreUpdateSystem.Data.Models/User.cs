@@ -16,8 +16,8 @@ namespace LiveScoreUpdateSystem.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
-
-        Guid IDataModel.Id => throw new NotImplementedException();
+       
+        Guid IDataModel.Id { get;  } 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
