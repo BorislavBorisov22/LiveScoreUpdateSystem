@@ -22,7 +22,6 @@
 
         <div class="matches_list_wrap">
             @(Html.Action<ScoresController>(c => c.ByDate(Model)))
-            @(Html.ActionLink<ScoresController>("ASDF", c => c.ByDate(Model)))
         </div>
     </div>
 </div>
@@ -41,6 +40,3 @@
         });
     }
 </script>
-
-@section Scripts{
-}

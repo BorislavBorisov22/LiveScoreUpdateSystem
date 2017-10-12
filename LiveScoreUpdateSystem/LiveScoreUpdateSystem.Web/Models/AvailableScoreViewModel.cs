@@ -17,8 +17,6 @@ namespace LiveScoreUpdateSystem.Web.Models
 
         public DateTime? SecondHalfStart { get; set; }
 
-        public int Minute { get; set; }
-
         public string HomeTeamName { get; set; }
 
         public string HomeTeamLogo { get; set; }

@@ -11,5 +11,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
         IEnumerable<Fixture> GetAvailableFixtures(DateTime targetDate);
 
         void Add(string homeTeamName, string awayTeamName, DateTime? startTime);
+
+        Fixture GetById(Guid id);
     }
 }

@@ -31,7 +31,7 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         public FixtureStatus Status { get; set; }
 
         [Required]
-        [Range(GlobalConstants.MinFixtureMinute, GlobalConstants.MaxFixtureMinute)]
+        [Range(GlobalConstants.MinFixtureMinute, GlobalConstants.MaxFixtureEventMinute)]
         public int Minute { get; set; }
 
         public virtual Team HomeTeam { get; set; }

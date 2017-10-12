@@ -9,5 +9,6 @@
         public const string AddFixtureForUpdate = "_AddFixtureForUpdatePartial";
         public const string AddFixtureFormPartial = "_AddFixtureFormPartial";
         public const string AvailableScoresPartial = "_AvailableScoresPartial";
+        public const string UpdateFixtureFormPartial = "_UpdateFixtureFormPartial";
     }
 }

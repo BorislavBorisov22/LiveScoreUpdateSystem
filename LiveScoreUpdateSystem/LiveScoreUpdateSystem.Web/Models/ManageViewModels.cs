@@ -5,6 +5,11 @@ using Microsoft.Owin.Security;
 
 namespace LiveScoreUpdateSystem.Web.Models
 {
+    public class ExternalLoginListViewModel
+    {
+        public string ReturnUrl { get; set; }
+    }
+
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

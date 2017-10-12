@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiveScoreUpdateSystem.Data.Models.Abstraction
 {
-    public class DataModel : IDeletable, IAuditable
+    public class DataModel : IDeletable, IAuditable, IDataModel
     {
         public DataModel()
         {

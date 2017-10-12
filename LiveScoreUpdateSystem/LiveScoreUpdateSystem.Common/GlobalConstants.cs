@@ -37,7 +37,7 @@
 
         // Fixture
         public const int MinFixtureMinute = 0;
-        public const int MaxFixtureMinute = 140;
+        public const int MaxFixtureEventMinute = 140;
 
         // Country
         public const int MinCountryNameLength = 3;

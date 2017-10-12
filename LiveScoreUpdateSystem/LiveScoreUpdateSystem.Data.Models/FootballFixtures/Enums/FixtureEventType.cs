@@ -5,6 +5,8 @@
         YellowCard,
         RedCard,
         Goal,
-        Penalty
+        Penalty,
+        FullTime,
+        HalfTime,
     }
 }
