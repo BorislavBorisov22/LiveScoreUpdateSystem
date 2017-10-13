@@ -1,0 +1,50 @@
+﻿@using LiveScoreUpdateSystem.Web.Models
+@using LiveScoreUpdateSystem.Common;
+
+<div class="container body-content">
+
+    <h1><i class="fa fa-users fa-3x" aria-hidden="true"></i>My Subscriptions</h1>
+    @(Html.Kendo()
+        .Grid<TeamSubscriptionViewModel>()
+        .Name("TeamsGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(m => m.LogoUrl).ClientTemplate(
+                     @"<div class='grid-photo'
+                        style='background-image: url(#:data.LogoUrl#);'></div>"
+                ).Width(80);
+            columns.Bound(m => m.Name);
+            columns.Bound(m => m.LeagueName).ClientTemplate(
+               @"<div class='grid-photo'
+                        style='background-image: url(#:data.LeagueCountryFlagUrl#);'></div>
+                    <div class='grid-name'>#: data.LeagueName #</div>"
+                );
+            columns.Command(command => { command.Destroy(); }).Width(250);
+        })
+        .Editable(editable =>
+        {
+            editable.Mode(GridEditMode.InLine);
+        })
+        .Scrollable()
+        .Pageable(c =>
+        {
+            c.Refresh(true);
+            c.PageSizes(true);
+        })
+        .Sortable()
+        .DataSource(source =>
+        {
+            source.Ajax()
+            .Model(m =>
+            {
+                m.Id(c => c.Id);
+                m.Field(model => model.LeagueName).Editable(false);
+            })
+            .Read(c => c.Action("ReadSubscriptions", "Subscriptions")).PageSize(GlobalConstants.GridsPageSize)
+            .Destroy(c => c.Action("RemoveSubscription", "Subscriptions"));
+            //.Update(c => c.Action("EditTeam", "TeamsGrid"));
+        })
+        .Filterable(f => f.Mode(GridFilterMode.Menu))
+        .Deferred())
+
+</div>

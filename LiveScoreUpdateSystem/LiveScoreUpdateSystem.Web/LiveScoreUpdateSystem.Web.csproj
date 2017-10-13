@@ -264,6 +264,7 @@
     <Compile Include="Controllers\ScoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubscriptionsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -284,6 +285,7 @@
     <Compile Include="Models\AvailableScoreViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ListTeamsViewModel.cs" />
+    <Compile Include="Models\TeamSubscriptionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Content Include="Content\FootballTemplate\football-template.css" />
@@ -348,6 +350,7 @@
     <Content Include="Views\Scores\AvailableScores.cshtml" />
     <Content Include="Views\Shared\_AvailableScoresPartial.cshtml" />
     <Content Include="Views\Teams\TeamsList.cshtml" />
+    <Content Include="Views\Subscriptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

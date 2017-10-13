@@ -42,7 +42,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
                 this.userService.SubscribeUserForTeamResults(this.User.Identity.Name, teamName);
             }
 
-            return this.RedirectToAction<TeamsController>(c => c.TeamsList(1,20));
+            return this.RedirectToAction<SubscriptionsController>(c => c.Index());
         }
     }
 }

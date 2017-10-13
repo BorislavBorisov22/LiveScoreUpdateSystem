@@ -22,6 +22,33 @@ namespace LiveScoreUpdateSystem.Services.Data
             this.teamsRepo = teamsRepo;
         }
 
+        public IEnumerable<Team> GetUserSubscriptions(string username)
+        {
+            var subscriptionTeams = this.teamsRepo
+                .All
+                .Where(t => t.Subscribers.Any(s => s.UserName == username));
+
+            return subscriptionTeams;
+        }
+
+        public void RemoveSubscription(string username, string teamName)
+        {
+            var targetUser = this.Data.All.FirstOrDefault(u => u.UserName == username);
+            if (targetUser == null)
+            {
+                return;
+            }
+
+            var targetTeam = this.teamsRepo.All.FirstOrDefault(t => t.Name == teamName);
+            if (targetTeam == null)
+            {
+                return;
+            }
+
+            targetTeam.Subscribers.Remove(targetUser);
+            this.teamsRepo.Update(targetTeam);
+        }
+
         public void SubscribeUserForTeamResults(string username, IEnumerable<string> teamsNames)
         {
             var subscribingUser = this.Data.All.FirstOrDefault(u => u.UserName == username);
