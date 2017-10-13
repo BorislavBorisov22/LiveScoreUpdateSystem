@@ -4,6 +4,7 @@ using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
 using LiveScoreUpdateSystem.Web.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
@@ -26,6 +27,13 @@ namespace LiveScoreUpdateSystem.Web.Controllers
                 .Map<Team, ListTeamsViewModel>();
 
             return this.View(teams); 
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult SubscribeForTeamResults(IEnumerable<string> teamName)
+        {
+            return new EmptyResult();
         }
     }
 }

@@ -2,15 +2,19 @@
 @model IEnumerable<ListTeamsViewModel>
 
 <div class="container body-content">
-    <h3><button class="btn btn-success">Sibscribe</button></h3>
     <div class="row">
-        <form method="get">
+        @using (Html.BeginForm<TeamsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
+        {
+
+            <h3><button class="btn btn-success">Sibscribe</button></h3>
+
             <div class="form-group">
                 @foreach (var team in Model)
                 {
                     <div class="col-md-2">
                         <label class="btn btn-primary">
-                            <img src="@team.LogoUrl" class="img-thumbnail img-responsive img-check logo-img"><input type="checkbox" name="name" class="hidden" autocomplete="off">
+                            <img src="@team.LogoUrl" class="img-thumbnail img-responsive img-check logo-img">
+                            <input type="checkbox" name="teamName" class="hidden" value="@team.Name" autocomplete="off">
                         </label>
                     </div>
                 }
@@ -18,9 +22,7 @@
                     <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk3" id="item4" value="val3" class="hidden" autocomplete="off"></label></div>
                     <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk4" id="item4" value="val4" class="hidden" autocomplete="off"></label></div>*@
             </div>
-
-            <br />
-        </form>
+        }
     </div>
 </div>
 

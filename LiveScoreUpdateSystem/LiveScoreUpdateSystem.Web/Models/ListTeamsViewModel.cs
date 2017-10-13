@@ -8,5 +8,7 @@ namespace LiveScoreUpdateSystem.Web.Models
         public string Name { get; set; }
 
         public string LogoUrl { get; set; }
+
+        public bool IsChecked { get; set; }
     }
 }

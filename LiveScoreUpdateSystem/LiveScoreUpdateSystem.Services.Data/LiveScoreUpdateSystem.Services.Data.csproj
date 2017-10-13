@@ -52,6 +52,7 @@
     <Compile Include="Contracts\IDataService.cs" />
     <Compile Include="Contracts\IPlayerService.cs" />
     <Compile Include="Contracts\ITeamService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="Factories\Contracts\IFixturesFactory.cs" />
     <Compile Include="Factories\FixturesFactory.cs" />
