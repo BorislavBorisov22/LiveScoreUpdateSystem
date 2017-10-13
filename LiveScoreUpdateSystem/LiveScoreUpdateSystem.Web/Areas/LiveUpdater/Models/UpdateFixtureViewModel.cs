@@ -15,6 +15,8 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Models
 
         public Guid Id { get; set; }
 
+        public string TeamName { get; set; }
+
         [Required]
         public Guid PlayerId { get; set; }
 

@@ -47,6 +47,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
                 Players = playerModels,
                 Id = fixtureId,
                 TeamId = targetTeam.Id,
+                TeamName = targetTeam.Name,
             };
 
             return this.PartialView(PartialViews.UpdateFixtureFormPartial, fixtureViewModel);

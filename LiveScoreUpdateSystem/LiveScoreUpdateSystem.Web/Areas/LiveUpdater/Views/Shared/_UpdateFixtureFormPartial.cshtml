@@ -3,9 +3,9 @@
 
 @model UpdateFixtureViewModel
 
-<div id="update-fixture-modal" class="modal fade" role="dialog">
+<div id="update-fixture-modal" data-fixture-id="@Model.Id" data-scoring-team-name="@Model.TeamName"  class="modal fade" role="dialog">
     <div class="modal-dialog">
-        @using (Html.BeginForm<UpdateFixtureController>(c => c.Update(Model.Id, null), FormMethod.Post, null, null))
+        @using (Html.BeginForm<UpdateFixtureController>(c => c.Update(Model.Id, null), FormMethod.Post, null, new { id="update-fixture-id"}))
         {
             <div data-team-name="" class="modal-content" id="modal-form">
                 <div class="modal-header">
@@ -13,7 +13,6 @@
                     <h4 class="modal-title">Update Fixture</h4>
                 </div>
                 <div class="modal-body" id="modal-body">
-
                     <div><strong>Involved Player</strong></div>
                     @Html.DropDownListFor(m => m.PlayerId, Model.Players, new { @class = "form-control" })
 
@@ -26,10 +25,9 @@
                     @Html.EditorFor(m => m.Minute, new { htmlAttributes = new { @class = "form-control", type = "number" } })
 
                     @Html.AntiForgeryToken()
-
                 </div>
                 <div class="modal-footer">
-                    <button id="btn-submit-form" class="btn btn-primary" type="submit">Add</button>
+                    <button id="btn-submit-form" class="btn btn-primary btn-update-fixture" type="button">Add</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>

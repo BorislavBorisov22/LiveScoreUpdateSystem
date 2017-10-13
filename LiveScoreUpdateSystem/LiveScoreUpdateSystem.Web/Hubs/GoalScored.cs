@@ -1,20 +1,16 @@
-﻿using LiveScoreUpdateSystem.Services.Data.Contracts;
+﻿using Bytes2you.Validation;
 using Microsoft.AspNet.SignalR;
 
 namespace LiveScoreUpdateSystem.Web.Hubs
 {
     public class GoalScored : Hub
     {
-        private readonly IFixtureService fixtureService;
-
-        public GoalScored(IFixtureService fixtureService)
+        public void NotifyGoalScored(string fixtureId, string scoringTeamName)
         {
-            this.fixtureService = fixtureService;
-        }
+            Guard.WhenArgument(fixtureId, "fixtureId").IsNull().Throw();
+            Guard.WhenArgument(scoringTeamName, "scoringTeamName").IsNull().Throw();
 
-        public void NotifyGoalScored(string message)
-        {
-            this.Clients.All.recieveGoalNotification();
+            this.Clients.Others.recieveGoalNotification(fixtureId, scoringTeamName);
         }
     }
 }

@@ -24,9 +24,10 @@
                 <tbody>
                     @foreach (var fixture in group)
                     {
-                        <tr class="fixture" data-fixture-status="@fixture.Status"
+                        <tr class="fixture @fixture.Id" data-fixture-status="@fixture.Status"
                             data-fixture-first-half-start="@fixture.FirstHalfStart"
-                            data-fixture-second-half-start="@fixture.SecondHalfStart">
+                            data-fixture-second-half-start="@fixture.SecondHalfStart"
+                            id="@fixture.Id">
                             <td class="checkbox">
                                 @if (Request.IsAuthenticated && Context.User.IsInRole(GlobalConstants.LiveUpdaterRole))
                                 {
@@ -54,7 +55,10 @@
                                     <img src="@fixture.HomeTeamLogo">
                                 </div>
                             </td>
-                            <td id="socket_match_score_1806826" class="center">@fixture.ScoreHomeTeam:@fixture.ScoreAwayTeam</td>
+                            <td id="socket_match_score_1806826" class="center">
+                                <span class="@fixture.HomeTeamName">@fixture.ScoreHomeTeam</span>
+                                <span class="@fixture.AwayTeamName">@fixture.ScoreAwayTeam</span>
+                            </td>
                             <td class="img_wrap">
                                 <div>
                                     <img src="@fixture.AwayTeamLogo">
@@ -73,8 +77,7 @@
                                               InsertionMode = InsertionMode.Replace,
                                               UpdateTargetId = "update-container",
                                               HttpMethod = "GET",
-                                          }
-                                          ,
+                                          },
                                           new { @class = "btn btn-primary btn-xs" }))
                                 }
                             </td>
