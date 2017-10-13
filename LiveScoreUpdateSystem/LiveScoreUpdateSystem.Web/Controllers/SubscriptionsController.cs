@@ -7,8 +7,10 @@ using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
 using LiveScoreUpdateSystem.Web.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
@@ -27,6 +29,18 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         public ActionResult Index()
         {
             return this.View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult SubscribeForTeamResults(IEnumerable<string> teamName)
+        {
+            if (teamName != null)
+            {
+                this.userService.SubscribeUserForTeamResults(this.User.Identity.Name, teamName);
+            }
+
+            return this.RedirectToAction<SubscriptionsController>(c => c.Index());
         }
 
         [AjaxOnly]

@@ -32,17 +32,5 @@ namespace LiveScoreUpdateSystem.Web.Controllers
 
             return this.View(teams); 
         }
-
-        [HttpPost]
-        [Authorize]
-        public ActionResult SubscribeForTeamResults(IEnumerable<string> teamName)
-        {
-            if (teamName != null)
-            {
-                this.userService.SubscribeUserForTeamResults(this.User.Identity.Name, teamName);
-            }
-
-            return this.RedirectToAction<SubscriptionsController>(c => c.Index());
-        }
     }
 }

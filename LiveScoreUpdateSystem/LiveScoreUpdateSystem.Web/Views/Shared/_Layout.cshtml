@@ -36,7 +36,7 @@
                 <div class="logo">
                     <a href="@(Url.Action<LiveScoreUpdateSystem.Web.Controllers.HomeController>(c => c.Index()))">
                         <img src="~/Content/Images/log.png" alt=" " />
-                        <img id="app-logo" src="~/Content/images/app-logo.png"/>
+                        <img id="app-logo" src="~/Content/images/app-logo.png" />
                     </a>
                 </div>
                 <div class="top-nav">
@@ -45,6 +45,10 @@
                         <li>@(Html.ActionLink("Home", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Index()))</li>
                         <li>@(Html.ActionLink("Scores", (LiveScoreUpdateSystem.Web.Controllers.ScoresController c) => c.AvailableScores()))</li>
                         <li>@(Html.ActionLink("Teams", (LiveScoreUpdateSystem.Web.Controllers.TeamsController c) => c.TeamsList(1, 20)))</li>
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li>@(Html.ActionLink("Subscriptions", (LiveScoreUpdateSystem.Web.Controllers.SubscriptionsController c) => c.Index()))</li>
+                        }
                         <li>@(Html.ActionLink("About", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.About()))</li>
                         <li>@(Html.ActionLink("Contact", (LiveScoreUpdateSystem.Web.Controllers.HomeController c) => c.Contact()))</li>
                     </ul>

@@ -3,7 +3,7 @@
 
 <div class="container body-content">
     <div class="row">
-        @using (Html.BeginForm<TeamsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
+        @using (Html.BeginForm<SubscriptionsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
         {
 
             <h3><button class="btn btn-success">Sibscribe</button></h3>
