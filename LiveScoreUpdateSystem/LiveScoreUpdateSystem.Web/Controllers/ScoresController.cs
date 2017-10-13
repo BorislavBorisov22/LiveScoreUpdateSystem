@@ -44,5 +44,10 @@ namespace LiveScoreUpdateSystem.Web.Controllers
 
             return this.PartialView(PartialViews.AvailableScoresPartial, availableScores);
         }
+
+        public ActionResult ScoreDetails(Guid fixtureId)
+        {
+            return this.View();
+        }
     }
 }
