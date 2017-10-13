@@ -18,6 +18,8 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
 
         public virtual ICollection<Player> Players { get; set; }
 
+        public virtual ICollection<User> Subscribers { get; set; }
+
         public virtual League League { get; set; }
     }
 }
