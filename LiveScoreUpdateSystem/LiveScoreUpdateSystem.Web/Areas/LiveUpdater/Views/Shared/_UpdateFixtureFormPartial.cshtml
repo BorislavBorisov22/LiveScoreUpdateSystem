@@ -5,9 +5,9 @@
 
 <div id="update-fixture-modal" data-fixture-id="@Model.Id" data-scoring-team-name="@Model.TeamName"  class="modal fade" role="dialog">
     <div class="modal-dialog">
-        @using (Html.BeginForm<UpdateFixtureController>(c => c.Update(Model.Id, null), FormMethod.Post, null, new { id="update-fixture-id"}))
+        @using (Html.BeginForm<UpdateFixtureController>(c => c.UpdateFixtureEvent(Model.Id, null), FormMethod.Post, null, new { id="update-fixture-id"}))
         {
-            <div data-team-name="" class="modal-content" id="modal-form">
+            <div class="modal-content" id="modal-form">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Update Fixture</h4>

@@ -1,8 +1,7 @@
 namespace LiveScoreUpdateSystem.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddedScoreAtTheTimeOfEventPropertryToFixtureEventModel : DbMigration
     {
         public override void Up()

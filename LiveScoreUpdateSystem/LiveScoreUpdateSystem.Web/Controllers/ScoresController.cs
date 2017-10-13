@@ -30,7 +30,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult ByDate(DateTime date = default(DateTime))
+        public ActionResult ByDate(DateTime date)
         {
             var targetDate = date == default(DateTime) ?
                 TimeProvider.CurrentProvider.CurrentDate :

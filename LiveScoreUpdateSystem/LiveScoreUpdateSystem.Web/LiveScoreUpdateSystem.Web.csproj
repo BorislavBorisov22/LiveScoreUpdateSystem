@@ -256,6 +256,7 @@
     <Compile Include="Areas\LiveUpdater\Controllers\Abstraction\LiveUpdaterController.cs" />
     <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureController.cs" />
     <Compile Include="Areas\LiveUpdater\LiveUpdaterAreaRegistration.cs" />
+    <Compile Include="Areas\LiveUpdater\Models\UpdateFixtureStatusViewModel.cs" />
     <Compile Include="Areas\LiveUpdater\Models\UpdateFixtureViewModel.cs" />
     <Compile Include="Areas\LiveUpdater\Models\UpdatingFixturePlayerViewModel.cs" />
     <Compile Include="Controllers\Abstraction\BaseController.cs" />
@@ -405,6 +406,7 @@
     <Content Include="Areas\Admin\Views\Shared\_AddFixtureFormPartial.cshtml" />
     <Content Include="Areas\LiveUpdater\Views\web.config" />
     <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureFormPartial.cshtml" />
+    <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureStatusPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

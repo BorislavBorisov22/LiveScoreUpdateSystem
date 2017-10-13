@@ -34,7 +34,7 @@
                                 {
                                     @(Ajax.ActionLink<UpdateFixtureController>(
                                   "Home",
-                                  c => c.Update(fixture.HomeTeamName, fixture.Id),
+                                  c => c.UpdateFixtureEvent(fixture.HomeTeamName, fixture.Id),
                                   null,
                                   new AjaxOptions()
                                   {
@@ -82,7 +82,7 @@
                                 {
                                     @(Ajax.ActionLink<UpdateFixtureController>(
                                           "Away",
-                                          c => c.Update(fixture.AwayTeamName, fixture.Id),
+                                          c => c.UpdateFixtureEvent(fixture.AwayTeamName, fixture.Id),
                                           null,
                                           new AjaxOptions()
                                           {
@@ -90,7 +90,19 @@
                                               UpdateTargetId = "update-container",
                                               HttpMethod = "GET",
                                           },
-                                          new { @class = "btn btn-primary btn-xs" }))
+                                          new { @class = "btn btn-primary btn-xs" })) 
+
+                                    @(Ajax.ActionLink<UpdateFixtureController>(
+                                  "Status",
+                                  c => c.UpdateFixtureStatus(fixture.Id),
+                                  null,
+                                  new AjaxOptions()
+                                  {
+                                      InsertionMode = InsertionMode.Replace,
+                                      UpdateTargetId = "update-container",
+                                      HttpMethod = "GET",
+                                  },
+                                  new { @class = "btn btn-warning btn-xs" }))
                                 }
                                 else
                                 {

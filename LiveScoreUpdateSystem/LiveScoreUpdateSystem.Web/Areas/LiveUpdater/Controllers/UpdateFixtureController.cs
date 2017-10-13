@@ -30,7 +30,36 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Update(string teamName, Guid fixtureId)
+        public ActionResult UpdateFixtureStatus(Guid fixtureId)
+
+        {
+            var fixtureToUpdate = new UpdateFixtureStatusViewModel() { Id = fixtureId };
+
+            return this.PartialView(PartialViews.UpdateFixtureStatusPartial, fixtureToUpdate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateFixtureStatus(Guid fixtureId, UpdateFixtureStatusViewModel model)
+        {
+            this.fixtureService.AddFixtureStatus(fixtureId, model.Status);
+            return this.RedirectToAction<ScoresController>(c => c.AvailableScores());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateFixtureEvent(Guid fixtureId, UpdateFixtureViewModel fixtureModel)
+        {
+            this.fixtureService
+                .AddFixtureEvent(fixtureId, fixtureModel.FixtureEvent, fixtureModel.Minute, fixtureModel.PlayerId);
+
+            this.TempData[GlobalConstants.SuccessMessage] = "Fixture has been updated!";
+            return this.RedirectToAction<ScoresController>(c => c.AvailableScores());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult UpdateFixtureEvent(string teamName, Guid fixtureId)
         {
             var targetFixture = this.fixtureService.GetById(fixtureId);
             var targetTeam = targetFixture.HomeTeam.Name == teamName ?
@@ -51,17 +80,6 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
             };
 
             return this.PartialView(PartialViews.UpdateFixtureFormPartial, fixtureViewModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Update(Guid fixtureId, UpdateFixtureViewModel fixtureModel)
-        {
-            this.fixtureService
-                .AddFixtureEvent(fixtureId, fixtureModel.FixtureEvent, fixtureModel.Minute, fixtureModel.PlayerId);
-
-            this.TempData[GlobalConstants.SuccessMessage] = "Fixture has been updated!";
-            return this.RedirectToAction<ScoresController>(c => c.AvailableScores());
         }
     }
 }

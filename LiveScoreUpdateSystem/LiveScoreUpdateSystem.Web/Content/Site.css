@@ -10,7 +10,7 @@ body {
 
 .home-score-btn {
     position: absolute;
-    left: 5%;
+    left: 10%;
     bottom: 1%;
 }
 
@@ -713,8 +713,8 @@ table.matches_table tr {
     }
 
         table.matches_table td.checkbox {
-            padding: 7px 12px 7px 16px;
-            width: 21px;
+            padding: 7px 7px 7px 16px;
+            width: 40px;
         }
 
         table.matches_table td.img_wrap {
@@ -731,7 +731,6 @@ table.matches_table tr {
             table.matches_table td.img_wrap div {
                 border: transparent;
             }
-
                 table.matches_table td.img_wrap div img {
                     position: absolute;
                     top: 50%;
