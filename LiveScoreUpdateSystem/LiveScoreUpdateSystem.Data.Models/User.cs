@@ -11,12 +11,6 @@ namespace LiveScoreUpdateSystem.Data.Models
 {
     public class User : IdentityUser, IDeletable, IAuditable, IDataModel
     {
-        public User()
-            : base()
-        {
-            this.Subscriptions = new HashSet<Team>();
-        }
-
         public DateTime? CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

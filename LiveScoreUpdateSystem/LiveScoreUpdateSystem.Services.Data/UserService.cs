@@ -14,7 +14,7 @@ namespace LiveScoreUpdateSystem.Services.Data
     {
         private readonly IEfRepository<Team> teamsRepo;
 
-        public UserService(IEfRepository<User> dataSet, IEfRepository<Team> teamsRepo) 
+        public UserService(IEfRepository<User> dataSet, IEfRepository<Team> teamsRepo)
             : base(dataSet)
         {
             Guard.WhenArgument(teamsRepo, "teamsRepo").IsNull().Throw();
@@ -24,18 +24,24 @@ namespace LiveScoreUpdateSystem.Services.Data
 
         public void SubscribeUserForTeamResults(string username, IEnumerable<string> teamsNames)
         {
-            var subscriptionTeams = this.teamsRepo.All.Where(t => teamsNames.Any(tn => tn == t.Name));
             var subscribingUser = this.Data.All.FirstOrDefault(u => u.UserName == username);
-            
-            if(subscribingUser != null)
+            if (subscribingUser == null)
             {
-                foreach (var teamSubscribingTo in subscriptionTeams)
-                {
-                    subscribingUser.Subscriptions.Add(teamSubscribingTo);
-                }
+                return;
             }
 
-            this.Data.Update(subscribingUser);
+            var subscriptionTeams = this.teamsRepo
+                .All
+                .Where(t => teamsNames.Any(tn => tn == t.Name) &&
+                            !t.Subscribers.Any(s => s.UserName == subscribingUser.UserName))
+            .ToList();
+
+            foreach (var teamSubscribingTo in subscriptionTeams)
+            {
+
+                teamSubscribingTo.Subscribers.Add(subscribingUser);
+                this.teamsRepo.Update(teamSubscribingTo);
+            }
         }
     }
 }
