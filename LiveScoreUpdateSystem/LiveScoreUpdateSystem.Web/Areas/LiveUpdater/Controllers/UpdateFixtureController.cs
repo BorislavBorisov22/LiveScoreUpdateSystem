@@ -4,6 +4,8 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers.Abstraction;
 using LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Models;
+using LiveScoreUpdateSystem.Web.Controllers;
+using System.Web.Mvc.Expressions;
 using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
 using System;
@@ -54,7 +56,11 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update(Guid fixtureId, UpdateFixtureViewModel fixtureModel)
         {
-            return new EmptyResult();
+            this.fixtureService
+                .Update(fixtureId, fixtureModel.FixtureEvent, fixtureModel.Minute, fixtureModel.PlayerId);
+
+            this.TempData[GlobalConstants.SuccessMessage] = "Fixture has been updated!";
+            return this.RedirectToAction<ScoresController>(c => c.AvailableScores());
         }
     }
 }

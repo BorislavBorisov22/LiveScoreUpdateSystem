@@ -2,11 +2,12 @@
 using LiveScoreUpdateSystem.Web.Infrastructure.Contracts;
 using System;
 using AutoMapper;
+using LiveScoreUpdateSystem.Data.Models.FootballFixtures.Enums;
 
 namespace LiveScoreUpdateSystem.Web.Models
 {
     public class AvailableScoreViewModel : IMap<Fixture>, ICustomMapping
-    {
+    { 
         public Guid Id { get; set; }
 
         public int ScoreHomeTeam { get; set; }
@@ -30,6 +31,8 @@ namespace LiveScoreUpdateSystem.Web.Models
         public string CountryFlagUrl { get; set; }
 
         public string LeagueName { get; set; }
+
+        public FixtureStatus Status { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {

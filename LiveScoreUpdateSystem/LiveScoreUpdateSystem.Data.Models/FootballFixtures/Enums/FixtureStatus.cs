@@ -2,8 +2,7 @@
 {
     public enum FixtureStatus
     {
-        Active,
-        Over,
+        FullTime,
         FirstHalf,
         SecondHalf,
         Pending

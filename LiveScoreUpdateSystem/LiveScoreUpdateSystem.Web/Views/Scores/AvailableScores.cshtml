@@ -9,14 +9,16 @@
                       .Kendo()
                       .DatePicker()
                       .Name("ScoresDate")
-                      .Events(ev =>
-                      {
-                          ev.Change("dateChanged");
-                      })
+                      .Deferred()
                       .HtmlAttributes(new { id = "scores-date", value = Model })
-                      .Format("dd/mm/yyyy")
-                      .Deferred())
+                      .Format("dd/mm/yyyy"))
                 </span>
+                @*@(Html.Kendo()
+                    .DatePicker()
+                    .Name("DatePicker")
+                    .Deferred()
+                    .HtmlAttributes(new { value = DateTime.Now })
+                    .Format("dd/mm/yyyy"));*@
             </div>
         </div>
 
@@ -26,17 +28,76 @@
     </div>
 </div>
 
-<script>
-    const dateChanged = (ev) => {
-        const value = ev.sender.element.context.attributes.value.value;
+@section Scripts{
 
-        const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
-        const dateEncoded = encodeURI(date);
-        const url = `/scores/bydate?date=${dateEncoded}`
+    <script>
+        $('#scores-date').on('change', (ev) => {
+            const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
+            const dateEncoded = encodeURI(date);
 
-        $.get(url, (dataHtml) => {
-            $('.matches_list_wrap').html(dataHtml);
-            $('#scores-date').val(date);
+            const url = `/scores/bydate?date=${dateEncoded}`
+            console.log(url);
+
+            $.get(url, (dataHtml) => {
+                $('.matches_list_wrap').html(dataHtml);
+                $('#scores-date').val(date);
+            });
         });
-    }
-</script>
+    //const dateChanged = (ev) => {
+    //    // const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
+    //    const dateEncoded = encodeURI(date);
+    //    const url = `/scores/bydate?date=${dateEncoded}`
+
+    //    $.get(url, (dataHtml) => {
+    //        $('.matches_list_wrap').html(dataHtml);
+    //        $('#scores-date').val(date);
+    //    });
+    </script>
+    <script>
+        $(() => {
+            function blinker($element) {
+                $($element).fadeOut("slow");
+                $($element).fadeIn("slow");
+            }
+          
+            blinker('.timer-container');
+
+            $('.fixture').each((_, el) => {
+                const $element = $(el);
+                const $timeContainer = $element.find('.time-container');
+
+                const gameStatus = $element.attr('data-fixture-status');
+
+                let timeOffset = 0;
+                if (gameStatus === 'FullTime') {
+                    $timeContainer.html('FT');
+                } else if (gameStatus === 'HalfTime') {
+                    $timeContainer.html('HT');
+                } else if (gameStatus === "FirstHalf" || gameStatus === "SecondHalf") {
+                    timeOffset = gameStatus === "SecondHalf" ? 45 : 0;
+
+                    const currentDate = new Date();
+                    const halfTimeStartString = gameStatus === 'SecondHalf' ?
+                        $element.attr('data-fixture-second-half-start') :
+                        $element.attr('data-fixture-first-half-start');
+
+                    const halfTimeDate = new Date(halfTimeStartString);
+                    const diffInMinutes = Math.ceil(Math.abs(new Date() - halfTimeDate) / 60000);
+
+                    let timer = timeOffset + diffInMinutes;
+                    $timeContainer.html(timer);
+                    setInterval(() => {
+                        timer += 1;
+                        $timeContainer.html(timer);
+                        blinker('.timer-container');
+                    }, 10000)
+
+                    setInterval(() => {
+                        blinker($timeContainer);
+                    }, 3000);
+                }
+            });
+        })
+    </script>
+
+}

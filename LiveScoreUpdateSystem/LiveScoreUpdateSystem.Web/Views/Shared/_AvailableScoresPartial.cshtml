@@ -4,7 +4,7 @@
 
 @model  IEnumerable<IGrouping<string, AvailableScoreViewModel>>
 
-<ul class="matches_list matches_list_fix matches_list_today_fix">
+<ul class="matches_list matches_list_fix matches_list_today_fix col-md-12">
     @foreach (var group in Model)
             {
         <li>
@@ -24,7 +24,9 @@
                 <tbody>
                     @foreach (var fixture in group)
                     {
-                        <tr data-fixture-id="@fixture.Id">
+                        <tr class="fixture" data-fixture-status="@fixture.Status"
+                            data-fixture-first-half-start="@fixture.FirstHalfStart"
+                            data-fixture-second-half-start="@fixture.SecondHalfStart">
                             <td class="checkbox">
                                 @if (Request.IsAuthenticated && Context.User.IsInRole(GlobalConstants.LiveUpdaterRole))
                                 {
@@ -38,10 +40,14 @@
                                       UpdateTargetId = "update-container",
                                       HttpMethod = "GET",
                                   },
-                                  new { @class = "btn btn-success btn-xs" }))
+                                  new { @class = "btn btn-success btn-xs  home-score-btn" }))
                                 }
                             </td>
-                            <td class="time date center">@fixture.FirstHalfStart.Value.ToString("HH:mm")</td>
+                            <td class="time date center">
+                                <span class="time-container badge">
+                                    @fixture.FirstHalfStart.Value.ToString("HH:mm")
+                                </span>
+                            </td>
                             <td class="left">@fixture.HomeTeamName</td>
                             <td class="img_wrap">
                                 <div>
@@ -58,7 +64,7 @@
                             <td>
                                 @if (Context.User.IsInRole(GlobalConstants.LiveUpdaterRole))
                                 {
-                                @(Ajax.ActionLink<UpdateFixtureController>(
+                                    @(Ajax.ActionLink<UpdateFixtureController>(
                                           "Away",
                                           c => c.Update(fixture.AwayTeamName, fixture.Id),
                                           null,
@@ -73,8 +79,6 @@
                                 }
                             </td>
                         </tr>
-
-                        @Html.AntiForgeryToken()
                     }
                 </tbody>
             </table>

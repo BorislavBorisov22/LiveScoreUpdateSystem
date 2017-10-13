@@ -8,5 +8,7 @@
         Penalty,
         FullTime,
         HalfTime,
+        SecondHalfStart,
+        FirstHalfStart,
     }
 }
