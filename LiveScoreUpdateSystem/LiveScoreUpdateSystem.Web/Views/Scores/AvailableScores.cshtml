@@ -29,33 +29,7 @@
 </div>
 
 @section Scripts{
-    <script>
-        $('#scores-date').on('change', (ev) => {
-            const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
-            const dateEncoded = encodeURI(date);
-
-            const url = `/scores/bydate?date=${dateEncoded}`
-            console.log(url);
-
-            $.get(url, (dataHtml) => {
-                $('.matches_list_wrap').html(dataHtml);
-                $('#scores-date').val(date);
-            });
-        });
-    //const dateChanged = (ev) => {
-    //    // const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
-    //    const dateEncoded = encodeURI(date);
-    //    const url = `/scores/bydate?date=${dateEncoded}`
-
-    //    $.get(url, (dataHtml) => {
-    //        $('.matches_list_wrap').html(dataHtml);
-    //        $('#scores-date').val(date);
-    //    });
-    </script>
-    <script>
-
-    </script>
-
+    <script src="@Url.Content("/Scripts/LiveScore/scores-by-date.js")"></script>
     @Scripts.Render("~/bundles/signalR");
     <script src="/signalr/hubs"></script>
     <script src="@Url.Content("~/Scripts/LiveScore/scores-timer.js")"></script>

@@ -1,5 +1,4 @@
 ﻿$(() => {
-    console.log('hubaaaaaaaaaaa bubaaaaaa');
     $.connection.hub.start();
     const goalScored = $.connection.goalScored;
 
