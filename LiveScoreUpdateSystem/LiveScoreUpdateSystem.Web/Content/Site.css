@@ -8,10 +8,25 @@ body {
     padding-right: 15px;
 }
 
+.logo-img {
+    height: 150px;
+    width: 120px;
+}
+
+.check {
+    opacity: 0.5;
+    color: #996;
+}
+
 .home-score-btn {
     position: absolute;
     left: 10%;
     bottom: 1%;
+}
+
+.team-logo {
+    width: 20%;
+    height: 20%;
 }
 
 #app-logo {

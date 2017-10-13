@@ -1,0 +1,38 @@
+﻿@using LiveScoreUpdateSystem.Web.Models;
+@model IEnumerable<ListTeamsViewModel>
+
+<div class="container body-content">
+    <h3><button class="btn btn-success">Sibscribe</button></h3>
+    <div class="row">
+        <form method="get">
+            <div class="form-group">
+                @foreach (var team in Model)
+                {
+                    <div class="col-md-2">
+                        <label class="btn btn-primary">
+                            <img src="@team.LogoUrl" class="img-thumbnail img-responsive img-check logo-img"><input type="checkbox" name="name" class="hidden" autocomplete="off">
+                        </label>
+                    </div>
+                }
+                @*<div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk2" id="item4" value="val2" class="hidden" autocomplete="off"></label></div>
+                    <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk3" id="item4" value="val3" class="hidden" autocomplete="off"></label></div>
+                    <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk4" id="item4" value="val4" class="hidden" autocomplete="off"></label></div>*@
+            </div>
+
+            <br />
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function (e) {
+            $(".img-check").click(function () {
+                $(this).toggleClass("check");
+            });
+        });
+
+        toastr.info("This will enable you to recieve an email after each game the selected team has player",
+            "Select a team by clicking in it's logo and confirm with the subscribe button");
+    </script>
+}
