@@ -18,6 +18,9 @@ namespace LiveScoreUpdateSystem.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalR").Include(
+                       "~/Scripts/jquery.signalR*"));
+
             bundles.Add(new ScriptBundle("~/bundles/template").Include(
                     "~/Scripts/FootballTemplate/responsiveslides.min.js",
                     "~/Scripts/toastr.min.js"

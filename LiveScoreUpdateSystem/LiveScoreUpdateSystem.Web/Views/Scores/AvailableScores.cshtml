@@ -26,10 +26,16 @@
             @(Html.Action<ScoresController>(c => c.ByDate(Model)))
         </div>
     </div>
+
+    <div>
+        <input id="messageInput" class="form-control" />
+        <button id="chatButton" class="btn btn-success">Add</button>
+        <div id="messagesDiv">
+        </div>
+    </div>
 </div>
 
 @section Scripts{
-
     <script>
         $('#scores-date').on('change', (ev) => {
             const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
@@ -96,7 +102,7 @@
                       
                         $timeContainer.html(timer);
                         blinker('.timer-container');
-                    }, 10000)
+                    }, 100000)
 
                     setInterval(() => {
                         blinker($timeContainer);
@@ -105,5 +111,21 @@
             });
         })
     </script>
+   
+    @Scripts.Render("~/bundles/signalR");
+    <script src="/signalr/hubs"></script>
+    <script>
+        $(() => {
+            $.connection.hub.start();
 
+            const chat = $.connection.goalScored;
+            chat.client.recieveMessage = (msg) => {
+                $('#messagesDiv').append(msg + '<br/>');
+            };
+
+            $('#chatButton').on('click', () => {
+                chat.server.sendMessage($('#messageInput').val());
+            });
+        })
+    </script>
 }

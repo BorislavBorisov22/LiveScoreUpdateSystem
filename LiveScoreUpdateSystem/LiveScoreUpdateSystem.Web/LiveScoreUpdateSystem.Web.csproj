@@ -266,6 +266,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\GoalScored.cs" />
     <Compile Include="Infrastructure\Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeAdminAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeLiveUpdaterAttribute.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Infrastructure\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Infrastructure\Filters\SaveChangesFilter.cs" />
     <Compile Include="Infrastructure\Providers\Contracts\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\Providers\NinjectSinglaRDepndencyResolver.cs" />
     <Compile Include="Infrastructure\Providers\ServiceLocator.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AvailableScoreViewModel.cs" />

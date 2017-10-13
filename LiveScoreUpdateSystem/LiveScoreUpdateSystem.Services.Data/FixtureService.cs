@@ -72,11 +72,23 @@ namespace LiveScoreUpdateSystem.Services.Data
         {
             var targetFixture = this.GetById(fixtureId);
             var targetPlayer = this.playersRepo.All.FirstOrDefault(p => p.Id == playerId);
+            var isHomeTeamScoring = targetFixture.HomeTeam.Players.Any(p => p.Id == playerId);
 
             var fixtureEvent = this.fixturesFactory.GetFixtureEvent(fixtureEventType, minute, targetPlayer);
             targetFixture.FixtureEvents.Add(fixtureEvent);
 
-            if (fixtureEventType == FixtureEventType.HalfTime)
+            if (fixtureEventType == FixtureEventType.Goal)
+            {
+                if (isHomeTeamScoring)
+                {
+                    targetFixture.ScoreHomeTeam += 1;
+                }
+                else
+                {
+                    targetFixture.ScoreAwayTeam += 1;
+                }
+            }
+            else if (fixtureEventType == FixtureEventType.HalfTime)
             {
                 targetFixture.Status = FixtureStatus.FirstHalf;
             }
