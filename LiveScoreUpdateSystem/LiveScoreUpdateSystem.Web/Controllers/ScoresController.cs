@@ -4,11 +4,9 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Services.Common;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
-using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Infrastructure.Extensions;
 using LiveScoreUpdateSystem.Web.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
