@@ -15,6 +15,6 @@ namespace LiveScoreUpdateSystem.Services.Data.Contracts
 
         void Add(string homeTeamName, string awayTeamName, DateTime? startTime);
 
-        void Update(Guid fixtureId, FixtureEventType fixtureEventType, int minute, Guid playerId);
+        void AddFixtureEvent(Guid fixtureId, FixtureEventType fixtureEventType, int minute, Guid playerId);
     }
 }

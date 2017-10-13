@@ -58,7 +58,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers
         public ActionResult Update(Guid fixtureId, UpdateFixtureViewModel fixtureModel)
         {
             this.fixtureService
-                .Update(fixtureId, fixtureModel.FixtureEvent, fixtureModel.Minute, fixtureModel.PlayerId);
+                .AddFixtureEvent(fixtureId, fixtureModel.FixtureEvent, fixtureModel.Minute, fixtureModel.PlayerId);
 
             this.TempData[GlobalConstants.SuccessMessage] = "Fixture has been updated!";
             return this.RedirectToAction<ScoresController>(c => c.AvailableScores());

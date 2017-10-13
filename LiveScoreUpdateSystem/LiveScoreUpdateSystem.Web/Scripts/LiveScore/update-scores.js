@@ -4,7 +4,7 @@
 
     $('.matches_list_wrap').on('click', '.btn-update-fixture', (ev) => {
         const eventType = $('#FixtureEvent').val();
-        if (eventType == 2) {
+        if (eventType === 2) {
             const $updateModal = $('#update-fixture-modal');
             const updatedFixtureId = $updateModal.attr('data-fixture-id');
             const scoringTeamName = $updateModal.attr('data-scoring-team-name');

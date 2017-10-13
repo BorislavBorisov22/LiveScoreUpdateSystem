@@ -5,6 +5,7 @@
         FullTime,
         FirstHalf,
         SecondHalf,
+        HalfTime,
         Pending
     }
 }

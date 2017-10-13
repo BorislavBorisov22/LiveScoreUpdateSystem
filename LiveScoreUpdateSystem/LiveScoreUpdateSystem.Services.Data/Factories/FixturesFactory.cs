@@ -17,8 +17,6 @@ namespace LiveScoreUpdateSystem.Services.Data.Factories
                 HomeTeam = homeTeam,
                 AwayTeam = awayTeam,
                 FirstHalfStart = startingTime,
-                HomeTeamStartingPlayers = homeTeam.Players.Take(StartingPlayersCount).ToList(),
-                AwayTeamStartingPlayers = awayTeam.Players.Take(StartingPlayersCount).ToList(),
             };
         }
 

@@ -1,6 +1,6 @@
 ﻿/* Set padding to keep content from hitting the edges */
-body{
-    overflow-x:hidden;
+body {
+    overflow-x: hidden;
 }
 
 .body-content {
@@ -9,8 +9,8 @@ body{
 }
 
 .home-score-btn {
-    position:absolute;
-    left: 5%;   
+    position: absolute;
+    left: 5%;
     bottom: 1%;
 }
 

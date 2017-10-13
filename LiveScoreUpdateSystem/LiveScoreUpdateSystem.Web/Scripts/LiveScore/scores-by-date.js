@@ -2,7 +2,7 @@
     const date = kendo.toString($("#scores-date").data("kendoDatePicker").value(), 'd');
     const dateEncoded = encodeURI(date);
 
-    const url = `/scores/bydate?date=${dateEncoded}`
+    const url = `/scores/bydate?date=${dateEncoded}`;
 
     $.get(url, (dataHtml) => {
         $('.matches_list_wrap').html(dataHtml);

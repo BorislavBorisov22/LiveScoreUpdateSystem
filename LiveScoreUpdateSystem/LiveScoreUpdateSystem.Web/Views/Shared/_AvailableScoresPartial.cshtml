@@ -1,6 +1,7 @@
 ﻿@using LiveScoreUpdateSystem.Web.Models;
 @using LiveScoreUpdateSystem.Common;
 @using LiveScoreUpdateSystem.Web.Areas.LiveUpdater.Controllers;
+@using LiveScoreUpdateSystem.Data.Models.FootballFixtures.Enums
 
 @model  IEnumerable<IGrouping<string, AvailableScoreViewModel>>
 
@@ -43,11 +44,22 @@
                                   },
                                   new { @class = "btn btn-success btn-xs  home-score-btn" }))
                                 }
+                                else
+                                {
+                                    <button class="btn btn-success btn-xs home-score-btn">Home</button>
+                                }
                             </td>
                             <td class="time date center">
-                                <span class="time-container badge">
+                                @if (fixture.Status == FixtureStatus.Pending)
+                                {
                                     @fixture.FirstHalfStart.Value.ToString("HH:mm")
-                                </span>
+                                }
+                                else
+                                {
+                                    <span class="time-container badge">
+                                        @fixture.FirstHalfStart.Value.ToString("HH:mm")
+                                    </span>
+                                }
                             </td>
                             <td class="left">@fixture.HomeTeamName</td>
                             <td class="img_wrap">
@@ -79,6 +91,10 @@
                                               HttpMethod = "GET",
                                           },
                                           new { @class = "btn btn-primary btn-xs" }))
+                                }
+                                else
+                                {
+                                    <button class="btn btn-primary btn-xs">Away</button>
                                 }
                             </td>
                         </tr>

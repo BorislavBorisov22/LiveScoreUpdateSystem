@@ -6,9 +6,5 @@
         RedCard,
         Goal,
         Penalty,
-        FullTime,
-        HalfTime,
-        SecondHalfStart,
-        FirstHalfStart,
     }
 }

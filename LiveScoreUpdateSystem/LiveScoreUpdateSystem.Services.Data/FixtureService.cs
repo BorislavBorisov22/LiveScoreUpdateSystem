@@ -68,7 +68,24 @@ namespace LiveScoreUpdateSystem.Services.Data
             return availableFixtures;
         }
 
-        public void Update(Guid fixtureId, FixtureEventType fixtureEventType, int minute, Guid playerId)
+        public void AddFixtureStatus(Guid fixtureId, FixtureStatus fixtureStatus)
+        {
+            var targetFixture = this.GetById(fixtureId);
+            targetFixture.Status = fixtureStatus;
+           
+            if (targetFixture.Status == FixtureStatus.FirstHalf)
+            {
+                targetFixture.FirstHalfStart = TimeProvider.CurrentProvider.CurrentDate;
+            }
+            else if (targetFixture.Status == FixtureStatus.SecondHalf)
+            {
+                targetFixture.SecondHalfStart = TimeProvider.CurrentProvider.CurrentDate;
+            }
+
+            this.Data.Update(targetFixture);
+        }
+
+        public void AddFixtureEvent(Guid fixtureId, FixtureEventType fixtureEventType, int minute, Guid playerId)
         {
             var targetFixture = this.GetById(fixtureId);
             var targetPlayer = this.playersRepo.All.FirstOrDefault(p => p.Id == playerId);
@@ -87,24 +104,8 @@ namespace LiveScoreUpdateSystem.Services.Data
                 {
                     targetFixture.ScoreAwayTeam += 1;
                 }
-            }
-            else if (fixtureEventType == FixtureEventType.HalfTime)
-            {
-                targetFixture.Status = FixtureStatus.FirstHalf;
-            }
-            else if (fixtureEventType == FixtureEventType.SecondHalfStart)
-            {
-                targetFixture.Status = FixtureStatus.SecondHalf;
-                targetFixture.SecondHalfStart = TimeProvider.CurrentProvider.CurrentDate;
-            }
-            else if (fixtureEventType == FixtureEventType.FullTime)
-            {
-                targetFixture.Status = FixtureStatus.FullTime;
-            }
-            else if (fixtureEventType == FixtureEventType.FirstHalfStart)
-            {
-                targetFixture.Status = FixtureStatus.FirstHalf;
-                targetFixture.FirstHalfStart = TimeProvider.CurrentProvider.CurrentDate;
+
+                fixtureEvent.EventScore = string.Format("{0} : {1}", targetFixture.ScoreHomeTeam, targetFixture.ScoreAwayTeam);
             }
 
             this.Data.Update(targetFixture);
