@@ -126,6 +126,10 @@
     <Compile Include="Migrations\201710132146271_AddedSbisribersPropertyToTeamModel.Designer.cs">
       <DependentUpon>201710132146271_AddedSbisribersPropertyToTeamModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141220072_AddedPictureUrlPropertyToFixtureEventModel.cs" />
+    <Compile Include="Migrations\201710141220072_AddedPictureUrlPropertyToFixtureEventModel.Designer.cs">
+      <DependentUpon>201710141220072_AddedPictureUrlPropertyToFixtureEventModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710132146271_AddedSbisribersPropertyToTeamModel.resx">
       <DependentUpon>201710132146271_AddedSbisribersPropertyToTeamModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141220072_AddedPictureUrlPropertyToFixtureEventModel.resx">
+      <DependentUpon>201710141220072_AddedPictureUrlPropertyToFixtureEventModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

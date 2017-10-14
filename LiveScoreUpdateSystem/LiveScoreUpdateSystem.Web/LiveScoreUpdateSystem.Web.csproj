@@ -290,6 +290,7 @@
     <Compile Include="Startup.cs" />
     <Content Include="Content\FootballTemplate\football-template.css" />
     <Content Include="Content\images\app-logo.png" />
+    <Content Include="Content\images\bg_match.jpg" />
     <Content Include="Content\images\Live-Score-Addicts-Banner.jpg" />
     <Content Include="Content\Kendo\Black\editor.png" />
     <Content Include="Content\Kendo\Black\imagebrowser.png" />
@@ -351,6 +352,7 @@
     <Content Include="Views\Shared\_AvailableScoresPartial.cshtml" />
     <Content Include="Views\Teams\TeamsList.cshtml" />
     <Content Include="Views\Subscriptions\Index.cshtml" />
+    <Content Include="Views\Scores\ScoreDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

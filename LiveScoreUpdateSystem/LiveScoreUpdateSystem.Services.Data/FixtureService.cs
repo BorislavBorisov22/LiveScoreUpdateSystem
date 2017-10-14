@@ -93,7 +93,6 @@ namespace LiveScoreUpdateSystem.Services.Data
                 var awaySubscribers = targetFixture.AwayTeam.Subscribers.Select(s => s.UserName);
 
                 homeSubscribers.AddRange(awaySubscribers);
-
                 this.mailService.SendEmail("Test mailing", "Game has finished", homeSubscribers);
             }
 

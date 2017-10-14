@@ -17,5 +17,7 @@ namespace LiveScoreUpdateSystem.Data.Models.FootballFixtures
         public virtual Player InvolvedPlayer { get; set; }
      
         public string EventScore { get; set; }
+
+        public string PictureUrl { get; set; }
     }
 }
