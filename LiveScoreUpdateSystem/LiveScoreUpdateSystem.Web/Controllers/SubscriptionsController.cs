@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using LiveScoreUpdateSystem.Common;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
@@ -40,6 +41,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
                 this.userService.SubscribeUserForTeamResults(this.User.Identity.Name, teamName);
             }
 
+            this.TempData[GlobalConstants.SuccessMessage] = "Subscribe Success";
             return this.RedirectToAction<SubscriptionsController>(c => c.Index());
         }
 
