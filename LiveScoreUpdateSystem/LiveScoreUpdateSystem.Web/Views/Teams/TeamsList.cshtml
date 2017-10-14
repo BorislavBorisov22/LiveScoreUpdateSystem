@@ -2,10 +2,11 @@
 @model IEnumerable<ListTeamsViewModel>
 
 <div class="container body-content">
+
+    <br />
     <div class="row">
         @using (Html.BeginForm<SubscriptionsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
         {
-
             <h3><button class="btn btn-success">Sibscribe</button></h3>
 
             <div class="form-group">

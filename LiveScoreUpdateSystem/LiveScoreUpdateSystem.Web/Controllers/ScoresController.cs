@@ -9,6 +9,7 @@ using LiveScoreUpdateSystem.Web.Models;
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
@@ -45,9 +46,19 @@ namespace LiveScoreUpdateSystem.Web.Controllers
             return this.PartialView(PartialViews.AvailableScoresPartial, availableScores);
         }
 
-        public ActionResult ScoreDetails()
+        public ActionResult ScoreDetails(Guid fixtureId)
         {
-            return this.View();
+            var targetFixture = this.fixtureService
+                .GetById(fixtureId);
+
+            if (targetFixture != null)
+            {
+                var fixtureViewModel = MappingService.MappingProvider.Map<ScoreDetailsViewModel>(targetFixture);
+                fixtureViewModel.FixtureEvents = fixtureViewModel.FixtureEvents.OrderByDescending(fe => fe.Minute).ToList();
+                return this.View(fixtureViewModel);
+            }
+
+            return this.RedirectToAction<ScoresController>(c => c.AvailableScores());
         }
     }
 }

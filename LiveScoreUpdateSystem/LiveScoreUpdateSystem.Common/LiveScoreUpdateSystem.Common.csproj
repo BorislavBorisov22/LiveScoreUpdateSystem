@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalConstants.cs" />
+    <Compile Include="GloballyUsedPictureUrls.cs" />
     <Compile Include="PartialViews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
