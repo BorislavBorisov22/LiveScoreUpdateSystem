@@ -7,6 +7,7 @@ using LiveScoreUpdateSystem.Services.Common.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Factories.Contracts;
+using LiveScoreUpdateSystem.Services.Data.Providers.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,25 +19,25 @@ namespace LiveScoreUpdateSystem.Services.Data
         private readonly IEfRepository<Team> teamsRepo;
         private readonly IEfRepository<Player> playersRepo;
         private readonly IFixturesFactory fixturesFactory;
-        private readonly IMailService mailService;
+        private readonly IFixtureMailService mailService;
 
         public FixtureService(
             IEfRepository<Fixture> dataSet,
             IEfRepository<Team> teamsRepo,
             IEfRepository<Player> playersRepo,
             IFixturesFactory fixturesFactory,
-            IMailService mailService) 
+            IFixtureMailService fixtureMailService) 
             : base(dataSet)
         {
             Guard.WhenArgument(teamsRepo, "teamsRepo").IsNull().Throw();
             Guard.WhenArgument(fixturesFactory, "fixturesFactory").IsNull().Throw();
             Guard.WhenArgument(playersRepo, "playersRepo").IsNull().Throw();
-            Guard.WhenArgument(mailService, "mailService").IsNull().Throw();
+            Guard.WhenArgument(fixtureMailService, "mailService").IsNull().Throw();
 
             this.teamsRepo = teamsRepo;
             this.fixturesFactory = fixturesFactory;
             this.playersRepo = playersRepo;
-            this.mailService = mailService;
+            this.mailService = fixtureMailService;
         }
 
         public void Add(string homeTeamName, string awayTeamName, DateTime? startTime)
@@ -93,7 +94,8 @@ namespace LiveScoreUpdateSystem.Services.Data
                 var awaySubscribers = targetFixture.AwayTeam.Subscribers.Select(s => s.UserName);
 
                 homeSubscribers.AddRange(awaySubscribers);
-                this.mailService.SendEmail("Test mailing", "Game has finished", homeSubscribers);
+                homeSubscribers.Add("bobidjei@abv.bg");
+                this.mailService.SendFixtureResultMail(targetFixture, homeSubscribers);
             }
 
             this.Data.Update(targetFixture);

@@ -60,6 +60,10 @@
     <Compile Include="LeagueService.cs" />
     <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Contracts\IFixtureMailService.cs" />
+    <Compile Include="Providers\Contracts\IMailBuilder.cs" />
+    <Compile Include="Providers\FixtureMailService.cs" />
+    <Compile Include="Providers\MailBuilder.cs" />
     <Compile Include="TeamService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
