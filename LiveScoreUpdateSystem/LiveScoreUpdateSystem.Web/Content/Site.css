@@ -28,6 +28,7 @@ body {
 .home-score-btn {
     position: absolute;
     left: 10%;
+    top:2%;
     bottom: 1%;
 }
 

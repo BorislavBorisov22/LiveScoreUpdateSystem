@@ -2,36 +2,72 @@
 @model IEnumerable<ListTeamsViewModel>
 
 <div class="container body-content">
+    <br />
+    @*<div class="row">
+            @using (Html.BeginForm<SubscriptionsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
+            {
+                <div class="col-md-offset-11">
+                    <h3><button class="btn btn-success">Subscribe</button></h3>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @foreach (var team in Model)
+                    {
+                        <div class="col-md-3">
+                            <h1>@team.Name</h1>
+                            <label class="btn btn-success">
+                                <img src="@team.LogoUrl" class="img-thumbnail img-responsive img-check logo-img">
+                                <input type="checkbox" name="teamName" class="hidden" value="@team.Name" autocomplete="off">
+                            </label>
+                        </div>
+                    }
+                </div>
+            }
+        @*</div**@
 
     <br />
-    <div class="row">
-        @using (Html.BeginForm<SubscriptionsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
-        {
-            <h3><button class="btn btn-success">Subscribe</button></h3>
 
-            <div class="form-group">
-                @foreach (var team in Model)
+    @using (Html.BeginForm<SubscriptionsController>(c => c.SubscribeForTeamResults(null), FormMethod.Post, null, null))
+    {
+       <button class="btn btn-success col-md-offset-11" type="submit">Subscribe</button>
+        <br />
+       <br />
+
+        <div class="container">
+            <div class="row">
+                <ul class="thumbnails">
+                    @foreach (var team in Model)
                 {
-                    <div class="col-md-2">
-                        <label class="btn btn-primary">
-                            <img src="@team.LogoUrl" class="img-thumbnail img-responsive img-check logo-img">
-                            <input type="checkbox" name="teamName" class="hidden" value="@team.Name" autocomplete="off">
-                        </label>
-                    </div>
-                }
-                @*<div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk2" id="item4" value="val2" class="hidden" autocomplete="off"></label></div>
-                    <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk3" id="item4" value="val3" class="hidden" autocomplete="off"></label></div>
-                    <div class="col-md-3"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="chk4" id="item4" value="val4" class="hidden" autocomplete="off"></label></div>*@
+                        <div class="col-md-4 team-container">
+                            <div class="thumbnail">
+                                <img src="@team.LogoUrl" alt="ALT NAME" class="img-responsive" style="height: 200px" />
+                                <div class="caption">
+                                    <h3>@team.Name</h3>
+                                    <p align="center">
+                                        <label class="btn btn-primary btn-block">
+                                            Mark for subscription
+                                            <input type="checkbox" name="teamName" class="hidden img-check" value="@team.Name" autocomplete="off">
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </ul>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
 
 @section Scripts{
     <script>
         $(document).ready(function (e) {
             $(".img-check").click(function () {
-                $(this).toggleClass("check");
+                const $img = $(this).parent().parent().parent().parent().find('img');
+                $img.toggleClass('check');
+                // console.log('toggle');
+                // $(this).toggleClass("check");
             });
         });
 
