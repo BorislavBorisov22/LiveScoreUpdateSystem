@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IMailService.cs" />
     <Compile Include="Contracts\IMappingService.cs" />
     <Compile Include="Contracts\IService.cs" />
     <Compile Include="Contracts\ITimeProvider.cs" />
+    <Compile Include="MailService.cs" />
     <Compile Include="MappingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeProvider.cs" />

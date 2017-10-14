@@ -3,6 +3,7 @@ using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
 using LiveScoreUpdateSystem.Data.Models.FootballFixtures.Enums;
 using LiveScoreUpdateSystem.Data.Repositories.Contracts;
 using LiveScoreUpdateSystem.Services.Common;
+using LiveScoreUpdateSystem.Services.Common.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Abstraction;
 using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Services.Data.Factories.Contracts;
@@ -17,20 +18,25 @@ namespace LiveScoreUpdateSystem.Services.Data
         private readonly IEfRepository<Team> teamsRepo;
         private readonly IEfRepository<Player> playersRepo;
         private readonly IFixturesFactory fixturesFactory;
+        private readonly IMailService mailService;
 
         public FixtureService(
             IEfRepository<Fixture> dataSet,
             IEfRepository<Team> teamsRepo,
             IEfRepository<Player> playersRepo,
-            IFixturesFactory fixturesFactory) 
+            IFixturesFactory fixturesFactory,
+            IMailService mailService) 
             : base(dataSet)
         {
             Guard.WhenArgument(teamsRepo, "teamsRepo").IsNull().Throw();
             Guard.WhenArgument(fixturesFactory, "fixturesFactory").IsNull().Throw();
+            Guard.WhenArgument(playersRepo, "playersRepo").IsNull().Throw();
+            Guard.WhenArgument(mailService, "mailService").IsNull().Throw();
 
             this.teamsRepo = teamsRepo;
             this.fixturesFactory = fixturesFactory;
             this.playersRepo = playersRepo;
+            this.mailService = mailService;
         }
 
         public void Add(string homeTeamName, string awayTeamName, DateTime? startTime)
@@ -80,6 +86,15 @@ namespace LiveScoreUpdateSystem.Services.Data
             else if (targetFixture.Status == FixtureStatus.SecondHalf)
             {
                 targetFixture.SecondHalfStart = TimeProvider.CurrentProvider.CurrentDate;
+            }
+            else if (targetFixture.Status == FixtureStatus.FullTime)
+            {
+                var homeSubscribers = targetFixture.HomeTeam.Subscribers.Select(s => s.UserName).ToList();
+                var awaySubscribers = targetFixture.AwayTeam.Subscribers.Select(s => s.UserName);
+
+                homeSubscribers.AddRange(awaySubscribers);
+
+                this.mailService.SendEmail("Test mailing", "Game has finished", homeSubscribers);
             }
 
             this.Data.Update(targetFixture);
