@@ -271,6 +271,7 @@
     </Compile>
     <Compile Include="Hubs\GoalScored.cs" />
     <Compile Include="Infrastructure\Attributes\AjaxOnlyAttribute.cs" />
+    <Compile Include="Infrastructure\Attributes\AlreadyLoggedInAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeAdminAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\AuthorizeLiveUpdaterAttribute.cs" />
     <Compile Include="Infrastructure\Attributes\SaveChangesAttribute.cs" />
@@ -422,6 +423,10 @@
     <Content Include="Areas\LiveUpdater\Views\web.config" />
     <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureFormPartial.cshtml" />
     <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureStatusPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\livescoreupdate - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\livescoreupdate - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

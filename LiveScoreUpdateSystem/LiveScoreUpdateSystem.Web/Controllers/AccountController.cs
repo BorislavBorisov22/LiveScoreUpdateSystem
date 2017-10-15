@@ -1,5 +1,6 @@
 ﻿using LiveScoreUpdateSystem.Data.Models;
 using LiveScoreUpdateSystem.Web.Controllers.Abstraction;
+using LiveScoreUpdateSystem.Web.Infrastructure.Attributes;
 using LiveScoreUpdateSystem.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -11,7 +12,7 @@ using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
-    [Authorize]
+    [AlreadyLoggedIn]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
