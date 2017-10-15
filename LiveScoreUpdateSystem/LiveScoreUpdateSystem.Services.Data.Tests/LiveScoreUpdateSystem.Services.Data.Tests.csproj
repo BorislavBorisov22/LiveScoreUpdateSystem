@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Abstraction\DataServiceTests\Countructor_Should.cs" />
     <Compile Include="Abstraction\DataServiceTests\Fakes\FakeDateService.cs" />
+    <Compile Include="Abstraction\DataServiceTests\GetAll_Should.cs" />
+    <Compile Include="Abstraction\DataServiceTests\GetById_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

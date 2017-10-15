@@ -34,7 +34,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Tests.Abstraction.DataServiceTests
         }
 
         [Test]
-        public void SetDatePropertyCorrectly_WhenPassedDateSetIsValid()
+        public void SetDataPropertyCorrectly_WhenPassedDataSetIsValid()
         {
             // arrange
             var repository = new Mock<IEfRepository<DataModel>>();
