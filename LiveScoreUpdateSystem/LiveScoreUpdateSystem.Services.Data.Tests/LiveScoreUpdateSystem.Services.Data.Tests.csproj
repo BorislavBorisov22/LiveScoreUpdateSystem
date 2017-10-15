@@ -72,6 +72,7 @@
     <Compile Include="PlayerServiceTests\GetAll_Should.cs" />
     <Compile Include="PlayerServiceTests\UpdateShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamServiceTests\Add_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
