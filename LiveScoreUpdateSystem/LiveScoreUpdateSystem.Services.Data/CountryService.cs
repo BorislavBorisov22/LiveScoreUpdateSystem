@@ -38,10 +38,13 @@ namespace LiveScoreUpdateSystem.Services.Data
         {
             var modelToUpdate = this.Data.All.FirstOrDefault(m => m.Id == updatedModel.Id);
 
-            modelToUpdate.FlagPictureUrl = updatedModel.FlagPictureUrl;
-            modelToUpdate.Name = updatedModel.Name;
+            if (modelToUpdate != null)
+            {
+                modelToUpdate.FlagPictureUrl = updatedModel.FlagPictureUrl;
+                modelToUpdate.Name = updatedModel.Name;
 
-            this.Data.Update(modelToUpdate);
+                this.Data.Update(modelToUpdate);
+            }
         }
     }
 }
