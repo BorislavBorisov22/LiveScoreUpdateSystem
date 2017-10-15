@@ -13,14 +13,12 @@ namespace LiveScoreUpdateSystem.Services.Data
     public class LeagueService : DataService<League>, ILeagueService
     {
         private readonly IEfRepository<Country> countriesRepo;
-        private ISaveContext saveContext;
 
-        public LeagueService(IEfRepository<League> leaguesRepo, IEfRepository<Country> countriesRepo, ISaveContext saveContext)
+        public LeagueService(IEfRepository<League> leaguesRepo, IEfRepository<Country> countriesRepo)
             : base(leaguesRepo)
         {
             Guard.WhenArgument(countriesRepo, "Countries Repo").IsNull().Throw();
 
-            this.saveContext = saveContext;
             this.countriesRepo = countriesRepo;
         }
 
