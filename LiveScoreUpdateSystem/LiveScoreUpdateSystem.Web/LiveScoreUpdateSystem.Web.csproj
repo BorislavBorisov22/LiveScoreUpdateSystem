@@ -423,7 +423,6 @@
     <Content Include="Areas\LiveUpdater\Views\web.config" />
     <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureFormPartial.cshtml" />
     <Content Include="Areas\LiveUpdater\Views\Shared\_UpdateFixtureStatusPartial.cshtml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\livescoreupdate - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\livescoreupdate - Web Deploy.pubxml" />
