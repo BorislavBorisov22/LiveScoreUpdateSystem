@@ -5,8 +5,6 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LiveScoreUpdateSystem.Services.Data.Tests.TeamServiceTests
 {
@@ -34,7 +32,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Tests.TeamServiceTests
             var teamsRepo = new Mock<IEfRepository<Team>>();
             var leaguesRepo = new Mock<IEfRepository<League>>();
 
-            var team = new Team() { Name = "someName"};
+            var team = new Team() { Name = "someName" };
             teamsRepo.Setup(tr => tr.All).Returns(new List<Team>() { team }.AsQueryable());
 
             var teamService = new TeamService(teamsRepo.Object, leaguesRepo.Object);
@@ -60,6 +58,28 @@ namespace LiveScoreUpdateSystem.Services.Data.Tests.TeamServiceTests
 
             // act & assert
             Assert.Throws<ArgumentNullException>(() => teamService.Add(team, team.Name));
+        }
+
+        [Test]
+        public void CallTeamsReposAddMethodWithCorrectlySetLeagueToTeamModel_WhenAlValidationPassed()
+        {
+            // arrange
+            var teamsRepo = new Mock<IEfRepository<Team>>();
+            var leaguesRepo = new Mock<IEfRepository<League>>();
+
+            var team = new Team() { Name = "someName" };
+            teamsRepo.Setup(tr => tr.All).Returns(new List<Team>().AsQueryable());
+
+            var league = new League() { Name = "someLeague" };
+            leaguesRepo.Setup(lr => lr.All).Returns(new List<League>() { league }.AsQueryable());
+
+            var teamService = new TeamService(teamsRepo.Object, leaguesRepo.Object);
+
+            // act
+            teamService.Add(team, league.Name);
+
+            // assert
+            teamsRepo.Verify(tr => tr.Add(It.Is<Team>(t => t.League == league)));
         }
     }
 }
