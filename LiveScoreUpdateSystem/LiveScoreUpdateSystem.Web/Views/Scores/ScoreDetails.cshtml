@@ -5,7 +5,7 @@
 @model ScoreDetailsViewModel
 
 <div class="container body-content col-md-offset-3">
-    <div class="content_in content_in_s content_live_match" style="height: 1978px;">
+    <div class="content_in content_in_s content_live_match" style="margin-top: 20px">
         <div class="live_match_wrap">
             <input type="hidden" id="team_1" value="12398">
             <input type="hidden" id="team_2" value="8872">
@@ -65,7 +65,7 @@
 
             <ul class="topmenu_list clearfix">
                 <li class="current">
-                    <a class="btn btn-success col-md-offset-1" href="@(Url.Action<ScoresController>(c => c.AvailableScores()))" id="live">Back to scores</a>
+                    <a class="btn btn-success col-md-offset-1" style="position: relative;bottom: 10px" href="@(Url.Action<ScoresController>(c => c.AvailableScores()))" id="live">Back to scores</a>
                 </li>
             </ul>
         </div>
