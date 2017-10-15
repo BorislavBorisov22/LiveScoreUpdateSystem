@@ -80,9 +80,8 @@ namespace LiveScoreUpdateSystem.Services.Data
             {
                 targetLeague.Name = updatedLeague.Name;
                 targetLeague.Season = updatedLeague.Season;
+                this.Data.Update(targetLeague);
             }
-
-            this.Data.Update(targetLeague);
         }
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="FixtureServiceTests\GetAvailableFixtures_Should.cs" />
     <Compile Include="LeagueServiceTests\Add_Should.cs" />
     <Compile Include="LeagueServiceTests\Delete_Should.cs" />
+    <Compile Include="LeagueServiceTests\Update_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
