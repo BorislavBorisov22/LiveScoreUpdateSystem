@@ -22,18 +22,16 @@ namespace LiveScoreUpdateSystem.Services.Data.Tests.Abstraction.DataServiceTests
 
             var modelsList = new List<DataModel>()
             {
-                new DataModel(){IsDeleted = false},
-                new DataModel(){IsDeleted = true},
+                new DataModel(){IsDeleted = false, Id = Guid.NewGuid()},
+                new DataModel(){IsDeleted = true, Id = Guid.NewGuid()},
             };
 
             repository.Setup(r => r.All).Returns(modelsList.AsQueryable());
 
             var dataService = new DataService<DataModel>(repository.Object);
 
-            var targetId = Guid.NewGuid();
-
             // act
-            var returnedResult = dataService.GetById(targetId);
+            var returnedResult = dataService.GetById(modelsList[0].Id);
 
             // assert
             repository.Verify(r => r.All, Times.Once);
@@ -59,29 +57,6 @@ namespace LiveScoreUpdateSystem.Services.Data.Tests.Abstraction.DataServiceTests
 
             // assert
             Assert.AreSame(returnedResult, modelsList[1]);
-        }
-
-        [Test]
-        public void ReturnNull_WhenPassedIdDoesNotMatchAnyEntity()
-        {
-            // arrange
-            var repository = new Mock<IEfRepository<DataModel>>();
-
-            var modelsList = new List<DataModel>()
-            {
-                new DataModel(){Id = Guid.NewGuid()},
-                new DataModel(){Id = Guid.NewGuid()},
-            };
-
-            repository.Setup(r => r.All).Returns(modelsList.AsQueryable());
-            var dataService = new DataService<DataModel>(repository.Object);
-            var targetId = Guid.NewGuid();
-
-            // act
-            var returnedResult = dataService.GetById(targetId);
-
-            // assert
-            Assert.IsNull(returnedResult);
         }
     }
 }

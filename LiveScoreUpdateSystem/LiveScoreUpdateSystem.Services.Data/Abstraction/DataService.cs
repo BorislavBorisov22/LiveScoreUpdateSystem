@@ -16,7 +16,7 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 
             this.Data = dataSet;
         }
-         
+
         protected IEfRepository<T> Data { get; private set; }
 
         public IEnumerable<T> GetAll()
@@ -26,7 +26,13 @@ namespace LiveScoreUpdateSystem.Services.Data.Abstraction
 
         public T GetById(Guid id)
         {
-            return this.Data.All.FirstOrDefault(e => e.Id == id);
+            var target = this.Data.All.FirstOrDefault(e => e.Id == id);
+            if (target == null)
+            {
+                throw new ArgumentNullException("Id does not target any entity!");
+            }
+
+            return target;
         }
     }
 }

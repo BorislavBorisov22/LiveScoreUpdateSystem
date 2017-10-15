@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -20,6 +21,19 @@ namespace LiveScoreUpdateSystem.Data.Models
         public DateTime? DeletedOn { get; set; }
 
         Guid IDataModel.Id { get; }
+
+        [NotMapped]
+        public string TestUsername
+        {
+            get
+            {
+                return base.UserName;
+            }
+            set
+            {
+                base.UserName = this.UserName;
+            }
+        }
 
         public ICollection<Team> Subscriptions { get; set; }
 

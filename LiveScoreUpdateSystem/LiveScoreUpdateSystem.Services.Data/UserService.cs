@@ -61,7 +61,7 @@ namespace LiveScoreUpdateSystem.Services.Data
                 .All
                 .Where(t => teamsNames.Any(tn => tn == t.Name) &&
                             !t.Subscribers.Any(s => s.UserName == subscribingUser.UserName))
-            .ToList();
+                .ToList();
 
             foreach (var teamSubscribingTo in subscriptionTeams)
             {

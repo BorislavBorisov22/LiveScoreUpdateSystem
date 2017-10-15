@@ -10,7 +10,7 @@ namespace LiveScoreUpdateSystem.Services.Common
             CurrentProvider = new TimeProvider();
         }
 
-        public static ITimeProvider CurrentProvider { get; private set; }
+        public static ITimeProvider CurrentProvider { get; set; }
 
         public DateTime CurrentDate
         {

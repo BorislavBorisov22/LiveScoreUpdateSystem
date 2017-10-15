@@ -78,6 +78,8 @@ namespace LiveScoreUpdateSystem.Services.Data
         public void AddFixtureStatus(Guid fixtureId, FixtureStatus fixtureStatus)
         {
             var targetFixture = this.GetById(fixtureId);
+
+            Guard.WhenArgument(targetFixture, "targetFixture").IsNull().Throw();
             targetFixture.Status = fixtureStatus;
            
             if (targetFixture.Status == FixtureStatus.FirstHalf)
@@ -94,7 +96,7 @@ namespace LiveScoreUpdateSystem.Services.Data
                 var awaySubscribers = targetFixture.AwayTeam.Subscribers.Select(s => s.UserName);
 
                 homeSubscribers.AddRange(awaySubscribers);
-                homeSubscribers.Add("bobidjei@abv.bg");
+                // homeSubscribers.Add("bobidjei@abv.bg");
                 this.mailService.SendFixtureResultMail(targetFixture, homeSubscribers);
             }
 
@@ -105,6 +107,11 @@ namespace LiveScoreUpdateSystem.Services.Data
         {
             var targetFixture = this.GetById(fixtureId);
             var targetPlayer = this.playersRepo.All.FirstOrDefault(p => p.Id == playerId);
+            if (targetPlayer == null)
+            {
+                throw new ArgumentNullException("Invalid player id!");
+            }
+
             var isHomeTeamScoring = targetFixture.HomeTeam.Players.Any(p => p.Id == playerId);
 
             var fixtureEvent = this.fixturesFactory.GetFixtureEvent(fixtureEventType, minute, targetPlayer);

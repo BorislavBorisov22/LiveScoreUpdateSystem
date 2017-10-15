@@ -60,6 +60,10 @@
     <Compile Include="CountryServiceTests\Add_Should.cs" />
     <Compile Include="CountryServiceTests\Delete_Should.cs" />
     <Compile Include="CountryServiceTests\Update_Should.cs" />
+    <Compile Include="FixtureServiceTests\AddFixtureEvent_Should.cs" />
+    <Compile Include="FixtureServiceTests\AddFixtureStatus_Should.cs" />
+    <Compile Include="FixtureServiceTests\Add_Should.cs" />
+    <Compile Include="FixtureServiceTests\GetAvailableFixtures_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +77,10 @@
     <ProjectReference Include="..\LiveScoreUpdateSystem.Data\LiveScoreUpdateSystem.Data.csproj">
       <Project>{1567F6EE-13DD-4F0A-834F-04D5DF7BCC94}</Project>
       <Name>LiveScoreUpdateSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveScoreUpdateSystem.Services.Common\LiveScoreUpdateSystem.Services.Common.csproj">
+      <Project>{70998337-A6A6-4102-A00E-B2EF496B4608}</Project>
+      <Name>LiveScoreUpdateSystem.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\LiveScoreUpdateSystem.Services.Data\LiveScoreUpdateSystem.Services.Data.csproj">
       <Project>{4AB2C57A-56F4-4DCE-A64B-D3BB4CAFE94D}</Project>
