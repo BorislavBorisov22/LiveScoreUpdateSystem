@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3B109A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveScoreUpdateSystem.Common", "LiveScoreUpdateSystem.Common\LiveScoreUpdateSystem.Common.csproj", "{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveScoreUpdateSystem.Services.Data.Tests", "LiveScoreUpdateSystem.Services.Data.Tests\LiveScoreUpdateSystem.Services.Data.Tests.csproj", "{0A9316A9-0368-440F-AE1B-B3DAF327D462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9316A9-0368-440F-AE1B-B3DAF327D462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9316A9-0368-440F-AE1B-B3DAF327D462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9316A9-0368-440F-AE1B-B3DAF327D462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9316A9-0368-440F-AE1B-B3DAF327D462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{4AB2C57A-56F4-4DCE-A64B-D3BB4CAFE94D} = {199DF664-EDFE-458E-9B3F-9B0D97F61562}
 		{70998337-A6A6-4102-A00E-B2EF496B4608} = {199DF664-EDFE-458E-9B3F-9B0D97F61562}
 		{5B1B3DB7-18F5-4701-B952-9F1C2CE517F8} = {3B109A6F-1BD1-4986-8A89-8F103CC6FA05}
+		{0A9316A9-0368-440F-AE1B-B3DAF327D462} = {B55FA938-785F-444F-891C-A25018920D82}
 	EndGlobalSection
 EndGlobal
