@@ -12,7 +12,7 @@ LiveScoreUpdateSystem is an ASP.NET MVC Project for the Telerik Academy season 2
     - Where the fun starts :) 
     ![image](./application-images/home-page.png)
   - Live score page
-    - The top games for the being updated in realtime
+    - The top games being updated in realtime
     ![image](./application-images/live-games-2.png)
   - Live Game details
     - See detailed information minute by minute for a specific game
@@ -30,8 +30,8 @@ LiveScoreUpdateSystem is an ASP.NET MVC Project for the Telerik Academy season 2
    - Access to every entity stored in the application
 - Data access
    - Full access to managing entitites stored in the system
-    ![image][./application-images/players-managing.png]
+    ![image](./application-images/players-managing.png)
 #### Live Updaters Part
 - Updating live games
     - Access to updating and adding new events to live games (like goals, cards, penalties)
-    ![image][./application-images/updating-game]
+    ![image](./application-images/updating-game)
