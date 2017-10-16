@@ -6,6 +6,9 @@ ASP.NET MVC Project
 
 LiveScoreUpdateSystem is an ASP.NET MVC Project for the Telerik Academy season 2016/2017 Web Applications with ASP.NET MVC course
 
+## Application Demo
+- [**Live Preview**](http://livescoreupdate.azurewebsites.net)
+
 # Brief project documentation
 #### Public part
   - Home Page
