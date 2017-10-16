@@ -78,6 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\FixturesControllerTests\AddFixtureForm_Should.cs" />
+    <Compile Include="Areas\Admin\FixturesControllerTests\AddFixture_Should.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Controllers\ScoresControllerTests\AvailableScores_Should.cs" />
     <Compile Include="Controllers\ScoresControllerTests\ByDate_Should.cs" />
@@ -116,6 +118,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
