@@ -1,83 +1,62 @@
-﻿using LiveScoreUpdateSystem.Common;
-using LiveScoreUpdateSystem.Data.Models.FootballFixtures;
-using LiveScoreUpdateSystem.Services.Data.Contracts;
+﻿using LiveScoreUpdateSystem.Services.Data.Contracts;
 using LiveScoreUpdateSystem.Web.Areas.Admin.Controllers;
+using LiveScoreUpdateSystem.Web.Areas.Admin.Models;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestStack.FluentMVCTesting;
 
 namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.FixturesControllerTests
 {
     [TestFixture]
-    public class AddFixture_Should
+    public class AddFixturePost_Should
     {
-
         [Test]
-        public void CallLeageServiceGetAllMethodOnce_WhenInvoked()
+        public void CallFixtureServiceAddMethodWithCorrectModelParameter_WhenModelIsInValidState()
         {
             // arrange
             var teamService = new Mock<ITeamService>();
             var leagueService = new Mock<ILeagueService>();
             var fixtureService = new Mock<IFixtureService>();
 
+            var addFixtureViewModel = new AddFixtureViewModel()
+            {
+                HomeTeamName = "Milan",
+                AwayTeamName = "Lazio",
+                StartTime = new System.DateTime(2012, 3, 3),
+            };
+
             var controller = new FixturesController(leagueService.Object, teamService.Object, fixtureService.Object);
 
-            var leagues = new List<League>() { new League() { Name = "some" } };
-            leagueService.Setup(l => l.GetAll()).Returns(leagues);
-
-            // act 
-            controller.AddFixture();
+            // act
+            controller.AddFixture(addFixtureViewModel);
 
             // assert
-            leagueService.Verify(l => l.GetAll(), Times.Once);
+            fixtureService.Verify(f => f.Add(addFixtureViewModel.HomeTeamName, addFixtureViewModel.AwayTeamName, addFixtureViewModel.StartTime), Times.Once);
         }
 
         [Test]
-        public void ReturnCorrectPartialView_WhenInvoked()
+        public void RedicrectToPanelControllerIndex_WhenInvoked()
         {
             // arrange
             var teamService = new Mock<ITeamService>();
             var leagueService = new Mock<ILeagueService>();
             var fixtureService = new Mock<IFixtureService>();
 
-            var controller = new FixturesController(leagueService.Object, teamService.Object, fixtureService.Object);
-
-            var leagues = new List<League>() { new League() { Name = "some" } };
-            leagueService.Setup(l => l.GetAll()).Returns(leagues);
-
-            // act 
-            controller.AddFixture();
-
-            // assert
-            controller.WithCallTo(c => c.AddFixture())
-                .ShouldRenderPartialView(PartialViews.AddFixtureForUpdate);
-        }
-
-        [Test]
-        public void PassValidModelToPartialView_WhenInoked()
-        {
-            // arrange
-            var teamService = new Mock<ITeamService>();
-            var leagueService = new Mock<ILeagueService>();
-            var fixtureService = new Mock<IFixtureService>();
+            var addFixtureViewModel = new AddFixtureViewModel()
+            {
+                HomeTeamName = "Milan",
+                AwayTeamName = "Lazio",
+                StartTime = new System.DateTime(2012, 3, 3),
+            };
 
             var controller = new FixturesController(leagueService.Object, teamService.Object, fixtureService.Object);
 
-            var leagues = new List<League>() { new League() { Name = "some" } };
-            leagueService.Setup(l => l.GetAll()).Returns(leagues);
-
-            // act 
-            controller.AddFixture();
+            // act
+            controller.AddFixture(addFixtureViewModel);
 
             // assert
-            controller.WithCallTo(c => c.AddFixture())
-                .ShouldRenderPartialView(PartialViews.AddFixtureForUpdate)
-                .WithModel<IEnumerable<string>>(m => m.Contains("some"));
+            controller.WithCallTo(c => c.AddFixture(addFixtureViewModel))
+                .ShouldRedirectTo<PanelController>(c => c.Index());
         }
     }
 }
