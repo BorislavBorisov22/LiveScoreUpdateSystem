@@ -37,7 +37,7 @@ namespace LiveScoreUpdateSystem.Web.Areas.Admin.Controllers.Grids
             return this.Json(leagues);
         }
 
-        public ActionResult DeleteLeague( GridLeagueViewModel leagueModel)
+        public ActionResult DeleteLeague(GridLeagueViewModel leagueModel)
         {
             if (leagueModel != null)
             {

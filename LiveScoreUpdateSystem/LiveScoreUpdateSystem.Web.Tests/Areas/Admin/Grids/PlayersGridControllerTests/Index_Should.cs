@@ -4,8 +4,9 @@ using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.CountriesGridControllerTests
+namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.PlayersGridControllerTests
 {
+
     [TestFixture]
     public class Index_Should
     {
@@ -13,8 +14,8 @@ namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.CountriesGridControl
         public void RenderDefaultView_WhenInvoked()
         {
             // arrange
-            var countryService = new Mock<ICountryService>();
-            var controller = new CountriesGridController(countryService.Object);
+            var playerService = new Mock<IPlayerService>();
+            var controller = new PlayersGridController(playerService.Object);
 
             // act & assert
             controller.WithCallTo(c => c.Index())

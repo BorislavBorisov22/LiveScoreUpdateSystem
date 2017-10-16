@@ -243,7 +243,6 @@
     <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\PlayersGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridController.cs" />
-    <Compile Include="Areas\Admin\Controllers\Grids\UsersGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\CountryViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\LeagueViewModel.cshtml" />
