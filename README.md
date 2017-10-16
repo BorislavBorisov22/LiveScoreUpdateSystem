@@ -34,4 +34,4 @@ LiveScoreUpdateSystem is an ASP.NET MVC Project for the Telerik Academy season 2
 #### Live Updaters Part
 - Updating live games
     - Access to updating and adding new events to live games (like goals, cards, penalties)
-    ![image](./application-images/updating-game)
+    ![image](./application-images/updating-game.png)
