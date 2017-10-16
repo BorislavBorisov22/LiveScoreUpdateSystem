@@ -11,15 +11,12 @@ namespace LiveScoreUpdateSystem.Web.Controllers
     public class TeamsController : BaseController
     {
         private readonly ITeamService teamService;
-        private readonly IUserService userService;
  
-        public TeamsController(ITeamService teamService, IUserService userService)
+        public TeamsController(ITeamService teamService)
         {
             Guard.WhenArgument(teamService, "teamService").IsNull().Throw();
-            Guard.WhenArgument(userService, "userService").IsNull().Throw();
 
             this.teamService = teamService;
-            this.userService = userService;
         }
 
         public ActionResult TeamsList(int page = 1, int size = 20)

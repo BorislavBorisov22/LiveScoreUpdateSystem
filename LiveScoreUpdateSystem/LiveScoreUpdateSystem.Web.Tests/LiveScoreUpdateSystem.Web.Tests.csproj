@@ -84,6 +84,7 @@
     <Compile Include="Controllers\ScoresControllerTests\ScoreDetails_Should.cs" />
     <Compile Include="Controllers\SubscriptionsControllerTests\RemoveSubscription_Should.cs" />
     <Compile Include="Controllers\SubscriptionsControllerTests\SubscribeForTeamResults_Should.cs" />
+    <Compile Include="Controllers\TeamsControllerTests\TeamsList_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
