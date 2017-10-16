@@ -12,7 +12,6 @@ using System.Web.Mvc;
 
 namespace LiveScoreUpdateSystem.Web.Controllers
 {
-    [AlreadyLoggedIn]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
@@ -55,6 +54,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [AlreadyLoggedIn]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -64,6 +64,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
+        [AlreadyLoggedIn]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
@@ -137,6 +138,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [AlreadyLoggedIn]
         public ActionResult Register()
         {
             return View();
@@ -145,6 +147,7 @@ namespace LiveScoreUpdateSystem.Web.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
+        [AlreadyLoggedIn]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)

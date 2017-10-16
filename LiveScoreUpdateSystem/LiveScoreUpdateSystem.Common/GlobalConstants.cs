@@ -49,5 +49,8 @@
         // Notification messages
         public const string SuccessMessage = "Success";
         public const string ErrorMessage = "Error";
+
+        public const int HomePageCacheDuration = 360;
+        public const int AboutPageCacheDuration = 720;
     }
 }

@@ -11,6 +11,8 @@
         public const string AvailableScoresPartial = "_AvailableScoresPartial";
         public const string UpdateFixtureFormPartial = "_UpdateFixtureFormPartial";
         public const string UpdateFixtureStatusPartial = "_UpdateFixtureStatusPartial";
+        public const string HomePagePartial = "_HomePagePartial";
+        public const string AboutPagePartial = "_AboutPagePartial";
 
     }
 }
