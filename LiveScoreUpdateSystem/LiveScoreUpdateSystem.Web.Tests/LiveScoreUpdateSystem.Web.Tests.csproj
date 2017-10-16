@@ -87,6 +87,8 @@
     <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\DeleteLeague_Should.cs" />
     <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\EditLeague_Should.cs" />
     <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\DeletePlayer_Should.cs" />
+    <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\EditPlayer_Should.cs" />
     <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\Index_Should.cs" />
     <Compile Include="Areas\Admin\Grids\TeamsGridControllerTests\DeleteTeam_Should.cs" />
     <Compile Include="Areas\Admin\Grids\TeamsGridControllerTests\EditTeam_Should.cs" />

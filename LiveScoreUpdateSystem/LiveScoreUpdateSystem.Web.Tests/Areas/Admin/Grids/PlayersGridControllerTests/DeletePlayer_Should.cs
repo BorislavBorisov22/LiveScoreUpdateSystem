@@ -10,10 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TestStack.FluentMVCTesting;
 
-namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.TeamsGridControllerTests
+namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.PlayersGridControllerTests
 {
     [TestFixture]
-    public class DeleteTeam_Should
+    public class DeletePlayer_Should
     {
         [Test]
         public void CallTeamServiceDeleteMethodWithCorrectId()
@@ -35,17 +35,16 @@ namespace LiveScoreUpdateSystem.Web.Tests.Areas.Admin.Grids.TeamsGridControllerT
         public void ReturnJsonArrayWithDeletedTeam_WhenPassedModelParamIsNotNull()
         {
             // arrange
-            var teamService = new Mock<ITeamService>();
-            var teamViewModel = new GridTeamViewModel() { Name = "someName" };
-
-            var controller = new TeamsGridController(teamService.Object);
+            var teamService = new Mock<IPlayerService>();
+            var playerViewModel = new GridPlayerViewModel() { FirstName = "someName" };
+            var controller = new PlayersGridController(teamService.Object);
 
             // act
-            controller.DeleteTeam(teamViewModel);
+            controller.DeletePlayer(playerViewModel);
 
             // assert
-            controller.WithCallTo(c => c.DeleteTeam(teamViewModel))
-                .ShouldReturnJson((data) => Assert.AreSame(data[0], teamViewModel));
+            controller.WithCallTo(c => c.DeletePlayer(playerViewModel))
+                .ShouldReturnJson((data) => Assert.AreSame(data[0], playerViewModel));
         }
     }
 }
