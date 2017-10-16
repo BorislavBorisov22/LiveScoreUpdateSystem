@@ -78,21 +78,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Admin\FixturesControllerTests\AddFixtureForm_Should.cs" />
-    <Compile Include="Areas\Admin\FixturesControllerTests\AddFixtureGet_Should.cs" />
-    <Compile Include="Areas\Admin\FixturesControllerTests\AddFixturePost_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\DeleteCountry_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\EditCountry_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\Index_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\DeleteLeague_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\EditLeague_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\LeaguesGridControllerTests\Index_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\DeletePlayer_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\EditPlayer_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\PlayersGridControllerTests\Index_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\TeamsGridControllerTests\DeleteTeam_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\TeamsGridControllerTests\EditTeam_Should.cs" />
-    <Compile Include="Areas\Admin\Grids\TeamsGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\FixturesControllerTests\AddFixtureForm_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\FixturesControllerTests\AddFixtureGet_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\FixturesControllerTests\AddFixturePost_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridControllerTests\DeleteCountry_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridControllerTests\EditCountry_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\CountriesGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridControllerTests\DeleteLeague_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridControllerTests\EditLeague_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\LeaguesGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\PlayersGridControllerTests\DeletePlayer_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\PlayersGridControllerTests\EditPlayer_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\PlayersGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridControllerTests\DeleteTeam_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridControllerTests\EditTeam_Should.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\TeamsGridControllerTests\Index_Should.cs" />
+    <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureControllerTests\UpdateFixtureEventGet_Should.cs" />
+    <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureControllerTests\UpdateFixtureEventPost_Should.cs" />
+    <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureControllerTests\UpdateFixtureStatusGet_Should.cs" />
+    <Compile Include="Areas\LiveUpdater\Controllers\UpdateFixtureControllerTests\UpdateFixtureStatusPost_Should.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Controllers\ScoresControllerTests\AvailableScores_Should.cs" />
     <Compile Include="Controllers\ScoresControllerTests\ByDate_Should.cs" />
