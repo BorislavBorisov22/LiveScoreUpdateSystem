@@ -81,6 +81,9 @@
     <Compile Include="Areas\Admin\FixturesControllerTests\AddFixtureForm_Should.cs" />
     <Compile Include="Areas\Admin\FixturesControllerTests\AddFixtureGet_Should.cs" />
     <Compile Include="Areas\Admin\FixturesControllerTests\AddFixturePost_Should.cs" />
+    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\DeleteCountry_Should.cs" />
+    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\EditCountry_Should.cs" />
+    <Compile Include="Areas\Admin\Grids\CountriesGridControllerTests\Index_Should.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Controllers\ScoresControllerTests\AvailableScores_Should.cs" />
     <Compile Include="Controllers\ScoresControllerTests\ByDate_Should.cs" />
